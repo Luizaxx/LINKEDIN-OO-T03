@@ -1,21 +1,50 @@
 package Model;
 
-public class Usuario extends Geral {
-    
+public class UsuarioModel{
+
+	private String nome;
+	private int cpf;
+	private String escolaridade;
     private int dN;// dia de nascimento
 	private int mN;// mes de nascimento
 	private int aN;// ano de nascimento
 	private String areaA;
 	private String instituição;
 
-	public Usuario(String nome, int cpf, int cnpj, String Escolaridade, int dN, int mN, int aN, String areaA,
+	public UsuarioModel(String nome, int cpf, int cnpj, String escolaridade, int dN, int mN, int aN, String areaA,
 			String instituição) {
-		super(nome, cpf, cnpj, Escolaridade);
+		this.nome = nome;
+		this.cpf = cpf;
+		this.escolaridade = escolaridade;
 		this.dN = dN;
 		this.mN = mN;
 		this.aN = aN;
 		this.areaA = areaA;
 		this.instituição = instituição;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getnEscolaridade() {
+		return escolaridade;
+	}
+    
+	public void setnEscolaridade(String escolaridade) {
+		this.escolaridade = escolaridade;
 	}
 
 	public int getdN() {

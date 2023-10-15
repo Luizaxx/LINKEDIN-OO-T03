@@ -2,7 +2,6 @@ package Model;
 
 public class EmpresaModel{
 
-
 	private String nome;
 	private int cnpj;
     private String email;
