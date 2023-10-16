@@ -1,6 +1,6 @@
 package Model;
 
-import javax.xml.crypto.Data;
+
 
 public class UsuarioModel{
 
