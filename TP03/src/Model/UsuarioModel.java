@@ -1,5 +1,7 @@
 package Model;
 
+import javax.xml.crypto.Data;
+
 public class UsuarioModel{
 
 	private String nome;
@@ -8,8 +10,9 @@ public class UsuarioModel{
     private int dN;// dia de nascimento
 	private int mN;// mes de nascimento
 	private int aN;// ano de nascimento
-	private String areaA;
-	private String instituição;
+	//private Data dataNascimento; // luiza 
+	private String areaA; //area de atuação
+	private String instituicao;
 
 	public UsuarioModel(String nome, int cpf, int cnpj, String escolaridade, int dN, int mN, int aN, String areaA,
 			String instituição) {
@@ -20,7 +23,7 @@ public class UsuarioModel{
 		this.mN = mN;
 		this.aN = aN;
 		this.areaA = areaA;
-		this.instituição = instituição;
+		this.instituicao = instituicao;
 	}
 
 	public String getNome() {
@@ -80,11 +83,11 @@ public class UsuarioModel{
 	}
 
 	public String getInstituição() {
-		return instituição;
+		return instituicao;
 	}
 
 	public void setInstituição(String instituição) {
-		this.instituição = instituição;
+		this.instituicao = instituicao;
 	}
 
 }
