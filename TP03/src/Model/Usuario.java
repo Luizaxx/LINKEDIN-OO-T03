@@ -1,24 +1,19 @@
 package Model;
-public class UsuarioModel{
+
+public class Usuario{
 
 	private String nome;
 	private int cpf;
 	private String escolaridade;
-    private int dN;// dia de nascimento
-	private int mN;// mes de nascimento
-	private int aN;// ano de nascimento
-	//private Data dataNascimento; // luiza 
-	private String areaA; //area de atuação
+    private String dataNascimento;
+	private String areaA;
 	private String instituicao;
 
-	public UsuarioModel(String nome, int cpf, int cnpj, String escolaridade, int dN, int mN, int aN, String areaA,
-			String instituicao) {
+	public Usuario(String nome, int cpf, int cnpj, String escolaridade,String dataNascimento,String areaA,String instituicao) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.escolaridade = escolaridade;
-		this.dN = dN;
-		this.mN = mN; 
-		this.aN = aN;
+		this.dataNascimento = dataNascimento;
 		this.areaA = areaA;
 		this.instituicao = instituicao;
 	}
@@ -47,29 +42,6 @@ public class UsuarioModel{
 		this.escolaridade = escolaridade;
 	}
 
-	public int getdN() {
-		return dN;
-	}
-
-	public void setdN(int dN) {
-		this.dN = dN;
-	}
-
-	public int getmN() {
-		return mN;
-	}
-
-	public void setmN(int mN) {
-		this.mN = mN;
-	}
-
-	public int getaN() {
-		return aN;
-	}
-
-	public void setaN(int aN) {
-		this.aN = aN;
-	}
 
 	public String getAreaA() {
 		return areaA;
@@ -77,6 +49,13 @@ public class UsuarioModel{
 
 	public void setAreaA(String areaA) {
 		this.areaA = areaA;
+	}
+
+	public String getDataNascimento(){
+		return dataNascimento;
+	}
+	public void setDataNascimento(String dataNascimento){
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getInstituição() {

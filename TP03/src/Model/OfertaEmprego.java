@@ -2,7 +2,7 @@ package Model;
 
 import java.time.LocalDateTime;
 
-public class OfertaModel {
+public class OfertaEmprego {
 
     private double salario;
 	private String cargo;
@@ -11,7 +11,7 @@ public class OfertaModel {
 	private String escolaridade;
 	private String turno;
 
-	public OfertaModel(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, String turno) {
+	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, String turno) {
 		this.salario = salario;
 		this.cargo = cargo;
 		this.qntVagas = qntVagas;
