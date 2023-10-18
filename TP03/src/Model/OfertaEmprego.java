@@ -9,13 +9,15 @@ public class OfertaEmprego {
 	private int qntVagas;
 	private LocalDateTime criadoEm;
 	private String escolaridade;
+	private String turno;
 
-	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade) {
+	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, String turno) {
 		this.salario = salario;
 		this.cargo = cargo;
 		this.qntVagas = qntVagas;
 		this.criadoEm = criadoEm;
 		this.escolaridade = escolaridade;
+		this.turno = turno;
 	}
 
 	public String getEscolaridade(){
@@ -57,4 +59,13 @@ public class OfertaEmprego {
 	public void setQntVagas(int qntVagas) {
 		this.qntVagas = qntVagas;
 	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}
+
 }

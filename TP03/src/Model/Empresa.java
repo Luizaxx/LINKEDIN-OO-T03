@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Empresa{
 
-
 	private String nome;
 	private int cnpj;
 	private int telefone;
@@ -23,12 +22,9 @@ public class Empresa{
 		this.areaA = areaA;
 	}
 
-	
-
-
-//cria uma oferta e o adiciona na lista de ofertas da Empresa
-	public void criaOfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade){
-		OfertaEmprego ofertaUnica = new OfertaEmprego(salario,cargo,qntVagas,criadoEm,escolaridade);
+	//cria uma oferta e o adiciona na lista de ofertas da Empresa
+	public void criaOfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, String turno){
+		OfertaEmprego ofertaUnica = new OfertaEmprego(salario,cargo,qntVagas,criadoEm,escolaridade, turno);
 		addOferta(ofertaUnica);
 	}
 
@@ -44,12 +40,12 @@ public class Empresa{
 	 editarOferta() :logica mais pra frente, mas vai pegar uma empresa, pegar o index do atributo, 
 	e editar somente ele pelo index, fazendo assim uma copia do objeto como um todo
 	e substituindo apenas o atributo desejado 
-	
 	*/
 
 	public void editarOferta(int index , OfertaEmprego novaOferta){
 		ofertasEmprego.set(index, novaOferta);
 	}
+
 	// remove pelo index do array geral de ofertas.
 	public void excluiOferta(int index){
 		ofertasEmprego.remove(index);

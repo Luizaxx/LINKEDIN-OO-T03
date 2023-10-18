@@ -14,7 +14,7 @@ public abstract class Geral {
 		setnEscolaridade(Escolaridade);
 	}
 
-	 public String getNome() {
+	public String getNome() {
 		return nome;
 	}
 

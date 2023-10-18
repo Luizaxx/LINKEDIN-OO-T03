@@ -1,7 +1,4 @@
 package Model;
-
-
-
 public class UsuarioModel{
 
 	private String nome;

@@ -2,8 +2,6 @@ package Model;
 
 public class Usuario{
 
-
-
 	private String nome;
 	private int cpf;
 	private String escolaridade;
