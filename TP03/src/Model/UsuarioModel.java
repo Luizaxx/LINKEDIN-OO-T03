@@ -12,7 +12,7 @@ public class UsuarioModel{
 	private String instituicao;
 
 	public UsuarioModel(String nome, int cpf, int cnpj, String escolaridade, int dN, int mN, int aN, String areaA,
-			String instituição) {
+			String instituicao) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.escolaridade = escolaridade;
@@ -83,7 +83,7 @@ public class UsuarioModel{
 		return instituicao;
 	}
 
-	public void setInstituição(String instituição) {
+	public void setInstituição(String instituicao) {
 		this.instituicao = instituicao;
 	}
 
