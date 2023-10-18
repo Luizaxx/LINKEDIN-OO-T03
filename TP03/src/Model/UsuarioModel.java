@@ -20,7 +20,7 @@ public class UsuarioModel{
 		this.cpf = cpf;
 		this.escolaridade = escolaridade;
 		this.dN = dN;
-		this.mN = mN;
+		this.mN = mN; 
 		this.aN = aN;
 		this.areaA = areaA;
 		this.instituicao = instituicao;
