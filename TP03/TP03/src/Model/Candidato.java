@@ -21,7 +21,6 @@ public class Candidato extends Usuario{
 		this.instituicao = instituicao;
 	}
 
-
 	public int getCpf() {
 		return cpf;
 	}
@@ -43,11 +42,11 @@ public class Candidato extends Usuario{
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String getInstituição() {
+	public String getInstituicao() {
 		return instituicao;
 	}
 
-	public void setInstituição(String instituicao) {
+	public void setInstituicao(String instituicao) {
 		this.instituicao = instituicao;
 	}
 
