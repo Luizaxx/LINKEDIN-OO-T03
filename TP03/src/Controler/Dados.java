@@ -12,14 +12,14 @@ public class Dados {
     
 }
 public void fillWithSomeData() {
-    /*
-    Candidato candidato = new Candidato(" "," "," "," "," "," "," ",""," "," ");
+    
+    Candidato candidato = new Candidato(" "," "," "," "," "," "," ",""," ", null);
             AdmUser = new CandidatoAdmin(null);
             AdmUser.setUsuario(candidato);
-            Empresa empresa = new Empresa(null, 0, 0, null, null, null  );
+            Empresa empresa = new Empresa("","","","","","","", null);
             AdmEmp = new EmpresaAdmin(null);
             AdmEmp.setEmpresa(empresa);
-    */
+    
 }
 public CandidatoAdmin getcCandidatoAdmin(){
     return AdmUser;
