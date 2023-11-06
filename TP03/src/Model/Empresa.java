@@ -5,35 +5,29 @@ import java.util.ArrayList;
 
 public class Empresa extends Usuario{
 
+	private String cnpj;
+	private ArrayList<OfertaEmprego> ofertasOfertadas = new ArrayList<OfertaEmprego>();
 
-	private int cnpj;
-	private ArrayList<OfertaEmprego> ofertasEmprego = new ArrayList<OfertaEmprego>();
-
-	public Empresa(String nome,int cnpj,int telefone ,String endereco,String email,String areaA) {
-		this.nome = nome;
+    public Empresa(String nome, String email, String dataNascimento, String endereco, String telefone,
+			String areaAtuacao, String cnpj, ArrayList<OfertaEmprego> ofertasOfertadas) {
+		super(nome, email, dataNascimento, endereco, telefone, areaAtuacao);
 		this.cnpj = cnpj;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.email = email;
-		this.areaAtuacao = areaA;
+		this.ofertasOfertadas = ofertasOfertadas;
 	}
 
-	
-
-
-//cria uma oferta e o adiciona na lista de ofertas da Empresa
+	//cria uma oferta e o adiciona na lista de ofertas da Empresa
 	public void criaOfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade){
 		OfertaEmprego ofertaUnica = new OfertaEmprego(salario,cargo,qntVagas,criadoEm,escolaridade);
 		addOferta(ofertaUnica);
 	}
 
 	public void addOferta(OfertaEmprego oferta){
-		ofertasEmprego.add(oferta);
+		ofertasOfertadas.add(oferta);
 	}
 	
 	//
 	public ArrayList<OfertaEmprego> listarOfertas(){
-		return ofertasEmprego;
+		return ofertasOfertadas;
 	}
 	/*
 	 editarOferta() :logica mais pra frente, mas vai pegar uma empresa, pegar o index do atributo, 
@@ -43,23 +37,24 @@ public class Empresa extends Usuario{
 	*/
 
 	public void editarOferta(int index , OfertaEmprego novaOferta){
-		ofertasEmprego.set(index, novaOferta);
+		ofertasOfertadas.set(index, novaOferta);
 	}
 	// remove pelo index do array geral de ofertas.
 	public void excluiOferta(int index){
-		ofertasEmprego.remove(index);
+		ofertasOfertadas.remove(index);
 	}
 
-	public ArrayList<OfertaEmprego> getOferta() {
-		return ofertasEmprego;
+	public ArrayList<OfertaEmprego> getOfertasOfertadas() {
+		return ofertasOfertadas;
+	}	
+	public void setOfertasOfertadas(ArrayList<OfertaEmprego> ofertaModels) {
+		this.ofertasOfertadas = ofertaModels;
 	}
-	public void setOfertasEmprego(ArrayList<OfertaEmprego> ofertaModels) {
-		this.ofertasEmprego = ofertaModels;
-	}
-	public int getCnpj(){
+
+	public String getCnpj() {
 		return cnpj;
 	}
-	public void setCnpj(int cnpj){
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 

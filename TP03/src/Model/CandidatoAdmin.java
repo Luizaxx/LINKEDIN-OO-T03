@@ -13,17 +13,14 @@ public class CandidatoAdmin {
     
     
     //cria um usuário e o adiciona na lista de usuarios da aplicação
-    public void criaUsuario(String nome,String email,String endereco,int telefone,String areaAtuacao,int cpf, String escolaridade,String dataNascimento,String instituicao){
-		Candidato usuarioNovo = new Candidato(nome, email, endereco, telefone, areaAtuacao, cpf,escolaridade,dataNascimento,instituicao);
+    public void criaUsuario(String nome,String email,String endereco,String telefone,String areaAtuacao, String cpf, String nivelEscolaridade,String dataNascimento,String instituicao, ArrayList<OfertaEmprego> ofertasInscritas){
+		Candidato usuarioNovo = new Candidato(nome, email, endereco, telefone, areaAtuacao, cpf, nivelEscolaridade, dataNascimento, instituicao, ofertasInscritas);
 		addUsuario(usuarioNovo);
-		
 	}
     //adiciona usuario na lista de usuarios da aplicação
 	public void addUsuario(Candidato usuario){
 		usuarios.add(usuario);
 	}
-
-
 
     //exclui usuario da lista
 	public void excluiUsuario(int index){

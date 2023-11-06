@@ -1,53 +1,49 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Candidato extends Usuario{
 
-
-
-	private int cpf;
-	private String escolaridade;
-    private String dataNascimento;
+	private String cpf;
+	private String nivelEscolaridade;
 	private String instituicao;
+	private ArrayList<OfertaEmprego> ofertasInscritas = new ArrayList<OfertaEmprego>();
 
-	public Candidato(String nome,String email,String endereco,int telefone,String areaAtuacao,int cpf, String escolaridade,String dataNascimento,String instituicao) {
-		this.nome = nome;
-		this.email = email;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.areaAtuacao = areaAtuacao;
+    public Candidato(String nome, String email, String dataNascimento, String endereco, String telefone,
+			String areaAtuacao, String cpf, String nivelEscolaridade, String instituicao,
+			ArrayList<OfertaEmprego> ofertasInscritas) {
+		super(nome, email, dataNascimento, endereco, telefone, areaAtuacao);
 		this.cpf = cpf;
-		this.escolaridade = escolaridade;
-		this.dataNascimento = dataNascimento;
+		this.nivelEscolaridade = nivelEscolaridade;
 		this.instituicao = instituicao;
+		this.ofertasInscritas = ofertasInscritas;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
+	public String getNivelEscolaridade() {
+		return nivelEscolaridade;
 	}
-
-	public String getnEscolaridade() {
-		return escolaridade;
-	}
-    
-	public void setnEscolaridade(String escolaridade) {
-		this.escolaridade = escolaridade;
-	}
-	public String getDataNascimento(){
-		return dataNascimento;
-	}
-	public void setDataNascimento(String dataNascimento){
-		this.dataNascimento = dataNascimento;
-	}
-
 	public String getInstituicao() {
 		return instituicao;
 	}
-
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public void setNivelEscolaridade(String nivelEscolaridade) {
+		this.nivelEscolaridade = nivelEscolaridade;
+	}
 	public void setInstituicao(String instituicao) {
 		this.instituicao = instituicao;
 	}
 
+	public ArrayList<OfertaEmprego> getOfertasInscritas() {
+		return ofertasInscritas;
+	}
+	public void setOfertasInscritas(ArrayList<OfertaEmprego> ofertasInscritas) {
+		this.ofertasInscritas = ofertasInscritas;
+	}
+
+	
 }
