@@ -13,7 +13,7 @@ public class Dados {
 }
 public void fillWithSomeData() {
     
-    Candidato candidato = new Candidato(" "," "," "," "," "," "," ",""," ", null);
+    Candidato candidato = new Candidato("","","",""," "," "," ",""," ", null);
             AdmUser = new CandidatoAdmin(null);
             AdmUser.setUsuario(candidato);
             Empresa empresa = new Empresa("","","","","","","", null);

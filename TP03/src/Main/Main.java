@@ -32,7 +32,7 @@ public class Main {
                             System.out.println("Opções de cadastrar novo usuário...\n");
                             break;
                         case 3:
-                            System.out.println("Visualizar o cadastro...\n");
+                            System.out.println("Visualizar o cadastro...\n");                            
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente!\n");
@@ -73,14 +73,14 @@ public class Main {
         ("\n-------- Menu Principal --------\n"+
         "Escolha uma das opcoes a seguir:\n");
         saida = saida + "0 - Sair da aplicação\n";
-        saida = saida + "1 - Usuário\n";
+        saida = saida + "1 - Candidato\n";
         saida = saida + "2 - Empresa";
         return saida;
     }
 
     public static String imprimirMenuUsuario(){
         String saida = new String
-        ("\n----- Bem vindo usuário -----\n"+
+        ("\n----- Bem vindo candidato -----\n"+
         "Escolha uma das opcoes a seguir:\n");
         saida = saida + "0 - Sair da aplicação\n";
         saida = saida + "1 - Voltar para o menu principal\n";
