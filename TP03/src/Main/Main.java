@@ -2,6 +2,8 @@ package Main;
 
 import java.util.Scanner;
 
+import Controler.Controler;
+
 public class Main {
 
     private static Scanner in = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class Main {
                     System.exit(0);
                     break;
                 case 1:
-                    System.out.println(imprimirMenuUsuario());
+                    System.out.println(imprimirMenuCandidato());
                     int op2 = in.nextInt();
                     switch (op2) {
                         case 0:
@@ -29,10 +31,10 @@ public class Main {
                             imprimirMenuPrincipal();
                             break;
                         case 2:
-                            System.out.println("Opções de cadastrar novo usuário...\n");
+                            Controler.cadastrarCandidato();  
                             break;
                         case 3:
-                            System.out.println("Visualizar o cadastro...\n");                            
+                            Controler.imprimirCandidatos();                             
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente!\n");
@@ -78,7 +80,7 @@ public class Main {
         return saida;
     }
 
-    public static String imprimirMenuUsuario(){
+    public static String imprimirMenuCandidato(){
         String saida = new String
         ("\n----- Bem vindo candidato -----\n"+
         "Escolha uma das opcoes a seguir:\n");

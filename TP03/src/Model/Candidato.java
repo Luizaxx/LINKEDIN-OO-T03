@@ -45,5 +45,20 @@ public class Candidato extends Usuario{
 		this.ofertasInscritas = ofertasInscritas;
 	}
 
+	@Override
+	public String toString() {
+		return  "Dados Candidato: \n" +  
+				"Nome: " + nome +
+				"\nEmail: " + email +
+				"\nData de nascimento: " + dataNascimento +
+				"\nEndereço: " + endereco +
+				"\nTelefone: " + telefone + 
+				"\nÁrea de atuação: " + areaAtuacao +
+				"\nCPF: " + cpf +
+				"\nNível de escolaridade: " + nivelEscolaridade +
+				"\nInstituição: " + instituicao +
+				"\nOfertas inscritas: " + ofertasInscritas;
+	}
+
 	
 }
