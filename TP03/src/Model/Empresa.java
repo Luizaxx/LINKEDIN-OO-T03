@@ -58,4 +58,17 @@ public class Empresa extends Usuario{
 		this.cnpj = cnpj;
 	}
 
+	@Override
+	public String toString() {
+	return	"Dados da Empresa: \n" +  
+				"Nome: " + nome +
+				"\nEmail: " + email +
+				"\nData de fundação: " + dataNascimento +
+				"\nEndereço: " + endereco +
+				"\nTelefone: " + telefone + 
+				"\nÁrea de atuação: " + areaAtuacao +
+				"\nCNPJ: " + cnpj+
+				"\nOfertas de emprego: " + ofertasOfertadas;
+	}
+
 }
