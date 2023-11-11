@@ -53,10 +53,10 @@ public class Main {
                             imprimirMenuPrincipal();
                             break;
                         case 2:
-                            System.out.println("Opção de cadastrar a empresa...");
+                            Controler.cadastrarEmpresa();
                             break;
                         case 3:
-                            System.out.println("Opção de visualizar cadastro da empresa...");
+                            Controler.imprimirEmpresas(); 
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente!\n");
