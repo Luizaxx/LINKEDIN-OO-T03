@@ -15,6 +15,7 @@ public class Controler {
         d.getCandidatosInscritos().add(novoCandidato);
         System.out.println("Candidato cadastrado com sucesso!");
     }
+   
 
     public static void imprimirCandidatos() {
         
@@ -75,6 +76,68 @@ public class Controler {
         Candidato cnd = new Candidato(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cpf, nivelEscolaridade, instituicao, ofertasInscritas);
         return cnd;
     }
+
+
+
+      public static void cadastrarEmpresa() {
+        Empresa novaEmpresa = lerDadosEmpresa();
+        d.getEmpresa().add(novaEmpresa);
+        System.out.println("Empresa cadastrada com sucesso!");
+    }
+
+   public static void imprimirEmpresas() {
+        
+        ArrayList<Empresa> empresas = d.getEmpresa();
+        
+        System.out.println("Qual é o seu cnpj? ");
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;
+
+        if (empresas.isEmpty()) {
+            System.out.println("Nenhum candidato cadastrado.");
+        } else {
+            for (Empresa empresa : empresas) {
+                if (empresa.getCnpj().equals(cnpjDesejado)) {
+                    System.out.println(empresas.toString());
+                    encontrado = true;
+                    break; // Se encontrou, não precisa continuar procurando
+                }
+            }
+            if (!encontrado) {
+                System.out.println("Nenhum candidato encontrado com o CNPJ " + cnpjDesejado + ".");
+            }
+        }
+    }
+
+     public static Empresa lerDadosEmpresa(){
+        String nome;
+	    String email;
+	    String dataNascimento;
+	    String endereco;
+	    String telefone;
+	    String areaAtuacao;
+        String cnpj;
+	    ArrayList<OfertaEmprego> ofertasOfertadas = new ArrayList<OfertaEmprego>();
+        System.out.println("\nDigite os seus dados:");
+        System.out.println("Qual o nome da empresa? ");
+        nome = in.nextLine();
+        System.out.println("Qual o email da Empresa? ");
+        email = in.nextLine();
+        System.out.println("Quando a empresa foi fundada? ");
+        dataNascimento = in.nextLine();
+        System.out.println("Aonde fica a empresa? ");
+        endereco = in.nextLine();
+        System.out.println("Telefone da empresa: ");
+        telefone = in.nextLine();
+        System.out.println("Qual a área de atuação da empresa? ");
+        areaAtuacao = in.nextLine();
+        System.out.println("CNPJ: ");
+        cnpj = in.nextLine();;
+        ofertasOfertadas = null;
+
+        Empresa y = new Empresa(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cnpj, ofertasOfertadas);
+        return y;
+    }
+    
     
 }
-
