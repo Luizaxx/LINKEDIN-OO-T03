@@ -8,6 +8,7 @@ public class Dados {
 
     public Dados() {
         candidatosInscritos = new ArrayList<>();
+        empresas = new ArrayList<>();
     }
 
     public ArrayList<Candidato> getCandidatosInscritos() {
@@ -16,6 +17,17 @@ public class Dados {
 
     public void setCandidatosInscritos(ArrayList<Candidato> candidatosInscritos) {
         this.candidatosInscritos = candidatosInscritos;
+    }
+
+      private ArrayList<Empresa> empresas;
+
+
+    public ArrayList<Empresa> getEmpresa() {
+        return empresas;
+    }
+
+    public void setEmpresa(ArrayList<Empresa> empresas) {
+        this.empresas = empresas;
     }
 
 }
