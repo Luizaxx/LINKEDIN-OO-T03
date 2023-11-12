@@ -37,7 +37,7 @@ public class Dados {
             "07/07/1929", 
             "Rua Sacadura Cabral, 102, Saúde,Rio De Janeiro - RJ",
             "(61) 99235-4922",
-            "Loja de departamento comércio eletrônico",
+            "Loja de departamento, comércio eletrônico",
             "00.776.574/0001-56", 
             null);
 
@@ -50,7 +50,7 @@ public class Dados {
             "Tecnologia, multinacional, software",
             "06.990.590/0001-23",
             null);
-            
+
         empresas.add(lojasAmericanas); 
         empresas.add(google);       
     }
