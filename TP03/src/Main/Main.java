@@ -7,98 +7,111 @@ import Controler.Controler;
 public class Main {
 
     private static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
-        
         boolean loop = true;
 
         while (loop) {
             System.out.println(imprimirMenuPrincipal());
             int op1 = in.nextInt();
+
             switch (op1) {
                 case 0:
-                    System.out.println("Obrigada por utilizar o sistema. Ate logo!");
+                    System.out.println("Obrigada por utilizar o sistema. Até logo!");
                     System.exit(0);
                     break;
                 case 1:
-                    System.out.println(imprimirMenuCandidato());
-                    int op2 = in.nextInt();
-                    switch (op2) {
-                        case 0:
-                            System.out.println("Obrigada por utilizar o sistema. Ate logo!\n");
-                            System.exit(0);
-                            break;
-                        case 1:                
-                            imprimirMenuPrincipal();
-                            break;
-                        case 2:
-                            Controler.cadastrarCandidato();  
-                            break;
-                        case 3:
-                            Controler.imprimirCandidatos();                             
-                            break;
-                        default:
-                            System.out.println("Opção inválida. Tente novamente!\n");
-                            break;
-                    }
+                    loop = menuCandidato();
                     break;
                 case 2:
-                    System.out.println(imprimirMenuEmpresa());
-                    int op3 = in.nextInt();
-                    switch (op3) {
-                        case 0:
-                            System.out.println("Obrigada por utilizar o sistema. Ate logo!\n");
-                            System.exit(0);
-                            break;
-                        case 1:
-                            imprimirMenuPrincipal();
-                            break;
-                        case 2:
-                            Controler.cadastrarEmpresa();
-                            break;
-                        case 3:
-                            Controler.imprimirEmpresas(); 
-                            break;
-                        default:
-                            System.out.println("Opção inválida. Tente novamente!\n");
-                            break;
-                    }
+                    loop = menuEmpresa();
                     break;
                 default:
-                    System.out.println("Opção inválida!\n");
+                    System.out.println("Opção inválida. Tente novamente!");
                     break;
             }
         }
     }
 
-    public static String imprimirMenuPrincipal(){
-        String saida = new String
-        ("\n-------- Menu Principal --------\n"+
-        "Escolha uma das opções a seguir:\n");
-        saida = saida + "0 - Sair da aplicação\n";
-        saida = saida + "1 - Candidato\n";
-        saida = saida + "2 - Empresa";
-        return saida;
+    public static String imprimirMenuPrincipal() {
+        return "\n-------- Menu Principal --------\n" +
+               "Escolha uma das opções a seguir:\n" +
+               "0 - Sair da aplicação\n" +
+               "1 - Candidato\n" +
+               "2 - Empresa";
     }
 
-    public static String imprimirMenuCandidato(){
-        String saida = new String
-        ("\n----- Bem vindo candidato -----\n"+
-        "Escolha uma das opções a seguir:\n");
-        saida = saida + "0 - Sair da aplicação\n";
-        saida = saida + "1 - Voltar para o menu principal\n";
-        saida = saida + "2 - Se cadastrar\n";
-        saida = saida + "3 - Visualizar cadastro";
-        return saida;
+    public static boolean menuCandidato() {
+        boolean loopCandidato = true;
+
+        while (loopCandidato) {
+            System.out.println(imprimirMenuCandidato());
+            int op2 = in.nextInt();
+
+            switch (op2) {
+                case 0:
+                    System.out.println("Obrigada por utilizar o sistema. Até logo!");
+                    return false;  // Sai do loop do candidato e, consequentemente, do loop principal
+                case 1:
+                    loopCandidato = false;  // Sai do loop do candidato, mas continua no loop principal
+                    break;
+                case 2:
+                    Controler.cadastrarCandidato();
+                    break;
+                case 3:
+                    Controler.imprimirCandidatos();
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente!");
+                    break;
+            }
+        }
+        return true;  // Continua no loop principal
     }
 
-    public static String imprimirMenuEmpresa(){
-        String saida = new String
-        ("\n---- Bem vindo a área destinada as empresas ----\n"+
-        "Escolha uma das opções a seguir:\n");
-        saida = saida + "0 - Sair da aplicação\n";
-        saida = saida + "1 - Voltar para o menu principal\n";
-        saida = saida + "2 - Se cadastrar\n";
-        saida = saida + "3 - Visualizar cadastro";
-        return saida;
+    public static String imprimirMenuCandidato() {
+        return "\n----- Bem vindo candidato -----\n" +
+               "Escolha uma das opções a seguir:\n" +
+               "0 - Sair da aplicação\n" +
+               "1 - Voltar para o menu principal\n" +
+               "2 - Se cadastrar\n" +
+               "3 - Visualizar cadastro";
+    }
+
+    public static boolean menuEmpresa() {
+        boolean loopEmpresa = true;
+
+        while (loopEmpresa) {
+            System.out.println(imprimirMenuEmpresa());
+            int op3 = in.nextInt();
+
+            switch (op3) {
+                case 0:
+                    System.out.println("Obrigada por utilizar o sistema. Até logo!");
+                    return false;  // Sai do loop da empresa e, consequentemente, do loop principal
+                case 1:
+                    loopEmpresa = false;  // Sai do loop da empresa, mas continua no loop principal
+                    break;
+                case 2:
+                    Controler.cadastrarEmpresa();
+                    break;
+                case 3:
+                    Controler.imprimirEmpresas();
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente!");
+                    break;
+            }
+        }
+        return true;  // Continua no loop principal
+    }
+
+    public static String imprimirMenuEmpresa() {
+        return "\n---- Bem vindo à área destinada às empresas ----\n" +
+               "Escolha uma das opções a seguir:\n" +
+               "0 - Sair da aplicação\n" +
+               "1 - Voltar para o menu principal\n" +
+               "2 - Se cadastrar\n" +
+               "3 - Visualizar cadastro";
     }
 }

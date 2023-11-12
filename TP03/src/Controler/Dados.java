@@ -41,8 +41,6 @@ public class Dados {
             "00.776.574/0001-56", 
             null);
 
-        empresas.add(lojasAmericanas);
-
         Empresa google = new Empresa(
             "Google Inc.", 
             "google@google.com", 
@@ -51,7 +49,9 @@ public class Dados {
             "0800 724 8149",
             "Tecnologia, multinacional, software",
             "06.990.590/0001-23",
-            null); 
+            null);
+            
+        empresas.add(lojasAmericanas); 
         empresas.add(google);       
     }
 
