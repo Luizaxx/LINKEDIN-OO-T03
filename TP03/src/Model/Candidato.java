@@ -47,8 +47,8 @@ public class Candidato extends Usuario{
 
 	@Override
 	public String toString() {
-		return  "Dados Candidato: \n" +  
-				"Nome: " + nome +
+		return  "\nDados Candidato: " +  
+				"\nNome: " + nome +
 				"\nEmail: " + email +
 				"\nData de nascimento: " + dataNascimento +
 				"\nEndereço: " + endereco +
@@ -56,7 +56,7 @@ public class Candidato extends Usuario{
 				"\nÁrea de atuação: " + areaAtuacao +
 				"\nCPF: " + cpf +
 				"\nNível de escolaridade: " + nivelEscolaridade +
-				"\nInstituição: " + instituicao +
+				"\nInstituição: " + instituicao + "\n" +
 				"\nOfertas inscritas: " + ofertasInscritas;
 	}
 

@@ -73,7 +73,7 @@ public class Main {
     public static String imprimirMenuPrincipal(){
         String saida = new String
         ("\n-------- Menu Principal --------\n"+
-        "Escolha uma das opcoes a seguir:\n");
+        "Escolha uma das opções a seguir:\n");
         saida = saida + "0 - Sair da aplicação\n";
         saida = saida + "1 - Candidato\n";
         saida = saida + "2 - Empresa";
@@ -83,7 +83,7 @@ public class Main {
     public static String imprimirMenuCandidato(){
         String saida = new String
         ("\n----- Bem vindo candidato -----\n"+
-        "Escolha uma das opcoes a seguir:\n");
+        "Escolha uma das opções a seguir:\n");
         saida = saida + "0 - Sair da aplicação\n";
         saida = saida + "1 - Voltar para o menu principal\n";
         saida = saida + "2 - Se cadastrar\n";
@@ -94,7 +94,7 @@ public class Main {
     public static String imprimirMenuEmpresa(){
         String saida = new String
         ("\n---- Bem vindo a área destinada as empresas ----\n"+
-        "Escolha uma das opcoes a seguir:\n");
+        "Escolha uma das opções a seguir:\n");
         saida = saida + "0 - Sair da aplicação\n";
         saida = saida + "1 - Voltar para o menu principal\n";
         saida = saida + "2 - Se cadastrar\n";
