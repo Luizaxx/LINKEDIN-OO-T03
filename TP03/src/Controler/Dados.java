@@ -1,4 +1,5 @@
 package Controler;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import Model.*;
 
@@ -39,7 +40,7 @@ public class Dados {
             "(61) 99235-4922",
             "Loja de departamento, comércio eletrônico",
             "00.776.574/0001-56", 
-            null);
+            new ArrayList<OfertaEmprego>());
 
         Empresa google = new Empresa(
             "Google Inc.", 
@@ -51,6 +52,7 @@ public class Dados {
             "06.990.590/0001-23",
             null);
 
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 5, LocalDateTime.now(), "Ensino Médio"));
         empresas.add(lojasAmericanas); 
         empresas.add(google);       
     }

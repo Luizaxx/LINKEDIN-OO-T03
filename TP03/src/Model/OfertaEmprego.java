@@ -57,4 +57,15 @@ public class OfertaEmprego {
 	public void setQntVagas(int qntVagas) {
 		this.qntVagas = qntVagas;
 	}
+
+	@Override
+	public String toString(){
+		return "\nInformações da oferta de emprego:" +
+			   "\nCargo: " + cargo +
+			   "\nSalário: " + salario +
+			   "\nQuantidade de vagas: " + qntVagas +
+			   "\nNível de escolaridade exigido: " + escolaridade +
+			   "\nOferta Criada em: "+ criadoEm;
+	}
+
 }

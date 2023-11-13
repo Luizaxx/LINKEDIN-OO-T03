@@ -1,6 +1,6 @@
 package Model;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.ArrayList; 
 
 public class Empresa extends Usuario{
@@ -15,6 +15,18 @@ public class Empresa extends Usuario{
 		this.ofertasOfertadas = ofertasOfertadas;
 	}
 
+	public void adicionarOfertaEmprego(OfertaEmprego oferta){
+		if(ofertasOfertadas == null){
+			ofertasOfertadas = new ArrayList<>();
+		}
+		ofertasOfertadas.add(oferta);
+	}
+
+	public ArrayList<OfertaEmprego> getOfertasEmpregos(){
+		return ofertasOfertadas;
+	}
+
+	/*
 	//cria uma oferta e o adiciona na lista de ofertas da Empresa
 	public void criaOfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade){
 		OfertaEmprego ofertaUnica = new OfertaEmprego(salario,cargo,qntVagas,criadoEm,escolaridade);
@@ -29,13 +41,15 @@ public class Empresa extends Usuario{
 	public ArrayList<OfertaEmprego> listarOfertas(){
 		return ofertasOfertadas;
 	}
+	*/
+
 	/*
 	 editarOferta() :logica mais pra frente, mas vai pegar uma empresa, pegar o index do atributo, 
 	e editar somente ele pelo index, fazendo assim uma copia do objeto como um todo
 	e substituindo apenas o atributo desejado 
-	
 	*/
-
+	
+	/*
 	public void editarOferta(int index , OfertaEmprego novaOferta){
 		ofertasOfertadas.set(index, novaOferta);
 	}
@@ -43,6 +57,7 @@ public class Empresa extends Usuario{
 	public void excluiOferta(int index){
 		ofertasOfertadas.remove(index);
 	}
+	*/
 
 	public ArrayList<OfertaEmprego> getOfertasOfertadas() {
 		return ofertasOfertadas;
@@ -68,7 +83,7 @@ public class Empresa extends Usuario{
 			"\nTelefone: " + telefone + 
 			"\nÁrea de atuação: " + areaAtuacao +
 			"\nCNPJ: " + cnpj+ "\n" +
-			"\nOfertas de emprego: " + ofertasOfertadas;
+			"\nOfertas de emprego: " + ofertasOfertadas.toString();
 	}
 
 }
