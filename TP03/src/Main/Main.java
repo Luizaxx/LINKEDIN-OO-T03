@@ -62,7 +62,7 @@ public class Main {
                     Controler.imprimirCandidatos();
                     break;
                 case 4:
-                    System.out.println("Não temos essa opção ainda");
+                    Controler.editarCadastroCandidato();
                     break;
                 case 5:
                     System.out.println("Não temos essa opção ainda");
@@ -80,8 +80,8 @@ public class Main {
                "Escolha uma das opções a seguir:\n" +
                "0 - Sair da aplicação\n" +
                "1 - Voltar para o menu principal\n" +
-               "2 - Se cadastrar\n" +
-               "3 - Visualizar cadastro" +
+               "2 - Se cadastrar (caso seje usuário novato)\n" +
+               "3 - Visualizar cadastro\n" +
                "4 - Editar cadastro\n" +
                "5 - Visualizar ofertas de empregos disponíveis";
     }
@@ -107,7 +107,7 @@ public class Main {
                     Controler.imprimirEmpresas();
                     break;
                 case 4:
-                    System.out.println("Não temos essa opção ainda");
+                    Controler.editarCadastroEmpresa();
                     break;
                 case 5:
                     System.out.println("Não temos essa opção ainda");

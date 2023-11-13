@@ -15,7 +15,38 @@ public class Controler {
         d.getCandidatosInscritos().add(novoCandidato);
         System.out.println("Candidato cadastrado com sucesso!");
     }
-   
+
+    public static void editarCadastroCandidato(){
+        
+        ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
+        
+        System.out.println("Qual é o seu CPF? ");
+        String cpfDesejado = in.nextLine();
+        boolean encontrado = false;
+
+        for (Candidato candidato : candidatos){
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                System.out.println("\nDigite os novos dados para o candidato:");
+                Candidato novosDados = lerDadosCandidato();
+                candidato.setNome(novosDados.getNome());
+                candidato.setEmail(novosDados.getEmail());
+                candidato.setDataNascimento(novosDados.getDataNascimento());
+                candidato.setEndereco(novosDados.getEndereco());
+                candidato.setTelefone(novosDados.getTelefone());
+                candidato.setAreaAtuacao(novosDados.getAreaAtuacao());
+                candidato.setCpf(novosDados.getCpf());
+                candidato.setNivelEscolaridade(novosDados.getNivelEscolaridade());
+                candidato.setInstituicao(novosDados.getInstituicao());
+                System.out.println("Casdrato do candidato editado com sucesso!");
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Nenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
+        }
+    }
 
     public static void imprimirCandidatos() {
         
@@ -82,6 +113,37 @@ public class Controler {
         Empresa novaEmpresa = lerDadosEmpresa();
         d.getEmpresa().add(novaEmpresa);
         System.out.println("Empresa cadastrada com sucesso!");
+    }
+
+
+    public static void editarCadastroEmpresa(){
+
+        ArrayList<Empresa> empresas = d.getEmpresa();
+        
+        System.out.println("Para editar o cadastro da empresa primeiro insira o cnpj dela.\nQual é CNPJ da empresa?");
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;
+
+        for(Empresa empresa : empresas){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
+                System.out.println("\nDigite os novos dados da empresa: ");
+                Empresa novosDados = lerDadosEmpresa();
+                empresa.setNome(novosDados.getNome());
+                empresa.setEmail(novosDados.getEmail());
+                empresa.setDataNascimento(novosDados.getDataNascimento());
+                empresa.setEndereco(novosDados.getEndereco());
+                empresa.setTelefone(novosDados.getTelefone());
+                empresa.setAreaAtuacao(novosDados.getAreaAtuacao());
+                empresa.setCnpj(novosDados.getCnpj());
+                System.out.println("Candastro da empresa editado com sucesso!");
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
+        }
     }
 
     public static void imprimirEmpresas(){
