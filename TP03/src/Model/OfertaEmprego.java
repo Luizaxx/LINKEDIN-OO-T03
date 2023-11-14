@@ -10,6 +10,7 @@ public class OfertaEmprego {
 	private LocalDateTime criadoEm;
 	private String escolaridade;
 	private boolean ativa; // Novo atributo para representar o status da oferta
+	//private int numeroDeInscritos;
 
 	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, boolean ativa) {
 		this.salario = salario;

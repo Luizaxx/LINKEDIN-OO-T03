@@ -1,5 +1,6 @@
 package Controler;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -198,6 +199,53 @@ public class Controler {
 
        Empresa y = new Empresa(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cnpj, ofertasOfertadas);
        return y;
+    }
+
+    public static void cadastrarOfertaEmprego(){
+        ArrayList<Empresa> empresas = d.getEmpresa();        
+
+        System.out.println("Qual é o CNPJ da empresa? ");
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;        
+        
+        for(Empresa empresa : empresas){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
+                OfertaEmprego novaOfertaEmprego = lerDadosOfertaEmprego();
+                empresa.getOfertasOfertadas().add(novaOfertaEmprego);
+                System.out.println("Oferta criada com sucesso!");
+                encontrado = true;
+                break; // Se encontrou, não precisa continuar procurando
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
+        }   
+
+    }
+
+    public static OfertaEmprego lerDadosOfertaEmprego(){
+        double salario;
+	    String cargo;
+	    int qntVagas;
+	    LocalDateTime criadoEm;
+	    String escolaridade;
+	    boolean ativa; 
+
+        System.out.println("Qual é o salário dessa oferta de emprego? ");
+        salario = in.nextDouble();
+        System.out.println("Qual é o cargo dessa oferta de emprego? ");
+        cargo = in.nextLine();
+        in.nextLine();
+        System.out.println("Quantas vagas serão disponibilizadas para essa vaga? ");
+        qntVagas = in.nextInt();
+        System.out.println("Qual é o nível de escolaridade necessário para se inscrever nessa atividade? ");
+        escolaridade = in.nextLine();
+        in.nextLine();
+        criadoEm = LocalDateTime.now();
+        ativa = true;
+
+        OfertaEmprego ofrtEmprego = new OfertaEmprego(salario, cargo, qntVagas, criadoEm, escolaridade, ativa);
+        return ofrtEmprego;
     }
     
     
