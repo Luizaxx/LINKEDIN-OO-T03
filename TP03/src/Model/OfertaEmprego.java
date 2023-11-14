@@ -73,7 +73,7 @@ public class OfertaEmprego {
 
 	@Override
 	public String toString(){
-		return "\nInformações da oferta de emprego:" +
+		return "Informações da oferta de emprego:" +
 			   "\nCargo: " + cargo +
 			   "\nSalário: " + salario +
 			   "\nQuantidade de vagas: " + qntVagas +

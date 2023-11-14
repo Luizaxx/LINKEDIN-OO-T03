@@ -220,7 +220,37 @@ public class Controler {
         if (!encontrado) {
             System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
         }   
+    }
 
+    public static void imprimirOfertasEmprego(){
+        ArrayList<Empresa> empresas = d.getEmpresa();
+        
+        System.out.println("Qual é o CNPJ da empresa? ");
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;
+
+        for (Empresa empresa : empresas) {
+            if (empresa.getCnpj().equals(cnpjDesejado)){
+                
+                // Verifica se a empresa tem ofertas de emprego
+                if (empresa.getOfertasOfertadas().isEmpty()) {
+                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
+                } else {
+                    System.out.println("Ofertas de emprego para a empresa com CNPJ " + cnpjDesejado + ":");
+                    // Imprime as ofertas de emprego
+                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                        System.out.println("\nOferta número: " + numeroOferta);
+                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                    }
+                }
+                encontrado = true;
+                break; // Se encontrou a empresa, não precisa continuar procurando
+            }
+        } 
+        if (!encontrado) {
+            System.out.println("Empresa com CNPJ " + cnpjDesejado + " não encontrada.");
+        }
     }
 
     public static OfertaEmprego lerDadosOfertaEmprego(){
@@ -234,13 +264,13 @@ public class Controler {
         System.out.println("Qual é o salário dessa oferta de emprego? ");
         salario = in.nextDouble();
         System.out.println("Qual é o cargo dessa oferta de emprego? ");
-        cargo = in.nextLine();
         in.nextLine();
+        cargo = in.nextLine();
         System.out.println("Quantas vagas serão disponibilizadas para essa vaga? ");
         qntVagas = in.nextInt();
         System.out.println("Qual é o nível de escolaridade necessário para se inscrever nessa atividade? ");
-        escolaridade = in.nextLine();
         in.nextLine();
+        escolaridade = in.nextLine();
         criadoEm = LocalDateTime.now();
         ativa = true;
 

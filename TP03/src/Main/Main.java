@@ -113,7 +113,7 @@ public class Main {
                     Controler.cadastrarOfertaEmprego();
                     break;
                 case 6:
-                    System.out.println("Não temos essa opção ainda");
+                    Controler.imprimirOfertasEmprego();
                     break;
                 case 7:
                     System.out.println("Não temos essa opção ainda");
