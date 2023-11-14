@@ -57,17 +57,17 @@ public class Controler {
         String cpfDesejado = in.nextLine();
         boolean encontrado = false;
 
-        if (candidatos.isEmpty()) {
+        if (candidatos.isEmpty()) { //Verifica se existe candidatos cadastrados no sistema
             System.out.println("Nenhum candidato foi cadastrado no sistema ainda.");
         } else {
             for (Candidato candidato : candidatos) {
-                if (candidato.getCpf().equals(cpfDesejado)) {
-                    System.out.println(candidato.toString());
+                if (candidato.getCpf().equals(cpfDesejado)) {// Verifica se o cpf informado é igual ao cpf que já está salvo no sistema
+                    System.out.println(candidato.toString()); // Imprime o toString da classe candidatos
                     encontrado = true;
                     break; // Se encontrou, não precisa continuar procurando
                 }
             }
-            if (!encontrado) {
+            if (!encontrado) { //Exibe uma mensagem caso o usuário não tenha sido encontrado no sistema
                 System.out.println("Nenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
@@ -210,8 +210,8 @@ public class Controler {
         
         for(Empresa empresa : empresas){
             if (empresa.getCnpj().equals(cnpjDesejado)) {
-                OfertaEmprego novaOfertaEmprego = lerDadosOfertaEmprego();
-                empresa.getOfertasOfertadas().add(novaOfertaEmprego);
+                OfertaEmprego novaOfertaEmprego = lerDadosOfertaEmprego(); 
+                empresa.getOfertasOfertadas().add(novaOfertaEmprego);// Adicionando uma nova oferta de emprego no arrayList de ofertasOfertadas da empresa
                 System.out.println("Oferta criada com sucesso!");
                 encontrado = true;
                 break; // Se encontrou, não precisa continuar procurando
