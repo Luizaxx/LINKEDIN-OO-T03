@@ -9,14 +9,26 @@ public class OfertaEmprego {
 	private int qntVagas;
 	private LocalDateTime criadoEm;
 	private String escolaridade;
+	private boolean ativa; // Novo atributo para representar o status da oferta
 
-	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade) {
+	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, boolean ativa) {
 		this.salario = salario;
 		this.cargo = cargo;
 		this.qntVagas = qntVagas;
 		this.criadoEm = criadoEm;
 		this.escolaridade = escolaridade;
+		this.ativa = true;
 	}
+
+	// Novo método para verificar se a oferta está ativa
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+	// Novo método para desativar a oferta
+    public void desativarOferta() {
+        this.ativa = false;
+    }
 
 	public String getEscolaridade(){
 		return escolaridade;

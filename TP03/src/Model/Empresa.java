@@ -59,6 +59,23 @@ public class Empresa extends Usuario{
 	}
 	*/
 
+	public String ofertasAbertas(){
+		int contador = 0;
+		
+		for (OfertaEmprego oferta : ofertasOfertadas) {
+			
+			if (oferta.isAtiva()) {
+				contador++;
+			}
+        }
+		if (contador == 0) {
+			return "Essa empresa não cadastrou nenhuma oferta de emprego ainda.";
+		}else{
+			return "Número de ofertas abertas no momento: " + contador;
+		}
+        	
+	}
+
 	public ArrayList<OfertaEmprego> getOfertasOfertadas() {
 		return ofertasOfertadas;
 	}	
@@ -82,8 +99,8 @@ public class Empresa extends Usuario{
 			"\nEndereço: " + endereco +
 			"\nTelefone: " + telefone + 
 			"\nÁrea de atuação: " + areaAtuacao +
-			"\nCNPJ: " + cnpj+ "\n" +
-			"\nOfertas de emprego: " + ofertasOfertadas.toString();
+			"\nCNPJ: " + cnpj + 
+			"\n" + ofertasAbertas();
 	}
 
 }

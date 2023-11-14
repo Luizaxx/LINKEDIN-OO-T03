@@ -50,9 +50,9 @@ public class Dados {
             "0800 724 8149",
             "Tecnologia, multinacional, software",
             "06.990.590/0001-23",
-            null);
+            new ArrayList<OfertaEmprego>());
 
-        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 5, LocalDateTime.now(), "Ensino Médio"));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 5, LocalDateTime.now(), "Ensino Médio", true));
         empresas.add(lojasAmericanas); 
         empresas.add(google);       
     }
