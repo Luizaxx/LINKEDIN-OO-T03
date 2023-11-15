@@ -1,4 +1,5 @@
 package Controler;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import Model.*;
@@ -41,6 +42,12 @@ public class Dados {
             "Loja de departamento, comércio eletrônico",
             "00.776.574/0001-56", 
             new ArrayList<OfertaEmprego>());
+        
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 15, LocalDateTime.now(), "Ensino Médio", true));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(1200, "Tecnico de informática", 5, LocalDateTime.now(), "Ensino técnico", true ));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(7000, "Gerente", 2, LocalDateTime.now(), "Nível médio", true));
+
+        empresas.add(lojasAmericanas); 
 
         Empresa google = new Empresa(
             "Google Inc.", 
@@ -52,8 +59,10 @@ public class Dados {
             "06.990.590/0001-23",
             new ArrayList<OfertaEmprego>());
 
-        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 5, LocalDateTime.now(), "Ensino Médio", true));
-        empresas.add(lojasAmericanas); 
+        google.adicionarOfertaEmprego(new OfertaEmprego(3500, "Estagiário", 6, LocalDateTime.now(), "Nível superior", true));
+        google.adicionarOfertaEmprego(new OfertaEmprego(11000, "Programador", 7, LocalDateTime.now(), "Nível superior", true));
+        google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true));
+
         empresas.add(google);       
     }
 
@@ -69,6 +78,8 @@ public class Dados {
             "Nível superior", 
             "UnB Gama - FGA",
             null);
+
+        candidatosInscritos.add(Gabriel);
         
         Candidato Ian = new Candidato(
             "Ian costa",
@@ -82,6 +93,8 @@ public class Dados {
             "UnB Gama - FGA",
             null);
 
+        candidatosInscritos.add(Ian);
+
         Candidato Luiza = new Candidato(
             "Luiza", 
             "luiza@luiza.com", 
@@ -92,28 +105,8 @@ public class Dados {
             "147.258.369-69", 
             "Nível superior", 
             "UnB Gama - FGA", 
-            null);    
-
-        candidatosInscritos.add(Gabriel);
-        candidatosInscritos.add(Ian);
+            null);            
+        
         candidatosInscritos.add(Luiza);
     }
-
 }
-// public void fillWithSomeData() {
-    
-//     Candidato candidato = new Candidato("","","",""," "," "," ",""," ", null);
-//             AdmUser = new CandidatoAdmin(null);
-//             AdmUser.setUsuario(candidato);
-//             Empresa empresa = new Empresa("","","","","","","", null);
-//             AdmEmp = new EmpresaAdmin(null);
-//             AdmEmp.setEmpresa(empresa);
-    
-// }
-// public CandidatoAdmin getcCandidatoAdmin(){
-//     return AdmUser;
-// }
-// public void setDados(CandidatoAdmin AdmUser) {
-//     this.AdmUser = AdmUser;
-// }
-// }

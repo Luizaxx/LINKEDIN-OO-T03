@@ -27,7 +27,7 @@ public class Controler {
 
         for (Candidato candidato : candidatos){
             if (candidato.getCpf().equals(cpfDesejado)) {
-                System.out.println("\nDigite os novos dados para o candidato:");
+                System.out.println("\nDigite os novos dados para o candidato, "+ candidato.getNome() +":");
                 Candidato novosDados = lerDadosCandidato();
                 candidato.setNome(novosDados.getNome());
                 candidato.setEmail(novosDados.getEmail());
@@ -127,7 +127,7 @@ public class Controler {
 
         for(Empresa empresa : empresas){
             if (empresa.getCnpj().equals(cnpjDesejado)) {
-                System.out.println("\nDigite os novos dados da empresa: ");
+                System.out.println("\nDigite os novos dados da empresa, " + empresa.getNome() + ":");
                 Empresa novosDados = lerDadosEmpresa();
                 empresa.setNome(novosDados.getNome());
                 empresa.setEmail(novosDados.getEmail());
@@ -136,7 +136,7 @@ public class Controler {
                 empresa.setTelefone(novosDados.getTelefone());
                 empresa.setAreaAtuacao(novosDados.getAreaAtuacao());
                 empresa.setCnpj(novosDados.getCnpj());
-                System.out.println("Candastro da empresa editado com sucesso!");
+                System.out.println("\nCandastro da empresa editado com sucesso!");
                 encontrado = true;
                 break;
             }
@@ -222,6 +222,71 @@ public class Controler {
         }   
     }
 
+    public static void editarOfertaEmprego() {
+        ArrayList<Empresa> empresas = d.getEmpresa();
+
+        System.out.println("Qual é o CNPJ da empresa? ");
+        
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;
+
+        for (Empresa empresa : empresas) {
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
+                // Verifica se a empresa tem ofertas de emprego
+                if (empresa.getOfertasOfertadas().isEmpty()) {
+                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
+                } else {
+                    System.out.println("Ofertas de emprego ofertada pela empresa "+ empresa.getNome() +":");
+                    
+                    // Imprime as ofertas de emprego com números
+                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                        System.out.println("\nOferta número: " + numeroOferta);
+                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                    }
+
+                    System.out.println("\nQual oferta da empresa " + empresa.getNome() +" você deseja editar? (Digite o número da oferta)");
+                    int numeroOfertaEscolhida = in.nextInt();
+
+                    // Verifica se o número da oferta escolhida é válido
+                    if (numeroOfertaEscolhida >= 1 && numeroOfertaEscolhida <= empresa.getOfertasOfertadas().size()) {
+                        // Obtém a oferta escolhida
+                        OfertaEmprego ofertaParaEditar = empresa.getOfertasOfertadas().get(numeroOfertaEscolhida - 1);
+
+                        
+                        System.out.println("Novo salário: ");
+                        double novoSalario = in.nextDouble();
+                        ofertaParaEditar.setSalario(novoSalario);
+
+                        in.nextLine();
+                        System.out.println("Novo cargo: ");
+                        String novoCargo = in.nextLine();
+                        ofertaParaEditar.setCargo(novoCargo);
+
+                        System.out.println("Nova quantidade de vagas: ");
+                        int novaQntdVagas = in.nextInt();
+                        ofertaParaEditar.setQntVagas(novaQntdVagas);
+
+                        in.nextLine();
+                        System.out.println("Qual novo nível de escolaridade necessário? ");
+                        String novoNivelEscolaridade = in.nextLine();
+                        ofertaParaEditar.setEscolaridade(novoNivelEscolaridade);
+
+                        System.out.println("\nOferta editada com sucesso!");
+                    } else {
+                        System.out.println("\nNúmero de oferta inválido.");
+                    }
+                }
+                encontrado = true;
+                break; // Se encontrou a empresa, não precisa continuar procurando
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Não foi encontrada nenhuma empresa com esse CNPJ: " + cnpjDesejado);
+        }
+    }
+
     public static void imprimirOfertasEmprego(){
         ArrayList<Empresa> empresas = d.getEmpresa();
         
@@ -249,7 +314,7 @@ public class Controler {
             }
         } 
         if (!encontrado) {
-            System.out.println("Empresa com CNPJ " + cnpjDesejado + " não encontrada.");
+            System.out.println("Não foi encontrada nenhuma empresa com esse CNPJ: " + cnpjDesejado);
         }
     }
 

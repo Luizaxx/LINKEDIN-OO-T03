@@ -80,5 +80,4 @@ public class OfertaEmprego {
 			   "\nNível de escolaridade exigido: " + escolaridade +
 			   "\nOferta Criada em: "+ criadoEm;
 	}
-
 }
