@@ -252,7 +252,6 @@ public class Controler {
                     if (numeroOfertaEscolhida >= 1 && numeroOfertaEscolhida <= empresa.getOfertasOfertadas().size()) {
                         // Obtém a oferta escolhida
                         OfertaEmprego ofertaParaEditar = empresa.getOfertasOfertadas().get(numeroOfertaEscolhida - 1);
-
                         
                         System.out.println("Novo salário: ");
                         double novoSalario = in.nextDouble();

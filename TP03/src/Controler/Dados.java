@@ -8,7 +8,7 @@ public class Dados {
 
     private ArrayList<Candidato> candidatosInscritos;
     private ArrayList<Empresa> empresas;
-
+    
     public Dados() {
         candidatosInscritos = new ArrayList<>();
         empresas = new ArrayList<>();
@@ -76,7 +76,7 @@ public class Dados {
             "Engenharia de software", 
             "123.456.789-89", 
             "Nível superior", 
-            "UnB Gama - FGA",
+            "UnB Gama - FGA", 
             null);
 
         candidatosInscritos.add(Gabriel);
@@ -108,5 +108,19 @@ public class Dados {
             null);            
         
         candidatosInscritos.add(Luiza);
+
+        Candidato Rafael = new Candidato(
+            "Rafael",
+            "rafael@rafael.com", 
+            "26/09/2003",
+            "UnB Gama - FGA",
+            "6 9 9922-9945", 
+            "Engenharia de Software",
+            "147.258.369.77", 
+            "Nivel superior",
+            "UnB GGama - FGA",
+            null);
+            
+        candidatosInscritos.add(Rafael);
     }
 }
