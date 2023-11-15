@@ -67,6 +67,15 @@ public class Main {
                 case 5:
                     System.out.println("Não temos essa opção ainda");
                     break;
+                case 6:
+                    System.out.println("Não temos essa opção ainda");
+                    break;
+                case 7:
+                    System.out.println("Não temos essa opção ainda");
+                    break;
+                case 8:
+                    System.out.println("Não temos essa opção ainda");
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
                     break;
@@ -80,10 +89,13 @@ public class Main {
                "Escolha uma das opções a seguir:\n" +
                "0 - Sair da aplicação\n" +
                "1 - Voltar para o menu principal\n" +
-               "2 - Se cadastrar (caso seje usuário novato)\n" +
+               "2 - Se cadastrar (caso seja usuário novato)\n" +
                "3 - Visualizar cadastro\n" +
                "4 - Editar cadastro\n" +
-               "5 - Visualizar ofertas de empregos disponíveis";
+               "5 - Visualizar ofertas de empregos disponíveis\n" +
+               "6 - Se inscrever em uma oferta de emprego\n" +
+               "7 - Vizualizar ofertas de emprego que você está inscrito\n" +
+               "8 - Tirar a sua inscrição de uma oferta de emprego";
     }
 
     public static boolean menuEmpresa() {
@@ -118,6 +130,9 @@ public class Main {
                 case 7:
                     Controler.editarOfertaEmprego();
                     break;
+                case 8:
+                    System.out.println("Não temos essa opção ainda");
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
                     break;
@@ -131,11 +146,12 @@ public class Main {
                "Escolha uma das opções a seguir:\n" +
                "0 - Sair da aplicação\n" +
                "1 - Voltar para o menu principal\n" +
-               "2 - Se cadastrar (caso seje usuário novato)\n" +
+               "2 - Se cadastrar (caso seja usuário novato)\n" +
                "3 - Visualizar cadastro\n" +
                "4 - Editar cadastro\n" +
                "5 - Criar oferta de emprego\n" +
-               "6 - Visualizar ofertas da sua empresa que estão abertas\n" +
-               "7 - Editar uma oferta de emprego";
+               "6 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
+               "7 - Editar uma oferta de emprego\n" + 
+               "8 - Apagar uma oferta de emprego";
     }
 }
