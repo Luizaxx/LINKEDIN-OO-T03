@@ -287,6 +287,52 @@ public class Controler {
         }
     }
 
+    public static void apagarOfertaEmprego(){
+        ArrayList<Empresa> empresas = d.getEmpresa();
+
+        System.out.println("Qual é o CNPJ da empresa? ");
+        
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;
+
+        for (Empresa empresa : empresas) {
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
+                if (empresa.getOfertasOfertadas().isEmpty()) {
+                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
+                }else{
+                    // Verifica se a empresa tem ofertas de emprego
+                    System.out.println("Ofertas de emprego ofertada pela empresa "+ empresa.getNome() +":");
+                        
+                    // Imprime as ofertas de emprego com números
+                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                        System.out.println("\nOferta número: " + numeroOferta);
+                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                    }
+
+                    System.out.println("\nQual oferta da empresa " + empresa.getNome() +" você deseja apagar? (Digite o número da oferta)");
+                    int numeroOfertaEscolhida = in.nextInt();
+
+                    // Verifica se o número da oferta escolhida é válido
+                    if (numeroOfertaEscolhida >= 1 && numeroOfertaEscolhida <= empresa.getOfertasOfertadas().size()){     
+                        //removendo a oferta de emprego da empresa              
+                        empresa.getOfertasOfertadas().remove(numeroOfertaEscolhida - 1);
+                        System.out.println("\nOferta de emprego removida com sucesso!");
+                    }else{
+                        System.out.println("\nNúmero de oferta inválido.");
+                    }
+                }
+                encontrado = true;
+                break; // Se encontrou a empresa, não precisa continuar procurando
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Não foi encontrada nenhuma empresa com esse CNPJ: " + cnpjDesejado);
+        }
+
+    }
+
     public static void imprimirOfertasEmprego(){
         ArrayList<Empresa> empresas = d.getEmpresa();
         

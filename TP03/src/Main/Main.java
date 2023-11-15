@@ -131,7 +131,7 @@ public class Main {
                     Controler.editarOfertaEmprego();
                     break;
                 case 8:
-                    System.out.println("Não temos essa opção ainda");
+                    Controler.apagarOfertaEmprego();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
