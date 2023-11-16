@@ -65,7 +65,7 @@ public class Main {
                     loopCandidato = menuEditarCandidato();
                     break;
                 case 5:
-                    System.out.println("Não temos essa opção ainda");
+                    loopCandidato = menuFiltroOfertasEmprego();
                     break;
                 case 6:
                     System.out.println("Não temos essa opção ainda");
@@ -269,10 +269,53 @@ public class Main {
 
     public static String imprimirMenuEditarOfertaEMprego(){
         return 
-        "\nQuai dos campos asseguir da oferta de emprego você deseja editar?\n" + 
+        "\nQuais dos campos a seguir da oferta de emprego você deseja editar?\n" + 
         "1 - Sálario\n" +
         "2 - Cargo\n" +
         "3 - Quantidade de vagas\n" +
         "4 - Escolaridade";
+    }
+
+    public static boolean menuFiltroOfertasEmprego(){
+        boolean filtrarOfertasEmprego = true;
+        while (filtrarOfertasEmprego) {
+            System.out.println(imprimirMenuFiltroOfertasEmprego());
+            int op6 = in.nextInt();
+            switch (op6) {
+                case 0:
+                    filtrarOfertasEmprego = false;
+                    break;
+                case 1:
+                    Controler.filtrarOfertasEmpregoTecnologia();
+                    break;
+                case 2:
+                    Controler.filtrarOfertasEmpregoVendas();
+                    break;
+                case 3:
+                    Controler.filtrarOfertasEmpregoHospitalar();
+                    break;
+                case 4:
+                    Controler.filtrarOfertasEmpregoEducacao();
+                    break;
+                case 5:
+                    Controler.filtrarOfertasEmpregoAlimentos();
+                    break;
+                default:
+                    break;
+            }
+        }
+        return true;
+    }
+
+    public static String imprimirMenuFiltroOfertasEmprego(){
+        return
+        "\n" + 
+        "Escolha o filtro desejado\n" + 
+        "1 - Tecnologia\n" + 
+        "2 - Vendas\n" + 
+        "3 - Hospitalar\n" + 
+        "4 - Educação\n" + 
+        "5 - Alimentos\n" + //
+        "Digite 0 para voltar ao menu anterior";
     }
 }

@@ -55,7 +55,7 @@ public class Dados {
             "04/09/1998", 
             "1600 Amphitheatre Parkway, Mountain View, CA", 
             "0800 724 8149",
-            "Tecnologia, multinacional, software",
+            "Tecnologia",
             "06.990.590/0001-23",
             new ArrayList<OfertaEmprego>());
 
@@ -63,8 +63,22 @@ public class Dados {
         google.adicionarOfertaEmprego(new OfertaEmprego(11000, "Programador", 7, LocalDateTime.now(), "Nível superior", true));
         google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true));
 
-        empresas.add(google);       
+        empresas.add(google);   
+        
+        Empresa McDonalds = new Empresa(
+            "McDonalds", 
+            "McDonalds@McDonalds.com", 
+            "04/09/1990", 
+            "1600 Amphitheatre Parkway, Mountain View, CA", 
+            "0800 724 8149",
+            "Alimentos",
+            "06.320.590/0001-23",
+            new ArrayList<OfertaEmprego>());
+        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(200, "gerente", 1, LocalDateTime.now(), "Nenhum", true));
+
+        empresas.add(McDonalds);
     }
+
 
     public void addCandidatosPredefinidos(){
         Candidato Gabriel = new Candidato(
