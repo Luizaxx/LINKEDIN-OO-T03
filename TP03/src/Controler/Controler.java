@@ -11,22 +11,36 @@ public class Controler {
     private static Scanner in = new Scanner(System.in);
     private static Dados d = new Dados();
 
-    public static void cadastrarCandidato() {
+    public static void cadastrarCandidato(){
         Candidato novoCandidato = lerDadosCandidato();
         d.getCandidatosInscritos().add(novoCandidato);
         System.out.println("Candidato cadastrado com sucesso!");
+    }
+
+    public static boolean verificaCPF(){
+        ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
+        boolean encontrado = false;
+        System.out.println("Qual é o seu CPF? ");
+        String cpfDesejado = in.nextLine();
+        
+        for (Candidato candidato : candidatos){
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                encontrado = true;
+                break;                
+            }
+        }
+        if (!encontrado) {
+            System.out.println("\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
+        }
+        return encontrado;
     }
 
     public static void editarCadastroCandidato(){
         
         ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
         
-        System.out.println("Qual é o seu CPF? ");
-        String cpfDesejado = in.nextLine();
-        boolean encontrado = false;
-
         for (Candidato candidato : candidatos){
-            if (candidato.getCpf().equals(cpfDesejado)) {
+            if (verificaCPF() == true){
                 System.out.println("\nDigite os novos dados para o candidato, "+ candidato.getNome() +":");
                 Candidato novosDados = lerDadosCandidato();
                 candidato.setNome(novosDados.getNome());
@@ -39,36 +53,23 @@ public class Controler {
                 candidato.setNivelEscolaridade(novosDados.getNivelEscolaridade());
                 candidato.setInstituicao(novosDados.getInstituicao());
                 System.out.println("Casdrato do candidato editado com sucesso!");
-                encontrado = true;
                 break;
             }
-        }
-
-        if (!encontrado) {
-            System.out.println("Nenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void imprimirCandidatos() {
         
         ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
-        
-        System.out.println("Qual é o seu CPF? ");
-        String cpfDesejado = in.nextLine();
-        boolean encontrado = false;
 
         if (candidatos.isEmpty()) { //Verifica se existe candidatos cadastrados no sistema
             System.out.println("Nenhum candidato foi cadastrado no sistema ainda.");
         } else {
             for (Candidato candidato : candidatos) {
-                if (candidato.getCpf().equals(cpfDesejado)) {// Verifica se o cpf informado é igual ao cpf que já está salvo no sistema
+                if (verificaCPF() == true) {// Chama a função que verifica se o cpf informado é igual ao cpf que já está salvo no sistema
                     System.out.println(candidato.toString()); // Imprime o toString da classe candidatos
-                    encontrado = true;
                     break; // Se encontrou, não precisa continuar procurando
                 }
-            }
-            if (!encontrado) { //Exibe uma mensagem caso o usuário não tenha sido encontrado no sistema
-                System.out.println("Nenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -109,6 +110,25 @@ public class Controler {
         return cnd;
     }
 
+    
+    public static boolean verificaCNPJ(){
+        ArrayList<Empresa> empresas = d.getEmpresa();
+        System.out.println("Para prosseguir primeiro insira o cnpj da empresa.\nQual é CNPJ da empresa?");
+        String cnpjDesejado = in.nextLine();
+        boolean encontrado = false;
+        
+        for(Empresa empresa : empresas){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
+                encontrado = true;
+                break;                
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
+        }
+        return encontrado;
+    }
+    
 
     public static void cadastrarEmpresa() {
         Empresa novaEmpresa = lerDadosEmpresa();
@@ -120,13 +140,9 @@ public class Controler {
     public static void editarCadastroEmpresa(){
 
         ArrayList<Empresa> empresas = d.getEmpresa();
-        
-        System.out.println("Para editar o cadastro da empresa primeiro insira o cnpj dela.\nQual é CNPJ da empresa?");
-        String cnpjDesejado = in.nextLine();
-        boolean encontrado = false;
 
         for(Empresa empresa : empresas){
-            if (empresa.getCnpj().equals(cnpjDesejado)) {
+            if (verificaCNPJ() == true) {
                 System.out.println("\nDigite os novos dados da empresa, " + empresa.getNome() + ":");
                 Empresa novosDados = lerDadosEmpresa();
                 empresa.setNome(novosDados.getNome());
@@ -137,36 +153,23 @@ public class Controler {
                 empresa.setAreaAtuacao(novosDados.getAreaAtuacao());
                 empresa.setCnpj(novosDados.getCnpj());
                 System.out.println("\nCandastro da empresa editado com sucesso!");
-                encontrado = true;
                 break;
             }
-        }
-
-        if (!encontrado) {
-            System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
         }
     }
 
     public static void imprimirEmpresas(){
         
         ArrayList<Empresa> empresas = d.getEmpresa();
-        
-        System.out.println("Qual é o CNPJ da empresa? ");
-        String cnpjDesejado = in.nextLine();
-        boolean encontrado = false;
 
         if (empresas.isEmpty()) {
             System.out.println("Nenhuma empresa foi cadastrada no sistema ainda.");
         } else {
             for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
+                if (verificaCNPJ() == true) {
                     System.out.println(empresa.toString());
-                    encontrado = true;
                     break; // Se encontrou, não precisa continuar procurando
                 }
-            }
-            if (!encontrado) {
-                System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
             }
         }
     }
@@ -202,36 +205,23 @@ public class Controler {
     }
 
     public static void cadastrarOfertaEmprego(){
-        ArrayList<Empresa> empresas = d.getEmpresa();        
-
-        System.out.println("Qual é o CNPJ da empresa? ");
-        String cnpjDesejado = in.nextLine();
-        boolean encontrado = false;        
+        ArrayList<Empresa> empresas = d.getEmpresa();              
         
         for(Empresa empresa : empresas){
-            if (empresa.getCnpj().equals(cnpjDesejado)) {
+            if (verificaCNPJ() == true) {
                 OfertaEmprego novaOfertaEmprego = lerDadosOfertaEmprego(); 
                 empresa.getOfertasOfertadas().add(novaOfertaEmprego);// Adicionando uma nova oferta de emprego no arrayList de ofertasOfertadas da empresa
                 System.out.println("Oferta criada com sucesso!");
-                encontrado = true;
                 break; // Se encontrou, não precisa continuar procurando
             }
-        }
-        if (!encontrado) {
-            System.out.println("Nenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }   
+        } 
     }
 
     public static void editarOfertaEmprego() {
         ArrayList<Empresa> empresas = d.getEmpresa();
 
-        System.out.println("Qual é o CNPJ da empresa? ");
-        
-        String cnpjDesejado = in.nextLine();
-        boolean encontrado = false;
-
         for (Empresa empresa : empresas) {
-            if (empresa.getCnpj().equals(cnpjDesejado)) {
+            if (verificaCNPJ() == true) {
                 // Verifica se a empresa tem ofertas de emprego
                 if (empresa.getOfertasOfertadas().isEmpty()) {
                     System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
@@ -276,26 +266,16 @@ public class Controler {
                         System.out.println("\nNúmero de oferta inválido.");
                     }
                 }
-                encontrado = true;
                 break; // Se encontrou a empresa, não precisa continuar procurando
             }
-        }
-
-        if (!encontrado) {
-            System.out.println("Não foi encontrada nenhuma empresa com esse CNPJ: " + cnpjDesejado);
         }
     }
 
     public static void apagarOfertaEmprego(){
         ArrayList<Empresa> empresas = d.getEmpresa();
 
-        System.out.println("Qual é o CNPJ da empresa? ");
-        
-        String cnpjDesejado = in.nextLine();
-        boolean encontrado = false;
-
         for (Empresa empresa : empresas) {
-            if (empresa.getCnpj().equals(cnpjDesejado)) {
+            if (verificaCNPJ() == true) {
                 if (empresa.getOfertasOfertadas().isEmpty()) {
                     System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
                 }else{
@@ -321,32 +301,21 @@ public class Controler {
                         System.out.println("\nNúmero de oferta inválido.");
                     }
                 }
-                encontrado = true;
                 break; // Se encontrou a empresa, não precisa continuar procurando
             }
         }
-
-        if (!encontrado) {
-            System.out.println("Não foi encontrada nenhuma empresa com esse CNPJ: " + cnpjDesejado);
-        }
-
     }
 
     public static void imprimirOfertasEmprego(){
         ArrayList<Empresa> empresas = d.getEmpresa();
-        
-        System.out.println("Qual é o CNPJ da empresa? ");
-        String cnpjDesejado = in.nextLine();
-        boolean encontrado = false;
 
         for (Empresa empresa : empresas) {
-            if (empresa.getCnpj().equals(cnpjDesejado)){
-                
+            if (verificaCNPJ() == true){                
                 // Verifica se a empresa tem ofertas de emprego
                 if (empresa.getOfertasOfertadas().isEmpty()) {
                     System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
                 } else {
-                    System.out.println("Ofertas de emprego para a empresa com CNPJ " + cnpjDesejado + ":");
+                    System.out.println("Ofertas de emprego para a empresa " + empresa.getNome() + ":");
                     // Imprime as ofertas de emprego
                     for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
                         int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
@@ -354,12 +323,8 @@ public class Controler {
                         System.out.println(empresa.getOfertasOfertadas().get(i).toString());
                     }
                 }
-                encontrado = true;
                 break; // Se encontrou a empresa, não precisa continuar procurando
             }
-        } 
-        if (!encontrado) {
-            System.out.println("Não foi encontrada nenhuma empresa com esse CNPJ: " + cnpjDesejado);
         }
     }
 
@@ -387,6 +352,4 @@ public class Controler {
         OfertaEmprego ofrtEmprego = new OfertaEmprego(salario, cargo, qntVagas, criadoEm, escolaridade, ativa);
         return ofrtEmprego;
     }
-    
-    
 }
