@@ -11,12 +11,6 @@ public class Controler {
     private static Scanner in = new Scanner(System.in);
     private static Dados d = new Dados();
 
-    public static void cadastrarCandidato(){
-        Candidato novoCandidato = lerDadosCandidato();
-        d.getCandidatosInscritos().add(novoCandidato);
-        System.out.println("Candidato cadastrado com sucesso!");
-    }
-
     public static boolean verificaCPF(){
         ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
         boolean encontrado = false;
@@ -33,6 +27,12 @@ public class Controler {
             System.out.println("\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
         return encontrado;
+    }
+
+    public static void cadastrarCandidato(){
+        Candidato novoCandidato = lerDadosCandidato();
+        d.getCandidatosInscritos().add(novoCandidato);
+        System.out.println("Candidato cadastrado com sucesso!");
     }
 
     public static void editarCadastroCandidato(){

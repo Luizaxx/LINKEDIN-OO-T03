@@ -98,6 +98,20 @@ public class Main {
                "8 - Tirar a sua inscrição de uma oferta de emprego";
     }
 
+    public static String imprimirMenuEditarCandidato(){
+        return
+        "Quais dos campos asseguir você deseja editar?\n" +
+        "1 - Nome\n" + 
+        "2 - Email\n" +
+        "3 - Data de nascimento\n" +
+        "4 - Endereço\n" +
+        "5 - Telefone\n" +
+        "6 - Área de atuação\n" +
+        "7 - CPF\n" +
+        "8 - Nível escolaridade\n" +
+        "9 - Instituição de ensino";
+    }
+
     public static boolean menuEmpresa() {
         boolean loopEmpresa = true;
 
@@ -153,5 +167,26 @@ public class Main {
                "6 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
                "7 - Editar uma oferta de emprego\n" + 
                "8 - Apagar uma oferta de emprego";
+    }
+
+    public static String imprimirMenurEditarEmpresa(){
+        return 
+        "Quais dos campos asseguir você deseja editar?\n" + 
+        "1 - Nome da empresa\n" + 
+        "2 - Email da empresa\n" +
+        "3 - Data de criação\n" +
+        "4 - Endereço da enpresa\n" +
+        "5 - Telefone\n" +
+        "6 - Área de atuação\n" +
+        "7 - O CNPJ da empresa";
+    }
+
+    public static String imprimirMenuEditarOfertaEMprego(){
+        return 
+        "Quai dos campos asseguir você deseja editar?\n" + 
+        "1 - Sálario\n" +
+        "2 - Cargo\n" +
+        "3 - Quantidade de vagas\n" +
+        "4 - Escolaridade";
     }
 }
