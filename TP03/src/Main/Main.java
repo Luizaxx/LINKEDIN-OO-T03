@@ -62,7 +62,7 @@ public class Main {
                     Controler.imprimirCandidatos();
                     break;
                 case 4:
-                    Controler.editarCadastroCandidato();
+                    loopCandidato = menuEditarCandidato();
                     break;
                 case 5:
                     System.out.println("Não temos essa opção ainda");
@@ -98,6 +98,51 @@ public class Main {
                "8 - Tirar a sua inscrição de uma oferta de emprego";
     }
 
+    public static boolean menuEditarCandidato(){
+        boolean loopEditarCandidato = true;
+
+        while (loopEditarCandidato) {
+            System.out.println(imprimirMenuEditarCandidato());
+            int op3 = in.nextInt();
+            switch (op3) {
+                case 0:
+                    loopEditarCandidato = false;
+                    break;
+                case 1:
+                    Controler.editarNomeCandidato();
+                    break;
+                case 2:
+                    Controler.editarEmailCandidato();
+                    break;
+                case 3:
+                    Controler.editarDataNascimentoCandidato();
+                    break;
+                case 4:
+                    Controler.editarEnderecoCandidato();
+                    break;
+                case 5:
+                    Controler.editarTelefoneCandidato();
+                    break;
+                case 6:
+                    Controler.editarAreaAtuacaoCandidato();
+                    break;
+                case 7:
+                    Controler.editarCpfCandidato();
+                    break;
+                case 8:
+                    Controler.editarNivelEscolaridadeCandidato();
+                    break;
+                case 9:
+                    Controler.editarInstituicaoCandidato();
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente!");
+                    break;
+            }
+        }
+        return true;
+    }
+
     public static String imprimirMenuEditarCandidato(){
         return
         "\nQuais dos campos asseguir você deseja editar?\n" +
@@ -109,7 +154,8 @@ public class Main {
         "6 - Área de atuação\n" +
         "7 - CPF\n" +
         "8 - Nível escolaridade\n" +
-        "9 - Instituição de ensino";
+        "9 - Instituição de ensino\n" +
+        "Caso deseje voltar para o menu anterior digite: 0";
     }
 
     public static boolean menuEmpresa() {
@@ -117,9 +163,9 @@ public class Main {
 
         while (loopEmpresa) {
             System.out.println(imprimirMenuEmpresa());
-            int op3 = in.nextInt();
+            int op4 = in.nextInt();
 
-            switch (op3) {
+            switch (op4) {
                 case 0:
                     System.out.println("Obrigada por utilizar o sistema. Até logo!");
                     return false;  // Sai do loop da empresa e, consequentemente, do loop principal
@@ -174,38 +220,31 @@ public class Main {
 
         while (loopEditarEmpresa) {
             System.out.println(imprimirMenurEditarEmpresa());
-            int op4 = in.nextInt();
-            switch (op4) {
+            int op5 = in.nextInt();
+            switch (op5) {
                 case 0:
                     loopEditarEmpresa = false;
                     break;
                 case 1:
                     Controler.editarNomeEmpresa();
-                    loopEditarEmpresa = false;
                     break;
                 case 2:
                     Controler.editarEmailEmpresa();
-                    loopEditarEmpresa = false;
                     break;
                 case 3:
                     Controler.editarDataCriacaoEmpresa();
-                    loopEditarEmpresa = false;
                     break;
                 case 4:
                     Controler.editarEnderecoEmpresa();
-                    loopEditarEmpresa = false;
                     break;
                 case 5:
                     Controler.editarTelefoneEmpresa();
-                    loopEditarEmpresa = false;
                     break;
                 case 6:                    
                     Controler.editarAreaAtuacaoEmpresa();
-                    loopEditarEmpresa = false;
                     break;
                 case 7:
                     Controler.editarCNPJEmpresa();
-                    loopEditarEmpresa = false;
                     break;                    
                 default:
                     System.out.println("Opção inválida. Tente novamente!");

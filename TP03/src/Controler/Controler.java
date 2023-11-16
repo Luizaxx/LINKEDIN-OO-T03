@@ -37,26 +37,123 @@ public class Controler {
         System.out.println("Candidato cadastrado com sucesso!");
     }
 
-    public static void editarCadastroCandidato(){
-        
+    public static void editarNomeCandidato(){
         for (Candidato candidato : candidatos){
             if (verificaCPF() == true){
-                System.out.println("\nDigite os novos dados para o candidato, "+ candidato.getNome() +":");
-                Candidato novosDados = lerDadosCandidato();
-                candidato.setNome(novosDados.getNome());
-                candidato.setEmail(novosDados.getEmail());
-                candidato.setDataNascimento(novosDados.getDataNascimento());
-                candidato.setEndereco(novosDados.getEndereco());
-                candidato.setTelefone(novosDados.getTelefone());
-                candidato.setAreaAtuacao(novosDados.getAreaAtuacao());
-                candidato.setCpf(novosDados.getCpf());
-                candidato.setNivelEscolaridade(novosDados.getNivelEscolaridade());
-                candidato.setInstituicao(novosDados.getInstituicao());
-                System.out.println("Casdrato do candidato editado com sucesso!");
+                System.out.println("\nAntigo nome cadastrado no seu cadastro: "+ candidato.getNome());
+                System.out.println("Digite o novo nome:");
+                String novoNome = in.nextLine();
+                candidato.setNome(novoNome);
+                System.out.println("Nome editado com sucesso!");
                 break;
             }
         }
     }
+
+    public static void editarEmailCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntigo email cadastrado no seu cadastro: "+ candidato.getEmail());
+                System.out.println("Digite o novo email:");
+                String novoEmail = in.nextLine();
+                candidato.setEmail(novoEmail);
+                System.out.println("Email editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarDataNascimentoCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntiga data de nascimento cadastrado no seu cadastro: "+ candidato.getDataNascimento());
+                System.out.println("Digite a nova data de nascimento:");
+                String novaDataNascimento = in.nextLine();
+                candidato.setDataNascimento(novaDataNascimento);
+                System.out.println("Data de nascimento editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarEnderecoCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntigo endereço cadastrado no seu cadastro: "+ candidato.getEndereco());
+                System.out.println("Digite o novo endereço:");
+                String novoEndereco = in.nextLine();
+                candidato.setEndereco(novoEndereco);
+                System.out.println("Endereço editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarTelefoneCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntigo telefone cadastrado no seu cadastro: "+ candidato.getTelefone());
+                System.out.println("Digite o novo telefone:");
+                String novoTelefone = in.nextLine();
+                candidato.setTelefone(novoTelefone);
+                System.out.println("Telefone editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarAreaAtuacaoCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntiga área de atuação cadastrado no seu cadastro: "+ candidato.getAreaAtuacao());
+                System.out.println("Digite a nova área de atuação:");
+                String novaAreaAtuacao = in.nextLine();
+                candidato.setAreaAtuacao(novaAreaAtuacao);
+                System.out.println("Área de atuação editada com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarCpfCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntigo CPF cadastrado no seu cadastro: "+ candidato.getCpf());
+                System.out.println("Digite o novo CPF:");
+                String novoCPF = in.nextLine();
+                candidato.setCpf(novoCPF);
+                System.out.println("CPF editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarNivelEscolaridadeCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntigo nível de escolaridade cadastrado no seu cadastro: "+ candidato.getNivelEscolaridade());
+                System.out.println("Digite o novo nível de escolaridade:");
+                String novoNivelEscolaridade = in.nextLine();
+                candidato.setNivelEscolaridade(novoNivelEscolaridade);
+                System.out.println("Nível de escolaridade editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarInstituicaoCandidato(){
+        for (Candidato candidato : candidatos){
+            if (verificaCPF() == true){
+                System.out.println("\nAntiga instituiçã cadastradá no seu cadastro: "+ candidato.getInstituicao());
+                System.out.println("Digite o novo nome da instituição:");
+                String novaInstituicao = in.nextLine();
+                candidato.setInstituicao(novaInstituicao);
+                System.out.println("Nome da instituição editada com sucesso!");
+                break;
+            }
+        }
+    }
+    
 
     public static void imprimirCandidatos() {
 
@@ -151,7 +248,7 @@ public class Controler {
 
         for(Empresa empresa : empresas){
             if (verificaCNPJ() == true){
-                System.out.println("\nEmail antes colocado para essa empresa:\n" + empresa.getEmail());
+                System.out.println("\nEmail antes colocado para essa empresa: " + empresa.getEmail());
                 System.out.println("Digite o novo email para essa empresa:");
                 String novoEmail = in.nextLine();
                 empresa.setEmail(novoEmail);
@@ -165,7 +262,7 @@ public class Controler {
 
         for(Empresa empresa : empresas){
             if (verificaCNPJ() == true){
-                System.out.println("\nData de criação antes colocado para essa empresa:\n" + empresa.getDataNascimento());
+                System.out.println("\nData de criação antes colocado para essa empresa: " + empresa.getDataNascimento());
                 System.out.println("Digite a nova data de nascimento para essa empresa:");
                 String novaDataCriacao = in.nextLine();
                 empresa.setDataNascimento(novaDataCriacao);
@@ -179,7 +276,7 @@ public class Controler {
 
         for(Empresa empresa : empresas){
             if (verificaCNPJ() == true){
-                System.out.println("\nEndereço antes colocado para essa empresa:\n" + empresa.getEndereco());
+                System.out.println("\nEndereço antes colocado para essa empresa: " + empresa.getEndereco());
                 System.out.println("Digite o novo endereço para essa empresa:");
                 String novoEndereco = in.nextLine();
                 empresa.setEndereco(novoEndereco);
@@ -193,7 +290,7 @@ public class Controler {
 
         for(Empresa empresa : empresas){
             if (verificaCNPJ() == true){
-                System.out.println("\nTelefone antes colocado para essa empresa:\n" + empresa.getTelefone());
+                System.out.println("\nTelefone antes colocado para essa empresa: " + empresa.getTelefone());
                 System.out.println("Digite o novo telefone para essa empresa:");
                 String novoTelefone = in.nextLine();
                 empresa.setTelefone(novoTelefone);
@@ -207,7 +304,7 @@ public class Controler {
 
         for(Empresa empresa : empresas){
             if (verificaCNPJ() == true){
-                System.out.println("\nÁrea de atuação antes colocado para essa empresa:\n" + empresa.getAreaAtuacao());
+                System.out.println("\nÁrea de atuação antes colocado para essa empresa: " + empresa.getAreaAtuacao());
                 System.out.println("Digite a nova área de atuação para essa empresa:");
                 String novaAreaAtuacao = in.nextLine();
                 empresa.setAreaAtuacao(novaAreaAtuacao);
