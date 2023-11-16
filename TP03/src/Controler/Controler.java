@@ -11,9 +11,11 @@ public class Controler {
     private static Scanner in = new Scanner(System.in);
     private static Dados d = new Dados();
 
+    static ArrayList<Empresa> empresas = d.getEmpresa();
+    static ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
+
     public static boolean verificaCPF(){
-        ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
-        boolean encontrado = false;
+      boolean encontrado = false;
         System.out.println("Qual é o seu CPF? ");
         String cpfDesejado = in.nextLine();
         
@@ -37,8 +39,6 @@ public class Controler {
 
     public static void editarCadastroCandidato(){
         
-        ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
-        
         for (Candidato candidato : candidatos){
             if (verificaCPF() == true){
                 System.out.println("\nDigite os novos dados para o candidato, "+ candidato.getNome() +":");
@@ -59,8 +59,6 @@ public class Controler {
     }
 
     public static void imprimirCandidatos() {
-        
-        ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
 
         if (candidatos.isEmpty()) { //Verifica se existe candidatos cadastrados no sistema
             System.out.println("Nenhum candidato foi cadastrado no sistema ainda.");
@@ -112,7 +110,6 @@ public class Controler {
 
     
     public static boolean verificaCNPJ(){
-        ArrayList<Empresa> empresas = d.getEmpresa();
         System.out.println("Para prosseguir primeiro insira o cnpj da empresa.\nQual é CNPJ da empresa?");
         String cnpjDesejado = in.nextLine();
         boolean encontrado = false;
@@ -135,32 +132,106 @@ public class Controler {
         d.getEmpresa().add(novaEmpresa);
         System.out.println("Empresa cadastrada com sucesso!");
     }
-
-
-    public static void editarCadastroEmpresa(){
-
-        ArrayList<Empresa> empresas = d.getEmpresa();
+    
+    public static void editarNomeEmpresa(){       
 
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true) {
-                System.out.println("\nDigite os novos dados da empresa, " + empresa.getNome() + ":");
-                Empresa novosDados = lerDadosEmpresa();
-                empresa.setNome(novosDados.getNome());
-                empresa.setEmail(novosDados.getEmail());
-                empresa.setDataNascimento(novosDados.getDataNascimento());
-                empresa.setEndereco(novosDados.getEndereco());
-                empresa.setTelefone(novosDados.getTelefone());
-                empresa.setAreaAtuacao(novosDados.getAreaAtuacao());
-                empresa.setCnpj(novosDados.getCnpj());
-                System.out.println("\nCandastro da empresa editado com sucesso!");
+            if (verificaCNPJ() == true){
+                System.out.println("\nNome antes colocado para essa empresa: " + empresa.getNome() + ".");
+                System.out.println("Digite o novo nome para essa empresa:");
+                String novoNome = in.nextLine();
+                empresa.setNome(novoNome);
+                System.out.println("Nome editado com sucesso!");
+                break;
+            }
+        }
+    }
+ 
+    public static void editarEmailEmpresa(){       
+
+        for(Empresa empresa : empresas){
+            if (verificaCNPJ() == true){
+                System.out.println("\nEmail antes colocado para essa empresa:\n" + empresa.getEmail());
+                System.out.println("Digite o novo email para essa empresa:");
+                String novoEmail = in.nextLine();
+                empresa.setEmail(novoEmail);
+                System.out.println("Email editado com sucesso!");
                 break;
             }
         }
     }
 
+    public static void editarDataCriacaoEmpresa(){       
+
+        for(Empresa empresa : empresas){
+            if (verificaCNPJ() == true){
+                System.out.println("\nData de criação antes colocado para essa empresa:\n" + empresa.getDataNascimento());
+                System.out.println("Digite a nova data de nascimento para essa empresa:");
+                String novaDataCriacao = in.nextLine();
+                empresa.setDataNascimento(novaDataCriacao);
+                System.out.println("Data de criação editada com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarEnderecoEmpresa(){       
+
+        for(Empresa empresa : empresas){
+            if (verificaCNPJ() == true){
+                System.out.println("\nEndereço antes colocado para essa empresa:\n" + empresa.getEndereco());
+                System.out.println("Digite o novo endereço para essa empresa:");
+                String novoEndereco = in.nextLine();
+                empresa.setEndereco(novoEndereco);
+                System.out.println("Endereço editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarTelefoneEmpresa(){       
+
+        for(Empresa empresa : empresas){
+            if (verificaCNPJ() == true){
+                System.out.println("\nTelefone antes colocado para essa empresa:\n" + empresa.getTelefone());
+                System.out.println("Digite o novo telefone para essa empresa:");
+                String novoTelefone = in.nextLine();
+                empresa.setTelefone(novoTelefone);
+                System.out.println("Telefone editado com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarAreaAtuacaoEmpresa(){       
+
+        for(Empresa empresa : empresas){
+            if (verificaCNPJ() == true){
+                System.out.println("\nÁrea de atuação antes colocado para essa empresa:\n" + empresa.getAreaAtuacao());
+                System.out.println("Digite a nova área de atuação para essa empresa:");
+                String novaAreaAtuacao = in.nextLine();
+                empresa.setAreaAtuacao(novaAreaAtuacao);
+                System.out.println("Área de atuação editada com sucesso!");
+                break;
+            }
+        }
+    }
+
+    public static void editarCNPJEmpresa(){       
+
+        for(Empresa empresa : empresas){
+            if (verificaCNPJ() == true){
+                System.out.println("\nCNPJ antes colocado para essa empresa: " + empresa.getCnpj());
+                System.out.println("Digite o novo CNPJ para essa empresa:");
+                String novoCNPJ = in.nextLine();
+                empresa.setCnpj(novoCNPJ);
+                System.out.println("CNPJ editado com sucesso!");
+                break;
+            }
+        }
+    }    
+
     public static void imprimirEmpresas(){
-        
-        ArrayList<Empresa> empresas = d.getEmpresa();
 
         if (empresas.isEmpty()) {
             System.out.println("Nenhuma empresa foi cadastrada no sistema ainda.");
@@ -204,9 +275,7 @@ public class Controler {
        return y;
     }
 
-    public static void cadastrarOfertaEmprego(){
-        ArrayList<Empresa> empresas = d.getEmpresa();              
-        
+    public static void cadastrarOfertaEmprego(){          
         for(Empresa empresa : empresas){
             if (verificaCNPJ() == true) {
                 OfertaEmprego novaOfertaEmprego = lerDadosOfertaEmprego(); 
@@ -218,7 +287,6 @@ public class Controler {
     }
 
     public static void editarOfertaEmprego() {
-        ArrayList<Empresa> empresas = d.getEmpresa();
 
         for (Empresa empresa : empresas) {
             if (verificaCNPJ() == true) {
@@ -272,7 +340,6 @@ public class Controler {
     }
 
     public static void apagarOfertaEmprego(){
-        ArrayList<Empresa> empresas = d.getEmpresa();
 
         for (Empresa empresa : empresas) {
             if (verificaCNPJ() == true) {
@@ -307,7 +374,6 @@ public class Controler {
     }
 
     public static void imprimirOfertasEmprego(){
-        ArrayList<Empresa> empresas = d.getEmpresa();
 
         for (Empresa empresa : empresas) {
             if (verificaCNPJ() == true){                
