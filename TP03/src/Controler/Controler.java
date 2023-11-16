@@ -117,95 +117,75 @@ public class Controler {
             }
         }
     }
+
     public static void filtrarOfertasEmpregoTecnologia(){
        for(Empresa empresa : empresas){
-        if (empresa.getAreaAtuacao() == "Tecnologia") {
-            if (empresa.getOfertasOfertadas().isEmpty()) {
-                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
-                } else {
-                    System.out.println("Ofertas de emprego para a empresa " + empresa.getNome() + ":");
-                    // Imprime as ofertas de emprego
-                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
-                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
-                        System.out.println("\nOferta número: " + numeroOferta);
-                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
-                    }
+            if ("Tecnologia".equals(empresa.getAreaAtuacao())) {
+                System.out.println("\nOfertas de emprego da área de Tecnologia da empresa " + empresa.getNome() + ":");
+                // Imprime as ofertas de emprego
+                for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                    int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                    System.out.println("\nOferta número: " + numeroOferta);
+                    System.out.println(empresa.getOfertasOfertadas().get(i).toString());
                 }
-                break; // Se encontrou a empresa, não precisa continuar procurando
+            }
         }
-       }
     }
+
     public static void filtrarOfertasEmpregoVendas(){
        for(Empresa empresa : empresas){
-        if (empresa.getAreaAtuacao() == "Vendas") {
-            if (empresa.getOfertasOfertadas().isEmpty()) {
-                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
-                } else {
-                    System.out.println("Ofertas de emprego para a empresa " + empresa.getNome() + ":");
-                    // Imprime as ofertas de emprego
-                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
-                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
-                        System.out.println("\nOferta número: " + numeroOferta);
-                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
-                    }
-                }
-                break; // Se encontrou a empresa, não precisa continuar procurando
+            if ("Vendas".equals(empresa.getAreaAtuacao())){
+                System.out.println("\nOfertas de emprego da área de Vendas da empresa " + empresa.getNome() + ":");
+                // Imprime as ofertas de emprego
+                for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                    int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                    System.out.println("\nOferta número: " + numeroOferta);
+                    System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                }   
+            }
         }
-       }
     }
+
     public static void filtrarOfertasEmpregoAlimentos(){
        for(Empresa empresa : empresas){
-        if (empresa.getAreaAtuacao() == "Alimentos") {
-            if (empresa.getOfertasOfertadas().isEmpty()) {
-                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
-                } else {
-                    System.out.println("Ofertas de emprego para a empresa " + empresa.getNome() + ":");
-                    // Imprime as ofertas de emprego
-                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
-                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
-                        System.out.println("\nOferta número: " + numeroOferta);
-                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
-                    }
-                }
-                break; // Se encontrou a empresa, não precisa continuar procurando
+            if ("Alimentos".equals(empresa.getAreaAtuacao())){
+                System.out.println("\nOfertas de emprego da área de Alimentícia a empresa " + empresa.getNome() + ":");
+                // Imprime as ofertas de emprego
+                for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                    int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                    System.out.println("\nOferta número: " + numeroOferta);
+                    System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                }      
+            }
         }
-       }
     }
+
     public static void filtrarOfertasEmpregoHospitalar(){
        for(Empresa empresa : empresas){
-        if (empresa.getAreaAtuacao() == "Hospitalar") {
-            if (empresa.getOfertasOfertadas().isEmpty()) {
-                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
-                } else {
-                    System.out.println("Ofertas de emprego para a empresa " + empresa.getNome() + ":");
-                    // Imprime as ofertas de emprego
-                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
-                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
-                        System.out.println("\nOferta número: " + numeroOferta);
-                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
-                    }
-                }
-                break; // Se encontrou a empresa, não precisa continuar procurando
+            if ("Hospitalar".equals(empresa.getAreaAtuacao())) {
+                System.out.println("\nOfertas de emprego da área Hospitalar da empresa " + empresa.getNome() + ":");
+                // Imprime as ofertas de emprego
+                for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                    int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                    System.out.println("\nOferta número: " + numeroOferta);
+                    System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                }      
+            }
         }
-       }
     }
+
     public static void filtrarOfertasEmpregoEducacao(){
        for(Empresa empresa : empresas){
-        if (empresa.getAreaAtuacao() == "Educação") {
-            if (empresa.getOfertasOfertadas().isEmpty()) {
-                    System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
-                } else {
-                    System.out.println("Ofertas de emprego para a empresa " + empresa.getNome() + ":");
-                    // Imprime as ofertas de emprego
-                    for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
-                        int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
-                        System.out.println("\nOferta número: " + numeroOferta);
-                        System.out.println(empresa.getOfertasOfertadas().get(i).toString());
-                    }
-                }
-                break; // Se encontrou a empresa, não precisa continuar procurando
+            if ("Educação".equals(empresa.getAreaAtuacao())){
+                System.out.println("\nOfertas de emprego da área de educação da empresa " + empresa.getNome() + ":");
+                // Imprime as ofertas de emprego
+                for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                    int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                    System.out.println("\nOferta número: " + numeroOferta);
+                    System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                }         
+            }
         }
-       }
     }
 
     public static void editarCpfCandidato(){

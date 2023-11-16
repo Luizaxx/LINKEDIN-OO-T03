@@ -264,7 +264,7 @@ public class Main {
         "5 - Telefone\n" +
         "6 - Área de atuação\n" +
         "7 - O CNPJ\n" +
-        "Caso deseje voltar para o menu anterior digite: 0";
+        "Digite 0 para voltar ao menu anterior";
     }
 
     public static String imprimirMenuEditarOfertaEMprego(){
@@ -309,13 +309,12 @@ public class Main {
 
     public static String imprimirMenuFiltroOfertasEmprego(){
         return
-        "\n" + 
-        "Escolha o filtro desejado\n" + 
+        "\nEscolha um dos filtro desejados para visualizar as ofertas de emprego por área de atuação:\n" + 
         "1 - Tecnologia\n" + 
         "2 - Vendas\n" + 
         "3 - Hospitalar\n" + 
         "4 - Educação\n" + 
-        "5 - Alimentos\n" + //
+        "5 - Alimentos\n" +
         "Digite 0 para voltar ao menu anterior";
     }
 }
