@@ -7,15 +7,16 @@ import Model.*;
 public class Dados {
 
     private static ArrayList<Candidato> candidatosInscritos;
+    private static ArrayList<OfertaEmprego> ofertasInscritas;
     private static ArrayList<Empresa> empresas;
     
     static{
         candidatosInscritos = new ArrayList<>();
+        ofertasInscritas = new ArrayList<>();
         empresas = new ArrayList<>();
         addEmpresasPredefinidas();
         addCandidatosPredefinidos();
     }
-
     
     public static ArrayList<Candidato> getCandidatosInscritos() {
         return candidatosInscritos;
@@ -23,6 +24,14 @@ public class Dados {
 
     public static ArrayList<Empresa> getEmpresas() {
         return empresas;
+    }
+
+    public static void setEmpresas(ArrayList<Empresa> empresas) {
+        Dados.empresas = empresas;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasInscritas() {
+        return ofertasInscritas;
     }
 
     public static void addEmpresasPredefinidas(){
@@ -198,7 +207,9 @@ public class Dados {
             "123.456.789-89", 
             "Nível superior", 
             "UnB Gama - FGA", 
-            null);
+            new ArrayList<OfertaEmprego>());
+
+            Gabriel.adicionarOfertaEmprego(null);
 
         candidatosInscritos.add(Gabriel);
         
@@ -212,7 +223,7 @@ public class Dados {
             "789.456.123-23",
             "Nível superior",
             "UnB Gama - FGA",
-            null);
+            new ArrayList<OfertaEmprego>());
 
         candidatosInscritos.add(Ian);
 
@@ -226,7 +237,7 @@ public class Dados {
             "147.258.369-69", 
             "Nível superior", 
             "UnB Gama - FGA", 
-            null);            
+            new ArrayList<OfertaEmprego>());            
         
         candidatosInscritos.add(Luiza);
 
@@ -240,12 +251,9 @@ public class Dados {
             "147.258.369.77", 
             "Nivel superior",
             "UnB GGama - FGA",
-            null);
+            new ArrayList<OfertaEmprego>());
             
         candidatosInscritos.add(Rafael);
     }
 
-    public static void setEmpresas(ArrayList<Empresa> empresas) {
-        Dados.empresas = empresas;
-    }
 }

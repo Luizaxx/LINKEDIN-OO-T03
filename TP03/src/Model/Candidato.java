@@ -19,6 +19,13 @@ public class Candidato extends Usuario{
 		this.ofertasInscritas = ofertasInscritas;
 	}
 
+	public void adicionarOfertaEmprego(OfertaEmprego oferta){
+		if (ofertasInscritas == null) {
+			ofertasInscritas = new ArrayList<>();
+		}
+		ofertasInscritas.add(oferta);
+	}
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -59,6 +66,4 @@ public class Candidato extends Usuario{
 				"\nInstituição: " + instituicao + "\n" +
 				"\nOfertas inscritas: " + ofertasInscritas;
 	}
-
-	
 }

@@ -13,6 +13,7 @@ public class CandidatoControler {
 
     static ArrayList<Empresa> empresas = Dados.getEmpresas();
     static ArrayList<Candidato> candidatos = Dados.getCandidatosInscritos();
+    static ArrayList<OfertaEmprego> ofertasInscritas = Dados.getOfertasInscritas();
 
     public static String CPF(){        
         System.out.println("Qual é o seu CPF? ");
@@ -257,6 +258,23 @@ public class CandidatoControler {
         }
     }
 
+    public static void imprimirOfertasEmpregoSemFiltro(){
+        for(Empresa empresa : empresas){
+            if ((empresa.getAreaAtuacao() != "Educação") && (empresa.getAreaAtuacao() != "Hospitalar") && (empresa.getAreaAtuacao() != "Alimentos") && (empresa.getAreaAtuacao() != "Vendas") && (empresa.getAreaAtuacao() != "Tecnologia")){
+                System.out.println("\nOfertas de emprego da área de educação da empresa " + empresa.getNome() + ":");
+                // Imprime as ofertas de emprego
+                for (int i = 0; i < empresa.getOfertasOfertadas().size(); i++) {
+                    int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                    System.out.println("\nOferta número: " + numeroOferta);
+                    System.out.println(empresa.getOfertasOfertadas().get(i).toString());
+                }         
+            }else{
+                System.out.println("Não temos nenhuma oferta de emprego que abrange outras áreas de atuação.");
+                break;
+            }
+        }
+    }
+
     public static void imprimirCandidatos() {
 
         String cpfDesejado = CPF();
@@ -275,6 +293,35 @@ public class CandidatoControler {
             }
         }
     }
+
+    
+    public static void imprimirOfertasEmpregoInscritas(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){     
+            for (Candidato candidato : candidatos) {
+                if (candidato.getCpf().equals(cpfDesejado)) {           
+                    // Verifica se a empresa tem ofertas de emprego
+                    if (ofertasInscritas.isEmpty()) {
+                        System.out.println("O candidato não tem nenhuma oferta de emprego inscrita ainda.");
+                    } else {
+                        System.out.println("Ofertas de emprego inscritas\nEmpresa: " + candidato.getNome() + ":");
+                        // Imprime as ofertas de emprego
+                        // for (int i = 0; i < candidato.getOfertasInscritas().size(); i++) {
+                        //     int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+                        //     System.out.println("\nOferta número: " + numeroOferta);
+                        //     System.out.println(candidato.getOfertasInscritas().get(i).toString());
+                        // }
+                        System.out.println("Ofertas Inscritas:");
+                        for (OfertaEmprego oferta : ofertasInscritas) {
+                            System.out.println(oferta);
+                        }
+                    }
+                    break; // Se encontrou a empresa, não precisa continuar procurando
+                }
+            }
+        }
+    }
+     
 
     public static Candidato lerDadosCandidato(){
         String nome;
@@ -306,10 +353,58 @@ public class CandidatoControler {
         nivelEscolaridade = in.nextLine();
         System.out.println("Qual o nome da instituição? ");
         instituicao = in.nextLine();
-        ofertasInscritas = null;
 
         Candidato cnd = new Candidato(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cpf, nivelEscolaridade, instituicao, ofertasInscritas);
         return cnd;
+    }
+
+    public static void verOfertasDisponiveisTecnologia() {
+
+        System.out.println("Ofertas Disponíveis:");
+        int i = 1;
+        
+        for (Empresa empresa : empresas) {
+            if ("Tecnologia".equals(empresa.getAreaAtuacao())) {
+                for (OfertaEmprego oferta : empresa.getOfertasOfertadas()) {
+                    System.out.println(i + ". " + oferta);
+                    i++;
+                }
+            }
+        }
+
+        System.out.println("Escolha o número da oferta que deseja se inscrever (ou 0 para sair): ");
+        int escolha = in.nextInt();
+        in.nextLine(); // Limpar o buffer do scanner
+
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){ 
+            if (escolha > 0 && escolha <= i) {
+                
+                for (Candidato candidato : candidatos){
+                    if (candidato.getCpf().equals(cpfDesejado)) {
+                        OfertaEmprego ofertaEscolhida = obterOfertaPeloIndice(escolha);
+                        candidato.adicionarOfertaEmprego(ofertaEscolhida);
+                        System.out.println("Inscrição realizada com sucesso!");
+                    break;
+                    }
+                }
+            } else {
+                System.out.println("Escolha inválida. Nenhuma inscrição realizada.");
+            }
+        }
+    }
+
+    private static OfertaEmprego obterOfertaPeloIndice(int indice) {
+        int i = 1;
+        for (Empresa empresa : empresas) {
+            for (OfertaEmprego oferta : empresa.getOfertasOfertadas()) {
+                if (i == indice) {
+                    return oferta;
+                }
+                i++;
+            }
+        }
+        return null;
     }
 
 }

@@ -2,6 +2,7 @@ package Main;
 
 import java.util.Scanner;
 
+import Controler.CandidatoControler;
 import Controler.Controler;
 import Controler.EmpresaControler;
 import Controler.OfertaEmpregoControler;
@@ -58,10 +59,10 @@ public class Main {
                     loopCandidato = false;  // Sai do loop do candidato, mas continua no loop principal
                     break;
                 case 2:
-                    Controler.cadastrarCandidato();
+                    CandidatoControler.cadastrarCandidato();
                     break;
                 case 3:
-                    Controler.imprimirCandidatos();
+                    CandidatoControler.imprimirCandidatos();
                     break;
                 case 4:
                     loopCandidato = menuEditarCandidato();
@@ -70,10 +71,11 @@ public class Main {
                     loopCandidato = menuFiltroOfertasEmprego();
                     break;
                 case 6:
-                    System.out.println("Não temos essa opção ainda");
+                    loopCandidato = menuInscreverOfertaEmprego();
+                    //CandidatoControler.verOfertasDisponiveis(null);
                     break;
                 case 7:
-                    System.out.println("Não temos essa opção ainda");
+                    CandidatoControler.imprimirOfertasEmpregoInscritas();
                     break;
                 case 8:
                     System.out.println("Não temos essa opção ainda");
@@ -111,31 +113,31 @@ public class Main {
                     loopEditarCandidato = false;
                     break;
                 case 1:
-                    Controler.editarNomeCandidato();
+                    CandidatoControler.editarNomeCandidato();
                     break;
                 case 2:
-                    Controler.editarEmailCandidato();
+                    CandidatoControler.editarEmailCandidato();
                     break;
                 case 3:
-                    Controler.editarDataNascimentoCandidato();
+                    CandidatoControler.editarDataNascimentoCandidato();
                     break;
                 case 4:
-                    Controler.editarEnderecoCandidato();
+                    CandidatoControler.editarEnderecoCandidato();
                     break;
                 case 5:
-                    Controler.editarTelefoneCandidato();
+                    CandidatoControler.editarTelefoneCandidato();
                     break;
                 case 6:
-                    Controler.editarAreaAtuacaoCandidato();
+                    CandidatoControler.editarAreaAtuacaoCandidato();
                     break;
                 case 7:
-                    Controler.editarCpfCandidato();
+                    CandidatoControler.editarCpfCandidato();
                     break;
                 case 8:
-                    Controler.editarNivelEscolaridadeCandidato();
+                    CandidatoControler.editarNivelEscolaridadeCandidato();
                     break;
                 case 9:
-                    Controler.editarInstituicaoCandidato();
+                    CandidatoControler.editarInstituicaoCandidato();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
@@ -190,8 +192,7 @@ public class Main {
                     OfertaEmpregoControler.imprimirOfertasEmprego();
                     break;
                 case 7:
-                    //OfertaEmpregoControler.editarOfertaEmprego();
-                    OfertaEmpregoControler.editarOfertaEmprego();
+                    loopEmpresa = menuEditarOfertaEmprego();
                     break;
                 case 8:
                     OfertaEmpregoControler.apagarOfertaEmprego();
@@ -270,13 +271,43 @@ public class Main {
         "Digite 0 para voltar ao menu anterior";
     }
 
+    public static boolean menuEditarOfertaEmprego(){
+        boolean loopEditarOfertaEmprego = true; 
+
+        while (loopEditarOfertaEmprego) {
+            System.out.println(imprimirMenuEditarOfertaEMprego());
+            int op7 = in.nextInt();
+            switch (op7) {
+                case 0:
+                    loopEditarOfertaEmprego = false;
+                    break;
+                case 1:
+                    OfertaEmpregoControler.editarOfertaEmpregoSalario();
+                    break;
+                case 2:
+                    OfertaEmpregoControler.editarOfertaEmpregoCargo();
+                    break;
+                case 3:
+                    OfertaEmpregoControler.editarOfertaEmpregoQntdVagas();
+                    break;
+                case 4:
+                    OfertaEmpregoControler.editarOfertaEmpregoEscolaridade();
+                    break;
+                default:
+                    break;
+            }
+        }
+        return true;
+    }
+
     public static String imprimirMenuEditarOfertaEMprego(){
         return 
         "\nQuais dos campos a seguir da oferta de emprego você deseja editar?\n" + 
         "1 - Sálario\n" +
         "2 - Cargo\n" +
         "3 - Quantidade de vagas\n" +
-        "4 - Escolaridade";
+        "4 - Escolaridade\n" +
+        "Digite 0 para voltar ao menu anterior";
     }
 
     public static boolean menuFiltroOfertasEmprego(){
@@ -290,19 +321,22 @@ public class Main {
                     filtrarOfertasEmprego = false;
                     break;
                 case 1:
-                    Controler.filtrarOfertasEmpregoTecnologia();
+                    CandidatoControler.filtrarOfertasEmpregoTecnologia();
                     break;
                 case 2:
-                    Controler.filtrarOfertasEmpregoVendas();
+                    CandidatoControler.filtrarOfertasEmpregoVendas();
                     break;
                 case 3:
-                    Controler.filtrarOfertasEmpregoHospitalar();
+                    CandidatoControler.filtrarOfertasEmpregoHospitalar();
                     break;
                 case 4:
-                    Controler.filtrarOfertasEmpregoEducacao();
+                    CandidatoControler.filtrarOfertasEmpregoEducacao();
                     break;
                 case 5:
-                    Controler.filtrarOfertasEmpregoAlimentos();
+                    CandidatoControler.filtrarOfertasEmpregoAlimentos();
+                    break;
+                case 6:
+                    CandidatoControler.imprimirOfertasEmpregoSemFiltro();
                     break;
                 default:
                     break;
@@ -313,12 +347,61 @@ public class Main {
 
     public static String imprimirMenuFiltroOfertasEmprego(){
         return
-        "\nEscolha um dos filtro desejados para visualizar as ofertas de emprego por área de atuação:\n" + 
+        "\nEscolha um dos filtro desejados para visualizar as ofertas de emprego por área de atuação das empresas:\n" + 
         "1 - Tecnologia\n" + 
         "2 - Vendas\n" + 
         "3 - Hospitalar\n" + 
         "4 - Educação\n" + 
         "5 - Alimentos\n" +
+        "6 - Área não especificada acima\n" +
+        "Digite 0 para voltar ao menu anterior";
+    }
+
+    public static boolean menuInscreverOfertaEmprego(){
+        boolean filtrarOfertasEmprego = true;
+
+        while (filtrarOfertasEmprego) {
+            System.out.println(imprimirMenuInscreverOfertasEmprego());
+            int op6 = in.nextInt();
+            switch (op6) {
+                case 0:
+                    filtrarOfertasEmprego = false;
+                    break;
+                case 1:
+                    CandidatoControler.verOfertasDisponiveisTecnologia();
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    
+                    break;
+                case 5:
+                   
+                    break;
+                case 6:
+                   
+                    break;
+                default:
+                    break;
+            }
+        }
+        return true;
+    }
+
+    public static String imprimirMenuInscreverOfertasEmprego(){
+        return
+        "\nPara se inscrever:" +
+        "\nEscolha um dos filtro desejados para visualizar as ofertas de emprego por área de atuação das empresas:\n" + 
+        "1 - Tecnologia\n" + 
+        "2 - Vendas\n" + 
+        "3 - Hospitalar\n" + 
+        "4 - Educação\n" + 
+        "5 - Alimentos\n" +
+        "6 - Área não especificada acima\n" +
         "Digite 0 para voltar ao menu anterior";
     }
 }
