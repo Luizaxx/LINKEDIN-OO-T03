@@ -9,7 +9,6 @@ import Model.*;
 public class Controler {
 
     private static Scanner in = new Scanner(System.in);
-    private static Dados d = new Dados();
 
     static ArrayList<Empresa> empresas = Dados.getEmpresas();
     static ArrayList<Candidato> candidatos = Dados.getCandidatosInscritos();
@@ -39,7 +38,7 @@ public class Controler {
 
     public static void cadastrarCandidato(){
         Candidato novoCandidato = lerDadosCandidato();
-        d.getCandidatosInscritos().add(novoCandidato);
+        Dados.getCandidatosInscritos().add(novoCandidato);
         System.out.println("Candidato cadastrado com sucesso!");
     }
 
@@ -187,7 +186,6 @@ public class Controler {
             }
         }
     }
-    
 
     public static void filtrarOfertasEmpregoTecnologia(){
        for(Empresa empresa : empresas){
