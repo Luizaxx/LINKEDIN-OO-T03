@@ -14,11 +14,16 @@ public class Controler {
     static ArrayList<Empresa> empresas = d.getEmpresa();
     static ArrayList<Candidato> candidatos = d.getCandidatosInscritos();
 
-
-    public static boolean verificaCPF(){
-      boolean encontrado = false;
+    public static String CPF(){        
         System.out.println("Qual é o seu CPF? ");
         String cpfDesejado = in.nextLine();
+        return cpfDesejado;
+    }
+
+
+    public static boolean verificaCPF(String cpfDesejado){
+        
+        boolean encontrado = false;
         
         for (Candidato candidato : candidatos){
             if (candidato.getCpf().equals(cpfDesejado)) {
@@ -39,8 +44,11 @@ public class Controler {
     }
 
     public static void editarNomeCandidato(){
+
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntigo nome cadastrado no seu cadastro: "+ candidato.getNome());
                 System.out.println("Digite o novo nome:");
                 String novoNome = in.nextLine();
@@ -50,12 +58,15 @@ public class Controler {
             }
         }
     }
+    }
 
 
 
     public static void editarEmailCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntigo email cadastrado no seu cadastro: "+ candidato.getEmail());
                 System.out.println("Digite o novo email:");
                 String novoEmail = in.nextLine();
@@ -65,10 +76,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarDataNascimentoCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntiga data de nascimento cadastrado no seu cadastro: "+ candidato.getDataNascimento());
                 System.out.println("Digite a nova data de nascimento:");
                 String novaDataNascimento = in.nextLine();
@@ -78,10 +92,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarEnderecoCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntigo endereço cadastrado no seu cadastro: "+ candidato.getEndereco());
                 System.out.println("Digite o novo endereço:");
                 String novoEndereco = in.nextLine();
@@ -91,10 +108,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarTelefoneCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntigo telefone cadastrado no seu cadastro: "+ candidato.getTelefone());
                 System.out.println("Digite o novo telefone:");
                 String novoTelefone = in.nextLine();
@@ -103,11 +123,14 @@ public class Controler {
                 break;
             }
         }
+        }
     }
 
     public static void editarAreaAtuacaoCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntiga área de atuação cadastrado no seu cadastro: "+ candidato.getAreaAtuacao());
                 System.out.println("Digite a nova área de atuação:");
                 String novaAreaAtuacao = in.nextLine();
@@ -115,6 +138,7 @@ public class Controler {
                 System.out.println("Área de atuação editada com sucesso!");
                 break;
             }
+        }
         }
     }
 
@@ -189,8 +213,10 @@ public class Controler {
     }
 
     public static void editarCpfCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntigo CPF cadastrado no seu cadastro: "+ candidato.getCpf());
                 System.out.println("Digite o novo CPF:");
                 String novoCPF = in.nextLine();
@@ -200,10 +226,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarNivelEscolaridadeCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntigo nível de escolaridade cadastrado no seu cadastro: "+ candidato.getNivelEscolaridade());
                 System.out.println("Digite o novo nível de escolaridade:");
                 String novoNivelEscolaridade = in.nextLine();
@@ -213,10 +242,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarInstituicaoCandidato(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado) == true){
         for (Candidato candidato : candidatos){
-            if (verificaCPF() == true){
+            if (candidato.getCpf().equals(cpfDesejado)){
                 System.out.println("\nAntiga instituiçã cadastradá no seu cadastro: "+ candidato.getInstituicao());
                 System.out.println("Digite o novo nome da instituição:");
                 String novaInstituicao = in.nextLine();
@@ -226,19 +258,25 @@ public class Controler {
             }
         }
     }
+    }
     
 
     public static void imprimirCandidatos() {
 
+        String cpfDesejado = CPF();
+
         if (candidatos.isEmpty()) { //Verifica se existe candidatos cadastrados no sistema
             System.out.println("Nenhum candidato foi cadastrado no sistema ainda.");
         } else {
-            for (Candidato candidato : candidatos) {
-                if (verificaCPF() == true) {// Chama a função que verifica se o cpf informado é igual ao cpf que já está salvo no sistema
+            
+        if (verificaCPF(cpfDesejado) == true){
+        for (Candidato candidato : candidatos){
+            if (candidato.getCpf().equals(cpfDesejado)){
                     System.out.println(candidato.toString()); // Imprime o toString da classe candidatos
                     break; // Se encontrou, não precisa continuar procurando
                 }
             }
+        }
         }
     }
 
@@ -278,10 +316,14 @@ public class Controler {
         return cnd;
     }
 
-    
-    public static boolean verificaCNPJ(){
+    public static String CNPJ(){
         System.out.println("Para prosseguir primeiro insira o cnpj da empresa.\nQual é CNPJ da empresa?");
         String cnpjDesejado = in.nextLine();
+        return cnpjDesejado;
+    }
+    
+    public static boolean verificaCNPJ(String cnpjDesejado){
+        
         boolean encontrado = false;
         
         for(Empresa empresa : empresas){
@@ -305,8 +347,10 @@ public class Controler {
     
     public static void editarNomeEmpresa(){       
 
+        String cnpjDesejado = CNPJ(); 
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nNome antes colocado para essa empresa: " + empresa.getNome() + ".");
                 System.out.println("Digite o novo nome para essa empresa:");
                 String novoNome = in.nextLine();
@@ -316,11 +360,14 @@ public class Controler {
             }
         }
     }
+    }
  
     public static void editarEmailEmpresa(){       
 
+        String cnpjDesejado = CNPJ(); 
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nEmail antes colocado para essa empresa: " + empresa.getEmail());
                 System.out.println("Digite o novo email para essa empresa:");
                 String novoEmail = in.nextLine();
@@ -329,12 +376,15 @@ public class Controler {
                 break;
             }
         }
+        }
     }
 
     public static void editarDataCriacaoEmpresa(){       
 
+        String cnpjDesejado = CNPJ(); 
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nData de criação antes colocado para essa empresa: " + empresa.getDataNascimento());
                 System.out.println("Digite a nova data de nascimento para essa empresa:");
                 String novaDataCriacao = in.nextLine();
@@ -344,11 +394,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarEnderecoEmpresa(){       
-
+        String cnpjDesejado = CNPJ(); 
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nEndereço antes colocado para essa empresa: " + empresa.getEndereco());
                 System.out.println("Digite o novo endereço para essa empresa:");
                 String novoEndereco = in.nextLine();
@@ -357,12 +409,14 @@ public class Controler {
                 break;
             }
         }
+        }
     }
 
     public static void editarTelefoneEmpresa(){       
-
+        String cnpjDesejado = CNPJ(); 
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nTelefone antes colocado para essa empresa: " + empresa.getTelefone());
                 System.out.println("Digite o novo telefone para essa empresa:");
                 String novoTelefone = in.nextLine();
@@ -372,11 +426,13 @@ public class Controler {
             }
         }
     }
+    }
 
     public static void editarAreaAtuacaoEmpresa(){       
-
+        String cnpjDesejado = CNPJ();  
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nÁrea de atuação antes colocado para essa empresa: " + empresa.getAreaAtuacao());
                 System.out.println("Digite a nova área de atuação para essa empresa:");
                 String novaAreaAtuacao = in.nextLine();
@@ -386,11 +442,13 @@ public class Controler {
             }
         }
     }
+    }
 
-    public static void editarCNPJEmpresa(){       
-
+    public static void editarCNPJEmpresa(){   
+        String cnpjDesejado = CNPJ();    
+        if (verificaCNPJ(cnpjDesejado) == true){
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true){
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
                 System.out.println("\nCNPJ antes colocado para essa empresa: " + empresa.getCnpj());
                 System.out.println("Digite o novo CNPJ para essa empresa:");
                 String novoCNPJ = in.nextLine();
@@ -399,21 +457,26 @@ public class Controler {
                 break;
             }
         }
+    }
     }    
 
     public static void imprimirEmpresas(){
 
+        String cnpjDesejado = CNPJ();
+
         if (empresas.isEmpty()) {
             System.out.println("Nenhuma empresa foi cadastrada no sistema ainda.");
         } else {
-            for (Empresa empresa : empresas) {
-                if (verificaCNPJ() == true) {
-                    System.out.println(empresa.toString());
-                    break; // Se encontrou, não precisa continuar procurando
+            if (verificaCNPJ(cnpjDesejado)) {
+                for (Empresa empresa : empresas) {
+                    if (empresa.getCnpj().equals(cnpjDesejado)) {
+                        System.out.println(empresa.toString());
+                        break;
+                    }
                 }
             }
         }
-    }
+    }     
 
     public static Empresa lerDadosEmpresa(){
        String nome;
@@ -445,9 +508,11 @@ public class Controler {
        return y;
     }
 
-    public static void cadastrarOfertaEmprego(){          
+    public static void cadastrarOfertaEmprego(){    
+        String cnpjDesejado = CNPJ();
+        if (verificaCNPJ(cnpjDesejado) == true) {
         for(Empresa empresa : empresas){
-            if (verificaCNPJ() == true) {
+            if (empresa.getCnpj().equals(cnpjDesejado)) {  
                 OfertaEmprego novaOfertaEmprego = lerDadosOfertaEmprego(); 
                 empresa.getOfertasOfertadas().add(novaOfertaEmprego);// Adicionando uma nova oferta de emprego no arrayList de ofertasOfertadas da empresa
                 System.out.println("Oferta criada com sucesso!");
@@ -455,11 +520,14 @@ public class Controler {
             }
         } 
     }
+    }
 
     public static void editarOfertaEmprego() {
 
+        String cnpjDesejado = CNPJ();
+        if (verificaCNPJ(cnpjDesejado) == true) {
         for (Empresa empresa : empresas) {
-            if (verificaCNPJ() == true) {
+            if (empresa.getCnpj().equals(cnpjDesejado)) {  
                 // Verifica se a empresa tem ofertas de emprego
                 if (empresa.getOfertasOfertadas().isEmpty()) {
                     System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
@@ -507,12 +575,31 @@ public class Controler {
                 break; // Se encontrou a empresa, não precisa continuar procurando
             }
         }
+        }
+    }
+
+    public static void editarOfertaEmpregoSalario(){
+
+    }
+
+    public static void editarOfertaEmpregoCargo(){
+        
+    }
+
+    public static void editarOfertaEmpregoQntdVagas(){
+        
+    }
+
+    public static void editarOfertaEmpregoEscolaridade(){
+        
     }
 
     public static void apagarOfertaEmprego(){
 
+        String cnpjDesejado = CNPJ();
+        if (verificaCNPJ(cnpjDesejado) == true) {
         for (Empresa empresa : empresas) {
-            if (verificaCNPJ() == true) {
+            if (empresa.getCnpj().equals(cnpjDesejado)) {  
                 if (empresa.getOfertasOfertadas().isEmpty()) {
                     System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
                 }else{
@@ -540,13 +627,16 @@ public class Controler {
                 }
                 break; // Se encontrou a empresa, não precisa continuar procurando
             }
+        } 
         }
     }
 
     public static void imprimirOfertasEmprego(){
 
+        String cnpjDesejado = CNPJ();
+        if (verificaCNPJ(cnpjDesejado) == true){     
         for (Empresa empresa : empresas) {
-            if (verificaCNPJ() == true){                
+            if (empresa.getCnpj().equals(cnpjDesejado)) {           
                 // Verifica se a empresa tem ofertas de emprego
                 if (empresa.getOfertasOfertadas().isEmpty()) {
                     System.out.println("A empresa não tem nenhuma oferta de emprego ainda.");
@@ -560,9 +650,11 @@ public class Controler {
                     }
                 }
                 break; // Se encontrou a empresa, não precisa continuar procurando
+                }
             }
         }
     }
+    
 
     public static OfertaEmprego lerDadosOfertaEmprego(){
         double salario;

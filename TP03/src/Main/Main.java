@@ -3,6 +3,7 @@ package Main;
 import java.util.Scanner;
 
 import Controler.Controler;
+import Controler.OfertaEmprego_Controler;
 
 public class Main {
 
@@ -188,6 +189,7 @@ public class Main {
                     Controler.imprimirOfertasEmprego();
                     break;
                 case 7:
+                    //OfertaEmpregoControler.editarOfertaEmprego();
                     Controler.editarOfertaEmprego();
                     break;
                 case 8:
@@ -278,6 +280,7 @@ public class Main {
 
     public static boolean menuFiltroOfertasEmprego(){
         boolean filtrarOfertasEmprego = true;
+
         while (filtrarOfertasEmprego) {
             System.out.println(imprimirMenuFiltroOfertasEmprego());
             int op6 = in.nextInt();

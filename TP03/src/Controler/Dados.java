@@ -34,22 +34,6 @@ public class Dados {
 
     public void addEmpresasPredefinidas(){
 
-        Empresa google = new Empresa(
-            "Google Inc.", 
-            "google@google.com", 
-            "04/09/1998", 
-            "1600 Amphitheatre Parkway, Mountain View, CA", 
-            "0800 724 8149",
-            "Tecnologia",
-            "06.990.590/0001-23",
-            new ArrayList<OfertaEmprego>());
-
-        google.adicionarOfertaEmprego(new OfertaEmprego(3500, "Estagiário", 6, LocalDateTime.now(), "Nível superior", true));
-        google.adicionarOfertaEmprego(new OfertaEmprego(11000, "Programador", 7, LocalDateTime.now(), "Nível superior", true));
-        google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true));
-
-        empresas.add(google);   
-
         Empresa microsoft = new Empresa(
             "Microdoft",
             "microsoft@outlook.com",
@@ -65,6 +49,22 @@ public class Dados {
         microsoft.adicionarOfertaEmprego(new OfertaEmprego(4000, "Estagiário", 5, LocalDateTime.now(), "Nível técnico", true));
 
         empresas.add(microsoft);
+
+        Empresa google = new Empresa(
+            "Google Inc.", 
+            "google@google.com", 
+            "04/09/1998", 
+            "1600 Amphitheatre Parkway, Mountain View, CA", 
+            "0800 724 8149",
+            "Tecnologia",
+            "06.990.590/0001-23",
+            new ArrayList<OfertaEmprego>());
+
+        google.adicionarOfertaEmprego(new OfertaEmprego(3500, "Estagiário", 6, LocalDateTime.now(), "Nível superior", true));
+        google.adicionarOfertaEmprego(new OfertaEmprego(11000, "Programador", 7, LocalDateTime.now(), "Nível superior", true));
+        google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true));
+
+        empresas.add(google);   
 
         Empresa lojasAmericanas = new Empresa(
             "Lojas americanas",
