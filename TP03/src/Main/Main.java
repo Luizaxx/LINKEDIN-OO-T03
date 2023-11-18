@@ -3,7 +3,8 @@ package Main;
 import java.util.Scanner;
 
 import Controler.Controler;
-import Controler.OfertaEmprego_Controler;
+import Controler.EmpresaControler;
+import Controler.OfertaEmpregoControler;
 
 public class Main {
 
@@ -174,26 +175,26 @@ public class Main {
                     loopEmpresa = false;  // Sai do loop da empresa, mas continua no loop principal
                     break;
                 case 2:
-                    Controler.cadastrarEmpresa();
+                    EmpresaControler.cadastrarEmpresa();
                     break;
                 case 3:
-                    Controler.imprimirEmpresas();
+                    EmpresaControler.imprimirEmpresas();
                     break;
                 case 4:
                     loopEmpresa = menuEditarEmpresa();
                     break;
                 case 5:
-                    Controler.cadastrarOfertaEmprego();
+                    OfertaEmpregoControler.cadastrarOfertaEmprego();
                     break;
                 case 6:
-                    Controler.imprimirOfertasEmprego();
+                    OfertaEmpregoControler.imprimirOfertasEmprego();
                     break;
                 case 7:
                     //OfertaEmpregoControler.editarOfertaEmprego();
-                    Controler.editarOfertaEmprego();
+                    OfertaEmpregoControler.editarOfertaEmprego();
                     break;
                 case 8:
-                    Controler.apagarOfertaEmprego();
+                    OfertaEmpregoControler.apagarOfertaEmprego();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
@@ -228,25 +229,25 @@ public class Main {
                     loopEditarEmpresa = false;
                     break;
                 case 1:
-                    Controler.editarNomeEmpresa();
+                    EmpresaControler.editarNomeEmpresa();
                     break;
                 case 2:
-                    Controler.editarEmailEmpresa();
+                    EmpresaControler.editarEmailEmpresa();
                     break;
                 case 3:
-                    Controler.editarDataCriacaoEmpresa();
+                    EmpresaControler.editarDataCriacaoEmpresa();
                     break;
                 case 4:
-                    Controler.editarEnderecoEmpresa();
+                    EmpresaControler.editarEnderecoEmpresa();
                     break;
                 case 5:
-                    Controler.editarTelefoneEmpresa();
+                    EmpresaControler.editarTelefoneEmpresa();
                     break;
                 case 6:                    
-                    Controler.editarAreaAtuacaoEmpresa();
+                    EmpresaControler.editarAreaAtuacaoEmpresa();
                     break;
                 case 7:
-                    Controler.editarCNPJEmpresa();
+                    EmpresaControler.editarCNPJEmpresa();
                     break;                    
                 default:
                     System.out.println("Opção inválida. Tente novamente!");

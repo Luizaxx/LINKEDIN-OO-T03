@@ -6,33 +6,26 @@ import Model.*;
 
 public class Dados {
 
-    private ArrayList<Candidato> candidatosInscritos;
-    private ArrayList<Empresa> empresas;
+    private static ArrayList<Candidato> candidatosInscritos;
+    private static ArrayList<Empresa> empresas;
     
-    public Dados() {
+    static{
         candidatosInscritos = new ArrayList<>();
         empresas = new ArrayList<>();
         addEmpresasPredefinidas();
         addCandidatosPredefinidos();
     }
 
-    public ArrayList<Candidato> getCandidatosInscritos() {
+    
+    public static ArrayList<Candidato> getCandidatosInscritos() {
         return candidatosInscritos;
     }
 
-    public void setCandidatosInscritos(ArrayList<Candidato> candidatosInscritos) {
-        this.candidatosInscritos = candidatosInscritos;
-    }    
-
-    public ArrayList<Empresa> getEmpresa() {
+    public static ArrayList<Empresa> getEmpresas() {
         return empresas;
     }
 
-    public void setEmpresa(ArrayList<Empresa> empresas) {
-        this.empresas = empresas;
-    }
-
-    public void addEmpresasPredefinidas(){
+    public static void addEmpresasPredefinidas(){
 
         Empresa microsoft = new Empresa(
             "Microdoft",
@@ -77,7 +70,7 @@ public class Dados {
             new ArrayList<OfertaEmprego>());
         
         lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 15, LocalDateTime.now(), "Ensino Médio", true));
-        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(1200, "Tecnico de informática", 5, LocalDateTime.now(), "Ensino técnico", true ));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(1200, "Tecnico de informática", 5, LocalDateTime.now(), "Ensino técnico", true));
         lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(7000, "Gerente", 2, LocalDateTime.now(), "Nível médio", true));
 
         empresas.add(lojasAmericanas); 
@@ -194,7 +187,7 @@ public class Dados {
         empresas.add(BurgerKing);
     }
 
-    public void addCandidatosPredefinidos(){
+    public static void addCandidatosPredefinidos(){
         Candidato Gabriel = new Candidato(
             "Gabriel", 
             "gabriel@gabriel.com",
@@ -250,5 +243,9 @@ public class Dados {
             null);
             
         candidatosInscritos.add(Rafael);
+    }
+
+    public static void setEmpresas(ArrayList<Empresa> empresas) {
+        Dados.empresas = empresas;
     }
 }
