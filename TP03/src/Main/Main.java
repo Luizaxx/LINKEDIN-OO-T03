@@ -368,7 +368,7 @@ public class Main {
                     filtrarOfertasEmprego = false;
                     break;
                 case 1:
-                    CandidatoControler.verOfertasDisponiveisTecnologia();
+                    //CandidatoControler.verOfertasDisponiveisTecnologia();
                     break;
                 case 2:
                     

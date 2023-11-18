@@ -358,53 +358,53 @@ public class CandidatoControler {
         return cnd;
     }
 
-    public static void verOfertasDisponiveisTecnologia() {
+    // public static void verOfertasDisponiveisTecnologia() {
 
-        System.out.println("Ofertas Disponíveis:");
-        int i = 1;
+    //     System.out.println("Ofertas Disponíveis:");
+    //     int i = 1;
         
-        for (Empresa empresa : empresas) {
-            if ("Tecnologia".equals(empresa.getAreaAtuacao())) {
-                for (OfertaEmprego oferta : empresa.getOfertasOfertadas()) {
-                    System.out.println(i + ". " + oferta);
-                    i++;
-                }
-            }
-        }
+    //     for (Empresa empresa : empresas) {
+    //         if ("Tecnologia".equals(empresa.getAreaAtuacao())) {
+    //             for (OfertaEmprego oferta : empresa.getOfertasOfertadas()) {
+    //                 System.out.println(i + ". " + oferta);
+    //                 i++;
+    //             }
+    //         }
+    //     }
 
-        System.out.println("Escolha o número da oferta que deseja se inscrever (ou 0 para sair): ");
-        int escolha = in.nextInt();
-        in.nextLine(); // Limpar o buffer do scanner
+    //     System.out.println("Escolha o número da oferta que deseja se inscrever (ou 0 para sair): ");
+    //     int escolha = in.nextInt();
+    //     in.nextLine(); // Limpar o buffer do scanner
 
-        String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){ 
-            if (escolha > 0 && escolha <= i) {
+    //     String cpfDesejado = CPF();
+    //     if (verificaCPF(cpfDesejado) == true){ 
+    //         if (escolha > 0 && escolha <= i) {
                 
-                for (Candidato candidato : candidatos){
-                    if (candidato.getCpf().equals(cpfDesejado)) {
-                        OfertaEmprego ofertaEscolhida = obterOfertaPeloIndice(escolha);
-                        candidato.adicionarOfertaEmprego(ofertaEscolhida);
-                        System.out.println("Inscrição realizada com sucesso!");
-                    break;
-                    }
-                }
-            } else {
-                System.out.println("Escolha inválida. Nenhuma inscrição realizada.");
-            }
-        }
-    }
+    //             for (Candidato candidato : candidatos){
+    //                 if (candidato.getCpf().equals(cpfDesejado)) {
+    //                     OfertaEmprego ofertaEscolhida = obterOfertaPeloIndice(escolha);
+    //                     candidato.adicionarOfertaEmprego(ofertaEscolhida);
+    //                     System.out.println("Inscrição realizada com sucesso!");
+    //                 break;
+    //                 }
+    //             }
+    //         } else {
+    //             System.out.println("Escolha inválida. Nenhuma inscrição realizada.");
+    //         }
+    //     }
+    // }
 
-    private static OfertaEmprego obterOfertaPeloIndice(int indice) {
-        int i = 1;
-        for (Empresa empresa : empresas) {
-            for (OfertaEmprego oferta : empresa.getOfertasOfertadas()) {
-                if (i == indice) {
-                    return oferta;
-                }
-                i++;
-            }
-        }
-        return null;
-    }
+    // private static OfertaEmprego obterOfertaPeloIndice(int indice) {
+    //     int i = 1;
+    //     for (Empresa empresa : empresas) {
+    //         for (OfertaEmprego oferta : empresa.getOfertasOfertadas()) {
+    //             if (i == indice) {
+    //                 return oferta;
+    //             }
+    //             i++;
+    //         }
+    //     }
+    //     return null;
+    // }
 
 }
