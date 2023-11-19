@@ -26,44 +26,9 @@ public class Empresa extends Usuario{
 		return ofertasOfertadas;
 	}
 
-	/*
-	//cria uma oferta e o adiciona na lista de ofertas da Empresa
-	public void criaOfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade){
-		OfertaEmprego ofertaUnica = new OfertaEmprego(salario,cargo,qntVagas,criadoEm,escolaridade);
-		addOferta(ofertaUnica);
-	}
-
-	public void addOferta(OfertaEmprego oferta){
-		ofertasOfertadas.add(oferta);
-	}
-	
-	//
-	public ArrayList<OfertaEmprego> listarOfertas(){
-		return ofertasOfertadas;
-	}
-	*/
-
-	/*
-	 editarOferta() :logica mais pra frente, mas vai pegar uma empresa, pegar o index do atributo, 
-	e editar somente ele pelo index, fazendo assim uma copia do objeto como um todo
-	e substituindo apenas o atributo desejado 
-	*/
-	
-	/*
-	public void editarOferta(int index , OfertaEmprego novaOferta){
-		ofertasOfertadas.set(index, novaOferta);
-	}
-	// remove pelo index do array geral de ofertas.
-	public void excluiOferta(int index){
-		ofertasOfertadas.remove(index);
-	}
-	*/
-
 	public String ofertasAbertas(){
-		int contador = 0;
-		
-		for (OfertaEmprego oferta : ofertasOfertadas) {
-			
+		int contador = 0;		
+		for (OfertaEmprego oferta : ofertasOfertadas) {			
 			if (oferta.isAtiva()) {
 				contador++;
 			}
@@ -73,12 +38,12 @@ public class Empresa extends Usuario{
 		}else{
 			return "Número de ofertas abertas no momento: " + contador;
 		}
-        	
 	}
 
 	public ArrayList<OfertaEmprego> getOfertasOfertadas() {
 		return ofertasOfertadas;
 	}	
+
 	public void setOfertasOfertadas(ArrayList<OfertaEmprego> ofertaModels) {
 		this.ofertasOfertadas = ofertaModels;
 	}
@@ -86,6 +51,7 @@ public class Empresa extends Usuario{
 	public String getCnpj() {
 		return cnpj;
 	}
+
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
@@ -102,5 +68,4 @@ public class Empresa extends Usuario{
 			"\nCNPJ: " + cnpj + 
 			"\n" + ofertasAbertas();
 	}
-
 }

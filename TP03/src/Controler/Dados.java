@@ -9,10 +9,22 @@ public class Dados {
     private static ArrayList<Candidato> candidatosInscritos;
     private static ArrayList<OfertaEmprego> ofertasInscritas;
     private static ArrayList<Empresa> empresas;
+    private static ArrayList<OfertaEmprego> ofertasTecnologia;
+    private static ArrayList<OfertaEmprego> ofertasVendas;
+    private static ArrayList<OfertaEmprego> ofertasHospitalar;
+    private static ArrayList<OfertaEmprego> ofertasAlimentos;
+    private static ArrayList<OfertaEmprego> ofertasEducacao;
+    private static ArrayList<OfertaEmprego> ofertasRestantes;
     
     static{
         candidatosInscritos = new ArrayList<>();
         ofertasInscritas = new ArrayList<>();
+        ofertasTecnologia = new ArrayList<>();
+        ofertasVendas = new ArrayList<>();
+        ofertasHospitalar = new ArrayList<>();
+        ofertasAlimentos = new ArrayList<>();
+        ofertasEducacao = new ArrayList<>();
+        ofertasRestantes = new ArrayList<>();
         empresas = new ArrayList<>();
         addEmpresasPredefinidas();
         addCandidatosPredefinidos();
@@ -26,18 +38,38 @@ public class Dados {
         return empresas;
     }
 
-    public static void setEmpresas(ArrayList<Empresa> empresas) {
-        Dados.empresas = empresas;
-    }
-
     public static ArrayList<OfertaEmprego> getOfertasInscritas() {
         return ofertasInscritas;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasTecnologia() {
+        return ofertasTecnologia;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasVendas() {
+        return ofertasVendas;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasHospitalar() {
+        return ofertasHospitalar;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasAlimentos() {
+        return ofertasAlimentos;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasEducacao() {
+        return ofertasEducacao;
+    }
+
+    public static ArrayList<OfertaEmprego> getOfertasRestantes() {
+        return ofertasRestantes;
     }
 
     public static void addEmpresasPredefinidas(){
 
         Empresa microsoft = new Empresa(
-            "Microdoft",
+            "Microsoft",
             "microsoft@outlook.com",
             "04/04/1975",
             "Avenida Presidente Juscelino Kubitscheck, 1909 Torre Sul, 16° andar - Vila Nova Conceição, São Paulo - SP",
@@ -45,10 +77,10 @@ public class Dados {
             "Tecnologia",
             "04.712.500/0001-07",
             new ArrayList<OfertaEmprego>());
-        
-        microsoft.adicionarOfertaEmprego(new OfertaEmprego(12000, "Programador trainee", 5, LocalDateTime.now(), "Nível médio", true));
-        microsoft.adicionarOfertaEmprego(new OfertaEmprego(24000, "Programador senior", 5, LocalDateTime.now(), "Nível médio", true));
-        microsoft.adicionarOfertaEmprego(new OfertaEmprego(4000, "Estagiário", 5, LocalDateTime.now(), "Nível técnico", true));
+        // Ofertas da área de tecnologia:
+        /*0*/ microsoft.adicionarOfertaEmprego(new OfertaEmprego(12000, "Programador trainee", 5, LocalDateTime.now(), "Nível médio", true, microsoft));
+        /*1*/ microsoft.adicionarOfertaEmprego(new OfertaEmprego(24000, "Programador senior", 5, LocalDateTime.now(), "Nível médio", true, microsoft));
+        /*2*/ microsoft.adicionarOfertaEmprego(new OfertaEmprego(4000, "Estagiário", 5, LocalDateTime.now(), "Nível técnico", true, microsoft));
 
         empresas.add(microsoft);
 
@@ -61,10 +93,10 @@ public class Dados {
             "Tecnologia",
             "06.990.590/0001-23",
             new ArrayList<OfertaEmprego>());
-
-        google.adicionarOfertaEmprego(new OfertaEmprego(3500, "Estagiário", 6, LocalDateTime.now(), "Nível superior", true));
-        google.adicionarOfertaEmprego(new OfertaEmprego(11000, "Programador", 7, LocalDateTime.now(), "Nível superior", true));
-        google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true));
+        // Continuação das ofertas de tecnologia:
+        /*3*/ google.adicionarOfertaEmprego(new OfertaEmprego(3500, "Estagiário", 6, LocalDateTime.now(), "Nível superior", true, google));
+        /*4*/ google.adicionarOfertaEmprego(new OfertaEmprego(11000, "Programador", 7, LocalDateTime.now(), "Nível superior", true, google));
+        /*5*/ google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true, google));
 
         empresas.add(google);   
 
@@ -78,9 +110,9 @@ public class Dados {
             "00.776.574/0001-56", 
             new ArrayList<OfertaEmprego>());
         
-        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 15, LocalDateTime.now(), "Ensino Médio", true));
-        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(1200, "Tecnico de informática", 5, LocalDateTime.now(), "Ensino técnico", true));
-        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(7000, "Gerente", 2, LocalDateTime.now(), "Nível médio", true));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(5000, "Vendedor", 15, LocalDateTime.now(), "Ensino Médio", true, lojasAmericanas));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(1200, "Tecnico de informática", 5, LocalDateTime.now(), "Ensino técnico", true, lojasAmericanas));
+        lojasAmericanas.adicionarOfertaEmprego(new OfertaEmprego(7000, "Gerente", 2, LocalDateTime.now(), "Nível médio", true, lojasAmericanas));
 
         empresas.add(lojasAmericanas); 
 
@@ -94,9 +126,9 @@ public class Dados {
             "59.291.534/0001-67",
             new ArrayList<OfertaEmprego>());
         
-        CasasBahia.adicionarOfertaEmprego(new OfertaEmprego(1320, "Vendedor", 5, LocalDateTime.now(), "Nível médio", true));
-        CasasBahia.adicionarOfertaEmprego(new OfertaEmprego(2000, "Auxiliar de vendas", 3, LocalDateTime.now(), "Nível médio", true));
-        CasasBahia.adicionarOfertaEmprego(new OfertaEmprego(4000, "Gerente de vendas", 2, LocalDateTime.now(), "Nível médio", true));
+        CasasBahia.adicionarOfertaEmprego(new OfertaEmprego(1320, "Vendedor", 5, LocalDateTime.now(), "Nível médio", true, CasasBahia));
+        CasasBahia.adicionarOfertaEmprego(new OfertaEmprego(2000, "Auxiliar de vendas", 3, LocalDateTime.now(), "Nível médio", true, CasasBahia));
+        CasasBahia.adicionarOfertaEmprego(new OfertaEmprego(4000, "Gerente de vendas", 2, LocalDateTime.now(), "Nível médio", true, CasasBahia));
 
         empresas.add(CasasBahia);
 
@@ -110,9 +142,9 @@ public class Dados {
             "11.110.011/0001-10",
             new ArrayList<OfertaEmprego>());
         
-        HospitalSantaMarta.adicionarOfertaEmprego(new OfertaEmprego(5320, "Enfermeiro", 5, LocalDateTime.now(), "Nível Superior", true));
-        HospitalSantaMarta.adicionarOfertaEmprego(new OfertaEmprego(2000, "Técnico de emfermagem", 3, LocalDateTime.now(), "Nível técnico", true));
-        HospitalSantaMarta.adicionarOfertaEmprego(new OfertaEmprego(5000, "Farmacêutico", 2, LocalDateTime.now(), "Nível superior", true));
+        HospitalSantaMarta.adicionarOfertaEmprego(new OfertaEmprego(5320, "Enfermeiro", 5, LocalDateTime.now(), "Nível Superior", true, HospitalSantaMarta));
+        HospitalSantaMarta.adicionarOfertaEmprego(new OfertaEmprego(2000, "Técnico de emfermagem", 3, LocalDateTime.now(), "Nível técnico", true, HospitalSantaMarta));
+        HospitalSantaMarta.adicionarOfertaEmprego(new OfertaEmprego(5000, "Farmacêutico", 2, LocalDateTime.now(), "Nível superior", true, HospitalSantaMarta));
 
         empresas.add(HospitalSantaMarta);
 
@@ -126,9 +158,9 @@ public class Dados {
             "22.220.022/0002-20",
             new ArrayList<OfertaEmprego>());
         
-        ClinicaHospitalarSantaHeloisa.adicionarOfertaEmprego(new OfertaEmprego(2500, "Técnico de emfermagem", 5, LocalDateTime.now(), "Nível técnico", true));
-        ClinicaHospitalarSantaHeloisa.adicionarOfertaEmprego(new OfertaEmprego(4500, "Nutricionista", 3, LocalDateTime.now(), "Nível superior", true));
-        ClinicaHospitalarSantaHeloisa.adicionarOfertaEmprego(new OfertaEmprego(7500, "Fisioterapeuta", 3, LocalDateTime.now(), "Nível superior", true));
+        ClinicaHospitalarSantaHeloisa.adicionarOfertaEmprego(new OfertaEmprego(2500, "Técnico de emfermagem", 5, LocalDateTime.now(), "Nível técnico", true, ClinicaHospitalarSantaHeloisa));
+        ClinicaHospitalarSantaHeloisa.adicionarOfertaEmprego(new OfertaEmprego(4500, "Nutricionista", 3, LocalDateTime.now(), "Nível superior", true, ClinicaHospitalarSantaHeloisa));
+        ClinicaHospitalarSantaHeloisa.adicionarOfertaEmprego(new OfertaEmprego(7500, "Fisioterapeuta", 3, LocalDateTime.now(), "Nível superior", true, ClinicaHospitalarSantaHeloisa));
 
         empresas.add(ClinicaHospitalarSantaHeloisa);
 
@@ -142,9 +174,9 @@ public class Dados {
             "33.330.033/0003-33",
             new ArrayList<OfertaEmprego>());
 
-        EscolaRubby.adicionarOfertaEmprego(new OfertaEmprego(5000, "Professor de mátematica", 1, LocalDateTime.now(), "Nível superior", true));
-        EscolaRubby.adicionarOfertaEmprego(new OfertaEmprego(1500, "Estagiário", 2, LocalDateTime.now(), "Nível médio", true));
-        EscolaRubby.adicionarOfertaEmprego(new OfertaEmprego(5000, "Professor de educação física", 1, LocalDateTime.now(), "Nível superior", true));
+        EscolaRubby.adicionarOfertaEmprego(new OfertaEmprego(5000, "Professor de mátematica", 1, LocalDateTime.now(), "Nível superior", true, EscolaRubby));
+        EscolaRubby.adicionarOfertaEmprego(new OfertaEmprego(1500, "Estagiário", 2, LocalDateTime.now(), "Nível médio", true, EscolaRubby));
+        EscolaRubby.adicionarOfertaEmprego(new OfertaEmprego(5000, "Professor de educação física", 1, LocalDateTime.now(), "Nível superior", true, EscolaRubby));
 
         empresas.add(EscolaRubby);
 
@@ -158,9 +190,9 @@ public class Dados {
             "44.440.044/0004-44",
             new ArrayList<OfertaEmprego>());
         
-        EscolaRaviello.adicionarOfertaEmprego(new OfertaEmprego(6000, "Professor de Geografia", 2, LocalDateTime.now(), "Nível superior", true));
-        EscolaRaviello.adicionarOfertaEmprego(new OfertaEmprego(2500, "Estagiário", 2, LocalDateTime.now(), "Nível superior", true));
-        EscolaRaviello.adicionarOfertaEmprego(new OfertaEmprego(6000, "Professor de Português", 3, LocalDateTime.now(), "Nível superior", true));
+        EscolaRaviello.adicionarOfertaEmprego(new OfertaEmprego(6000, "Professor de Geografia", 2, LocalDateTime.now(), "Nível superior", true, EscolaRaviello));
+        EscolaRaviello.adicionarOfertaEmprego(new OfertaEmprego(2500, "Estagiário", 2, LocalDateTime.now(), "Nível superior", true, EscolaRaviello));
+        EscolaRaviello.adicionarOfertaEmprego(new OfertaEmprego(6000, "Professor de Português", 3, LocalDateTime.now(), "Nível superior", true, EscolaRaviello));
 
         empresas.add(EscolaRaviello);
         
@@ -173,9 +205,9 @@ public class Dados {
             "Alimentos",
             "06.320.590/0001-23",
             new ArrayList<OfertaEmprego>());
-        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(6500, "Gerente", 1, LocalDateTime.now(), "Nível médio", true));
-        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(1500, "Estagiário", 3, LocalDateTime.now(), "Nível técnico", true));
-        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(2000, "Caixa", 4, LocalDateTime.now(), "Nível médio", true));
+        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(6500, "Gerente", 1, LocalDateTime.now(), "Nível médio", true, McDonalds));
+        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(1500, "Estagiário", 3, LocalDateTime.now(), "Nível técnico", true, McDonalds));
+        McDonalds.adicionarOfertaEmprego(new OfertaEmprego(2000, "Caixa", 4, LocalDateTime.now(), "Nível médio", true, McDonalds));
 
         empresas.add(McDonalds);
 
@@ -189,11 +221,35 @@ public class Dados {
             "13.574.594/0001-96",
             new ArrayList<OfertaEmprego>());
         
-        BurgerKing.adicionarOfertaEmprego(new OfertaEmprego(6500, "Auxiliar de cozinha", 1, LocalDateTime.now(), "Nível médio", true));
-        BurgerKing.adicionarOfertaEmprego(new OfertaEmprego(1500, "Estagiário", 3, LocalDateTime.now(), "Nível médio", true));
-        BurgerKing.adicionarOfertaEmprego(new OfertaEmprego(2000, "Caixa", 4, LocalDateTime.now(), "Nível médio", true));
+        BurgerKing.adicionarOfertaEmprego(new OfertaEmprego(6500, "Auxiliar de cozinha", 1, LocalDateTime.now(), "Nível médio", true, BurgerKing));
+        BurgerKing.adicionarOfertaEmprego(new OfertaEmprego(1500, "Estagiário", 3, LocalDateTime.now(), "Nível médio", true, BurgerKing));
+        BurgerKing.adicionarOfertaEmprego(new OfertaEmprego(2000, "Caixa", 4, LocalDateTime.now(), "Nível médio", true, BurgerKing));
 
         empresas.add(BurgerKing);
+
+        Empresa AgronoLuiz = new Empresa(
+            "Agrono Luiz",
+            "agronoluiz@agronoluiz.com",
+            "25/08/1998",
+            "Granja areste fazenda Arauga",
+            "61 9 0000-1111",
+            "Agricultura",
+            "77.700.007/0001-07",
+            new ArrayList<OfertaEmprego>()
+        );
+
+        AgronoLuiz.adicionarOfertaEmprego(new OfertaEmprego(3500, "Agricultor", 2, LocalDateTime.now(), "Nível médio", true, AgronoLuiz));
+        AgronoLuiz.adicionarOfertaEmprego(new OfertaEmprego(2500, "Operador de máquina agricula", 3, LocalDateTime.now(), "Nível médio", true, AgronoLuiz));
+        AgronoLuiz.adicionarOfertaEmprego(new OfertaEmprego(7000, "Gerente", 1, LocalDateTime.now(), "Nível médio", true, AgronoLuiz));
+
+        empresas.add(AgronoLuiz);
+
+        ofertasTecnologia = encontrarOfertasPorArea("Tecnologia");
+        ofertasVendas = encontrarOfertasPorArea("Vendas");
+        ofertasHospitalar = encontrarOfertasPorArea("Hospitalar");
+        ofertasEducacao = encontrarOfertasPorArea("Educação");
+        ofertasAlimentos = encontrarOfertasPorArea("Alimentos");
+        ofertasRestantes = encontrarOfertasRestantes();
     }
 
     public static void addCandidatosPredefinidos(){
@@ -209,7 +265,9 @@ public class Dados {
             "UnB Gama - FGA", 
             new ArrayList<OfertaEmprego>());
 
-            Gabriel.adicionarOfertaEmprego(null);
+            Gabriel.adicionarOfertaEmprego(ofertasTecnologia.get(0));
+            Gabriel.adicionarOfertaEmprego(ofertasRestantes.get(0));
+            Gabriel.adicionarOfertaEmprego(ofertasEducacao.get(1));
 
         candidatosInscritos.add(Gabriel);
         
@@ -225,6 +283,10 @@ public class Dados {
             "UnB Gama - FGA",
             new ArrayList<OfertaEmprego>());
 
+            Ian.adicionarOfertaEmprego(ofertasVendas.get(0));
+            Ian.adicionarOfertaEmprego(ofertasTecnologia.get(1));
+            Ian.adicionarOfertaEmprego(ofertasTecnologia.get(2));
+
         candidatosInscritos.add(Ian);
 
         Candidato Luiza = new Candidato(
@@ -237,7 +299,11 @@ public class Dados {
             "147.258.369-69", 
             "Nível superior", 
             "UnB Gama - FGA", 
-            new ArrayList<OfertaEmprego>());            
+            new ArrayList<OfertaEmprego>());  
+            
+            Luiza.adicionarOfertaEmprego(ofertasHospitalar.get(0));
+            Luiza.adicionarOfertaEmprego(ofertasAlimentos.get(1));
+            Luiza.adicionarOfertaEmprego(ofertasRestantes.get(1));
         
         candidatosInscritos.add(Luiza);
 
@@ -252,8 +318,49 @@ public class Dados {
             "Nivel superior",
             "UnB GGama - FGA",
             new ArrayList<OfertaEmprego>());
+
+            Rafael.adicionarOfertaEmprego(ofertasEducacao.get(0));
+            Rafael.adicionarOfertaEmprego(ofertasVendas.get(1));
+            Rafael.adicionarOfertaEmprego(ofertasTecnologia.get(3));
             
         candidatosInscritos.add(Rafael);
+
+        Candidato Bruna = new Candidato(
+            "Bruna",
+            "bruna@bruna.com", 
+            "29/10/2003",
+            "UnB Gama - FGA",
+            "61 9 0000-1111", 
+            "Engenharia de Software",
+            "222.222.222-22", 
+            "Nivel superior",
+            "UnB Gama - FGA",
+            new ArrayList<OfertaEmprego>());
+
+            Bruna.adicionarOfertaEmprego(ofertasAlimentos.get(0));
+            Bruna.adicionarOfertaEmprego(ofertasHospitalar.get(1));
+            Bruna.adicionarOfertaEmprego(ofertasAlimentos.get(2));
+        
+        candidatosInscritos.add(Bruna);
     }
 
+    private static ArrayList<OfertaEmprego> encontrarOfertasPorArea(String areaAtuacao){
+        ArrayList<OfertaEmprego> ofertasEncontradas = new ArrayList<>();
+        for (Empresa empresa : empresas) {
+            if (empresa.getAreaAtuacao().equals(areaAtuacao)) {
+                ofertasEncontradas.addAll(empresa.getOfertasOfertadas());
+            }
+        }
+        return ofertasEncontradas;
+    }    
+
+    private static ArrayList<OfertaEmprego> encontrarOfertasRestantes(){
+        ArrayList<OfertaEmprego> ofertasEncontradas = new ArrayList<>();
+        for (Empresa empresa : empresas) {
+            if ((empresa.getAreaAtuacao() != "Tecnologia") && (empresa.getAreaAtuacao() != "Vendas") && (empresa.getAreaAtuacao() != "Hospitalar") && (empresa.getAreaAtuacao() != "Educação") && (empresa.getAreaAtuacao() != "Alimentos")) {
+                ofertasEncontradas.addAll(empresa.getOfertasOfertadas());
+            }
+        }
+        return ofertasEncontradas;
+    }    
 }

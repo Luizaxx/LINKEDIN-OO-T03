@@ -11,19 +11,19 @@ public class OfertaEmprego {
 	private LocalDateTime criadoEm = LocalDateTime.now();
 	private String escolaridade;
 	private boolean ativa; // Novo atributo para representar o status da oferta
-	//private int numeroDeInscritos;
+	private Empresa empresa;
 
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 	String dataFormatada = criadoEm.format(formatter);
 
-
-	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, boolean ativa) {
+	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, boolean ativa, Empresa empresa) {
 		this.salario = salario;
 		this.cargo = cargo;
 		this.qntVagas = qntVagas;
 		this.criadoEm = criadoEm;
 		this.escolaridade = escolaridade;
 		this.ativa = true;
+		this.empresa = empresa;
 	}
 
 	// Novo método para verificar se a oferta está ativa
@@ -76,9 +76,16 @@ public class OfertaEmprego {
 		this.qntVagas = qntVagas;
 	}
 
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
 	@Override
 	public String toString(){
-		return "Informações da oferta de emprego:" +
+		return "\nInformações da oferta de emprego:" +
+			   "\nNome da empresa: " + empresa.getNome() +
+			   "\nÁrea de atuação da empresa: " + empresa.getAreaAtuacao() +
+			   "\nEmail da empresa: " + empresa.getEmail() +
 			   "\nCargo: " + cargo +
 			   "\nSalário: " + salario +
 			   "\nQuantidade de vagas: " + qntVagas +

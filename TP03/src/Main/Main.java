@@ -3,7 +3,6 @@ package Main;
 import java.util.Scanner;
 
 import Controler.CandidatoControler;
-import Controler.Controler;
 import Controler.EmpresaControler;
 import Controler.OfertaEmpregoControler;
 
@@ -17,7 +16,6 @@ public class Main {
         while (loop) {
             System.out.println(imprimirMenuPrincipal());
             int op1 = in.nextInt();
-
             switch (op1) {
                 case 0:
                     System.out.println("Obrigada por utilizar o sistema. Até logo!");
@@ -50,7 +48,6 @@ public class Main {
         while (loopCandidato) {
             System.out.println(imprimirMenuCandidato());
             int op2 = in.nextInt();
-
             switch (op2) {
                 case 0:
                     System.out.println("Obrigada por utilizar o sistema. Até logo!");
@@ -72,13 +69,12 @@ public class Main {
                     break;
                 case 6:
                     loopCandidato = menuInscreverOfertaEmprego();
-                    //CandidatoControler.verOfertasDisponiveis(null);
                     break;
                 case 7:
                     CandidatoControler.imprimirOfertasEmpregoInscritas();
                     break;
                 case 8:
-                    System.out.println("Não temos essa opção ainda");
+                    CandidatoControler.apagarOfertaEmpregoInscrita();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
@@ -168,7 +164,6 @@ public class Main {
         while (loopEmpresa) {
             System.out.println(imprimirMenuEmpresa());
             int op4 = in.nextInt();
-
             switch (op4) {
                 case 0:
                     System.out.println("Obrigada por utilizar o sistema. Até logo!");
@@ -336,7 +331,7 @@ public class Main {
                     CandidatoControler.filtrarOfertasEmpregoAlimentos();
                     break;
                 case 6:
-                    CandidatoControler.imprimirOfertasEmpregoSemFiltro();
+                    CandidatoControler.filtrarOfertasEmpregoRestantes();
                     break;
                 default:
                     break;
@@ -368,22 +363,28 @@ public class Main {
                     filtrarOfertasEmprego = false;
                     break;
                 case 1:
-                    //CandidatoControler.verOfertasDisponiveisTecnologia();
+                    CandidatoControler.filtrarOfertasEmpregoTecnologia();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaTecnologia();
                     break;
                 case 2:
-                    
+                    CandidatoControler.filtrarOfertasEmpregoVendas();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaVendas();
                     break;
                 case 3:
-                    
+                    CandidatoControler.filtrarOfertasEmpregoHospitalar();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaHospitalar();
                     break;
                 case 4:
-                    
+                    CandidatoControler.filtrarOfertasEmpregoEducacao();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaEducacao();
                     break;
                 case 5:
-                   
+                    CandidatoControler.filtrarOfertasEmpregoAlimentos();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaAlimentos();
                     break;
                 case 6:
-                   
+                    CandidatoControler.filtrarOfertasEmpregoRestantes();
+                    CandidatoControler.seInscreverOfertaEmpregoAreasRestantes();
                     break;
                 default:
                     break;

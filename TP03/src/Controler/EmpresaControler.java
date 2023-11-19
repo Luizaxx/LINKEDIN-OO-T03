@@ -21,9 +21,7 @@ public class EmpresaControler {
     }
     
     public static boolean verificaCNPJ(String cnpjDesejado){
-        
         boolean encontrado = false;
-        
         for(Empresa empresa : empresas){
             if (empresa.getCnpj().equals(cnpjDesejado)) {
                 encontrado = true;
@@ -43,9 +41,7 @@ public class EmpresaControler {
     }
 
     public static void imprimirEmpresas(){
-
         String cnpjDesejado = CNPJ();
-
         if (empresas.isEmpty()) {
             System.out.println("Nenhuma empresa foi cadastrada no sistema ainda.");
         } else {
@@ -61,7 +57,6 @@ public class EmpresaControler {
     } 
     
     public static void editarNomeEmpresa(){       
-
         String cnpjDesejado = CNPJ(); 
         if (verificaCNPJ(cnpjDesejado) == true){
             for(Empresa empresa : empresas){
@@ -77,8 +72,7 @@ public class EmpresaControler {
         }
     }
  
-    public static void editarEmailEmpresa(){       
-
+    public static void editarEmailEmpresa(){    
         String cnpjDesejado = CNPJ(); 
         if (verificaCNPJ(cnpjDesejado) == true){
             for(Empresa empresa : empresas){
@@ -95,7 +89,6 @@ public class EmpresaControler {
     }
 
     public static void editarDataCriacaoEmpresa(){       
-
         String cnpjDesejado = CNPJ(); 
         if (verificaCNPJ(cnpjDesejado) == true){
             for(Empresa empresa : empresas){
@@ -199,9 +192,7 @@ public class EmpresaControler {
        areaAtuacao = in.nextLine();
        System.out.println("Qual é o CNPJ da empresa?");
        cnpj = in.nextLine();
-
        Empresa y = new Empresa(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cnpj, ofertasOfertadas);
        return y;
-    }
-    
+    }    
 }
