@@ -64,6 +64,50 @@ public class Dados {
         google.adicionarOfertaEmprego(new OfertaEmprego(15000, "Chefe de equipe", 3, LocalDateTime.now(), "Nível superior", true));
 
         empresas.add(google);       
+
+        Empresa sicoob = new Empresa(
+            "Sicoob Consórcios", 
+            "sicoob@sicoob.com", 
+            "04/09/1998", 
+            "Quadra Sig Quadra 1, 985 Zona Industrial Brasilia, DF", 
+            "0800 15978455",
+            "bancario",
+            "16.551.061/0001-87",
+            new ArrayList<OfertaEmprego>());
+
+        sicoob.adicionarOfertaEmprego(new OfertaEmprego(950 , "Estagiário", 10, LocalDateTime.now(), "Nível superior", true));
+        sicoob.adicionarOfertaEmprego(new OfertaEmprego(15000, "Banqueiro", 2, LocalDateTime.now(), "Doutorado", true));
+        sicoob.adicionarOfertaEmprego(new OfertaEmprego(20000, "Programador", 5, LocalDateTime.now(), "Doutorado", true));
+
+        empresas.add(sicoob);     
+
+        Empresa norteEnergia = new Empresa(
+            "Norte Energia", 
+            "norte@energia.com", 
+            "15/10/1982", 
+            "Quadra Seps 702/902, 702 - Brasília DF", 
+            "80224922",
+            "energia, distribução",
+            "12.300.288/0001-07",
+            new ArrayList<OfertaEmprego>());
+
+        norteEnergia.adicionarOfertaEmprego(new OfertaEmprego(14500 , "Engenheiro de Energia", 1, LocalDateTime.now(), "Mestrado", true));
+      
+        empresas.add(norteEnergia);   
+        
+         Empresa Motorola = new Empresa(
+            "Motorola solutions", 
+            "motorola@motorola.com", 
+            "01/02/1974", 
+            "Avenida Mercedes Benz, 170 - Campinas São Paulo", 
+            "19 3867-1011",
+            "software, tecnologia, hardware",
+            "10.652.730/0004-73",
+            new ArrayList<OfertaEmprego>());
+
+        Motorola.adicionarOfertaEmprego(new OfertaEmprego(1030 , "Estagiário", 10, LocalDateTime.now(), "Nível superior", true));
+      
+        empresas.add(Motorola);   
     }
 
     public void addCandidatosPredefinidos(){
@@ -108,5 +152,105 @@ public class Dados {
             null);            
         
         candidatosInscritos.add(Luiza);
-    }
-}
+
+         Candidato Bruna = new Candidato(
+            "bruna", 
+            "bruna.bruna@.com", 
+            "27/07/2004", 
+            "UnB Gama - FGA", 
+            "61 9 99386-5788", 
+            "Engenharia de Software", 
+            "080,678.564.54", 
+            "Nível superior", 
+            "UnB Gama - FGA", 
+            null);            
+        
+        candidatosInscritos.add(Bruna);
+
+        
+         Candidato Kaio = new Candidato(
+            "kaio", 
+            "kaio.kaio@.com", 
+            "18/11/2003", 
+            "UnB Gama - FGA", 
+            "61 87567-5864", 
+            "Engenharia de Software", 
+            "080,525.101.45", 
+            "Nível superior", 
+            "UnB Gama - FGA", 
+            null);            
+        
+        candidatosInscritos.add(Kaio);
+
+        Candidato Kaua = new Candidato(
+            "kaua", 
+            "kaua.kaua@.com", 
+            "12/07/2003", 
+            "UnB Gama - FGA", 
+            "61 45612-3014", 
+            "Engenharia de Software", 
+            "475,856.635.55", 
+            "Nível superior", 
+            "UnB Gama - FGA", 
+            null);            
+        
+        candidatosInscritos.add(Kaua);
+
+         Candidato Jorge = new Candidato(
+            "jorge", 
+            "jorge.jorge@.com", 
+            "15/11/2000", 
+            "UnB Gama - FGA", 
+            "61 45612-3014", 
+            "Engenharia de Automotiva", 
+            "485,648.153.02", 
+            "Doutorado", 
+            "UnB Gama - FGA", 
+            null);            
+        
+        candidatosInscritos.add(Jorge);
+
+        Candidato Joao = new Candidato(
+            "joao", 
+            "joao.joao@.com", 
+            "15/11/2000", 
+            "UnB Gama - FGA", 
+            "61 45612-3014", 
+            "Engenharia de Energia", 
+            "485,648.153.02", 
+            "Mestrado", 
+            "UnB Gama - FGA", 
+            null);            
+        
+        candidatosInscritos.add(Joao);
+    
+    Candidato Lucas = new Candidato(
+            "lucas", 
+            "lucas.lucas@.com", 
+            "05/04/2001", 
+            "UnB Darcy Ribeiro", 
+            "61 548,369,756.12", 
+            "Ciencia da Computação", 
+            "123.456,789,01", 
+            "Nivel Superior", 
+            "UnB Darcy Ribeiro", 
+        null);            
+        
+        candidatosInscritos.add(Lucas);
+
+        Candidato Luana = new Candidato(
+            "luana", 
+            "luana.luana@.com", 
+            "05/04/2001", 
+            "UnB Darcy Ribeiro", 
+            "61 1234-5678", 
+            "Ciencia da Computação", 
+            "789.456.159.87", 
+            "Nivel Superior", 
+            "UnB Darcy Ribeiro", 
+        null);            
+        
+        candidatosInscritos.add(Luana);
+
+
+}}
