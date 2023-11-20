@@ -514,6 +514,10 @@ public class CandidatoControler {
         areaAtuacao = in.nextLine();
         System.out.println("Qual é o seu CPF? ");
         cpf = in.nextLine();
+        if (verificaCPF(cpf) == true) {
+            System.out.println("Esse CPF já existe no sistema.");
+            return null;
+        }
         System.out.println("Quel é o seu nível de escolaridade? ");
         nivelEscolaridade = in.nextLine();
         System.out.println("Qual o nome da instituição? ");

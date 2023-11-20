@@ -192,6 +192,10 @@ public class EmpresaControler {
        areaAtuacao = in.nextLine();
        System.out.println("Qual é o CNPJ da empresa?");
        cnpj = in.nextLine();
+       if (verificaCNPJ(cnpj)) {
+        System.out.println("Essa empresa já existe no sistema.");
+            return null;
+       }
        Empresa y = new Empresa(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cnpj, ofertasOfertadas);
        return y;
     }    
