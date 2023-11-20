@@ -19,21 +19,34 @@ public class Candidato extends Usuario{
 		this.ofertasInscritas = ofertasInscritas;
 	}
 
+	public void adicionarOfertaEmprego(OfertaEmprego oferta){
+		if (ofertasInscritas == null) {
+			ofertasInscritas = new ArrayList<>();
+		}
+		ofertasInscritas.add(oferta);
+	}
+	
+
 	public String getCpf() {
 		return cpf;
 	}
+
 	public String getNivelEscolaridade() {
 		return nivelEscolaridade;
 	}
+
 	public String getInstituicao() {
 		return instituicao;
 	}
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 	public void setNivelEscolaridade(String nivelEscolaridade) {
 		this.nivelEscolaridade = nivelEscolaridade;
 	}
+
 	public void setInstituicao(String instituicao) {
 		this.instituicao = instituicao;
 	}
@@ -41,6 +54,7 @@ public class Candidato extends Usuario{
 	public ArrayList<OfertaEmprego> getOfertasInscritas() {
 		return ofertasInscritas;
 	}
+	
 	public void setOfertasInscritas(ArrayList<OfertaEmprego> ofertasInscritas) {
 		this.ofertasInscritas = ofertasInscritas;
 	}
@@ -60,5 +74,4 @@ public class Candidato extends Usuario{
 				"\nOfertas inscritas: " + ofertasInscritas;
 	}
 
-	
 }
