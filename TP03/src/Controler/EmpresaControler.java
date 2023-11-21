@@ -1,6 +1,7 @@
 package Controler;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import Model.Candidato;
@@ -166,7 +167,25 @@ public class EmpresaControler {
                 }
             }
         }
-    }        
+    }      
+    
+    public static void apagarCadastroDoSistema() {
+        String cnpjDesejado = CNPJ();
+        if (verificaCNPJ(cnpjDesejado)) {
+            Iterator<Empresa> iterator = empresas.iterator();
+            while (iterator.hasNext()) {
+                Empresa empresa = iterator.next();
+                if (empresa != null && empresa.getCnpj().equals(cnpjDesejado)) {
+                    // Remova a oferta da empresa excluída dos candidatos
+                    CandidatoControler.removerOfertaEmpregoCandidatos(cnpjDesejado);
+
+                    iterator.remove(); // Remove a empresa usando o iterador
+                    System.out.println("Empresa removida com sucesso!");
+                    break; // Se encontrou a empresa, não precisa continuar procurando
+                }
+            }
+        }
+    }
 
     public static Empresa lerDadosEmpresa(){
        String nome;
@@ -193,7 +212,7 @@ public class EmpresaControler {
        System.out.println("Qual é o CNPJ da empresa?");
        cnpj = in.nextLine();
        if (verificaCNPJ(cnpj)) {
-        System.out.println("Essa empresa já existe no sistema.");
+        System.out.println("\nEssa empresa já existe no sistema.\n");
             return null;
        }
        Empresa y = new Empresa(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cnpj, ofertasOfertadas);

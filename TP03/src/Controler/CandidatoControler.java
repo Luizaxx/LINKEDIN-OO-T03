@@ -1,6 +1,7 @@
 package Controler;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import Model.Candidato;
@@ -186,6 +187,37 @@ public class CandidatoControler {
                     candidato.setInstituicao(novaInstituicao);
                     System.out.println("Nome da instituição editada com sucesso!");
                     break;
+                }
+            }
+        }
+    }
+
+    public static void apagarCadastroDoSistema(){
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado)) {
+            Iterator<Candidato> iterator = candidatos.iterator();
+            while (iterator.hasNext()) {
+                Candidato candidato = iterator.next();
+                if (candidato.getCpf().equals(cpfDesejado)) {
+                    iterator.remove(); // Remove o candidato usando o iterador
+                    System.out.println("Candidato removido com sucesso!");
+                    break; // Se encontrou o candidato, não precisa continuar procurando
+                }
+            }
+        }
+    }
+
+    public static void removerOfertaEmpregoCandidatos(String cnpjEmpresa) {
+        Iterator<Candidato> iterator = candidatos.iterator();
+        while (iterator.hasNext()) {
+            Candidato candidato = iterator.next();
+            if (candidato.getOfertasInscritas() != null) {
+                Iterator<OfertaEmprego> ofertaIterator = candidato.getOfertasInscritas().iterator();
+                while (ofertaIterator.hasNext()) {
+                    OfertaEmprego oferta = ofertaIterator.next();
+                    if (oferta.getEmpresa() != null && oferta.getEmpresa().getCnpj().equals(cnpjEmpresa)) {
+                        ofertaIterator.remove();
+                    }
                 }
             }
         }
@@ -515,7 +547,7 @@ public class CandidatoControler {
         System.out.println("Qual é o seu CPF? ");
         cpf = in.nextLine();
         if (verificaCPF(cpf) == true) {
-            System.out.println("Esse CPF já existe no sistema.");
+            System.out.println("\nEsse CPF já existe no sistema.\n");
             return null;
         }
         System.out.println("Quel é o seu nível de escolaridade? ");

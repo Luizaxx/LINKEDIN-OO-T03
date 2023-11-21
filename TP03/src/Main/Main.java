@@ -65,15 +65,18 @@ public class Main {
                     loopCandidato = menuEditarCandidato();
                     break;
                 case 5:
-                    loopCandidato = menuFiltroOfertasEmprego();
+                    CandidatoControler.apagarCadastroDoSistema();
                     break;
                 case 6:
-                    loopCandidato = menuInscreverOfertaEmprego();
+                    loopCandidato = menuFiltroOfertasEmprego();
                     break;
                 case 7:
-                    CandidatoControler.imprimirOfertasEmpregoInscritas();
+                    loopCandidato = menuInscreverOfertaEmprego();
                     break;
                 case 8:
+                    CandidatoControler.imprimirOfertasEmpregoInscritas();
+                    break;
+                case 9:
                     CandidatoControler.apagarOfertaEmpregoInscrita();
                     break;
                 default:
@@ -92,10 +95,11 @@ public class Main {
                "2 - Se cadastrar (caso seja usuário novato)\n" +
                "3 - Visualizar cadastro\n" +
                "4 - Editar cadastro\n" +
-               "5 - Visualizar ofertas de empregos disponíveis\n" +
-               "6 - Se inscrever em uma oferta de emprego\n" +
-               "7 - Vizualizar ofertas de emprego que você está inscrito\n" +
-               "8 - Tirar a sua inscrição de uma oferta de emprego";
+               "5 - Apagar o seu cadastro do sistema\n" +
+               "6 - Visualizar ofertas de empregos disponíveis\n" +
+               "7 - Se inscrever em uma oferta de emprego\n" +
+               "8 - Vizualizar ofertas de emprego que você está inscrito\n" +
+               "9 - Tirar a sua inscrição de uma oferta de emprego";
     }
 
     public static boolean menuEditarCandidato(){
@@ -181,15 +185,18 @@ public class Main {
                     loopEmpresa = menuEditarEmpresa();
                     break;
                 case 5:
-                    OfertaEmpregoControler.cadastrarOfertaEmprego();
+                    EmpresaControler.apagarCadastroDoSistema();
                     break;
                 case 6:
-                    OfertaEmpregoControler.imprimirOfertasEmprego();
+                    OfertaEmpregoControler.cadastrarOfertaEmprego();
                     break;
                 case 7:
-                    loopEmpresa = menuEditarOfertaEmprego();
+                    OfertaEmpregoControler.imprimirOfertasEmprego();
                     break;
                 case 8:
+                    loopEmpresa = menuEditarOfertaEmprego();
+                    break;
+                case 9:
                     OfertaEmpregoControler.apagarOfertaEmprego();
                     break;
                 default:
@@ -208,10 +215,11 @@ public class Main {
                "2 - Se cadastrar (caso seja usuário novato)\n" +
                "3 - Visualizar cadastro\n" +
                "4 - Editar cadastro\n" +
-               "5 - Criar oferta de emprego\n" +
-               "6 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
-               "7 - Editar uma oferta de emprego\n" + 
-               "8 - Apagar uma oferta de emprego";
+               "5 - Apagar o cadastro da empresa do sistema\n"+
+               "6 - Criar oferta de emprego\n" +
+               "7 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
+               "8 - Editar uma oferta de emprego\n" + 
+               "9 - Apagar uma oferta de emprego";
     }
 
     public static boolean menuEditarEmpresa(){
