@@ -56,6 +56,16 @@ public class EmpresaControler {
             }
         }
     } 
+
+    public static void imprimirTodasEmpresas(){
+        if (empresas.isEmpty()) {
+            System.out.println("Nenhuma empresa foi cadastrada no sistema ainda.");
+        }else{
+            for (Empresa empresa : empresas) {
+                System.out.println(empresa.toString());
+            }
+        }
+    }
     
     public static void editarNomeEmpresa(){       
         String cnpjDesejado = CNPJ(); 

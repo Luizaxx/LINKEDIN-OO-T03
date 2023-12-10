@@ -204,7 +204,7 @@ public class Main {
                     OfertaEmpregoControler.apagarOfertaEmprego();
                     break;
                 case 10:
-                    System.out.println("Não temos essa opção ainda");
+                    EmpresaControler.imprimirTodasEmpresas();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
