@@ -1,8 +1,9 @@
-package Controler;
+package controler;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import Model.*;
+
+import model.*;
 
 public class Dados {
 

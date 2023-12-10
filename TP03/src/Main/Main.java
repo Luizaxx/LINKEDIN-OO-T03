@@ -1,24 +1,21 @@
-package Main;
+package main;
 
-import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-import Controler.CandidatoControler;
-import Controler.EmpresaControler;
-import Controler.OfertaEmpregoControler;
+import controler.CandidatoControler;
+import controler.EmpresaControler;
+import controler.OfertaEmpregoControler;
 
 public class Main {
 
-    private static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
         boolean loop = true;
-
         while (loop) {
-            System.out.println(imprimirMenuPrincipal());
-            int op1 = in.nextInt();
+            int op1 = imprimirMenuPrincipal();
             switch (op1) {
                 case 0:
-                    System.out.println("Obrigada por utilizar o sistema. Até logo!");
+                    JOptionPane.showMessageDialog(null, "Obrigada por utilizar o sistema. Até logo!");
                     System.exit(0);
                     break;
                 case 1:
@@ -28,30 +25,45 @@ public class Main {
                     loop = menuEmpresa();
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
     }
 
-    public static String imprimirMenuPrincipal() {
-        return "\n-------- Menu Principal --------\n" +
-               "Escolha uma das opções a seguir:\n" +
-               "0 - Sair da aplicação\n" +
-               "1 - Candidato\n" +
-               "2 - Empresa";
+    public static int imprimirMenuPrincipal(){
+       String frameTitle = "Menu Principal";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Escolha uma das opções a seguir:\n" +
+            "0 - Sair da aplicação\n" +
+            "1 - Candidato\n" +
+            "2 - Empresa",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+       // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // Saindo do sistema
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuCandidato() {
         boolean loopCandidato = true;
 
         while (loopCandidato) {
-            System.out.println(imprimirMenuCandidato());
-            int op2 = in.nextInt();
+            
+            int op2 = imprimirMenuCandidato();
             switch (op2) {
                 case 0:
-                    System.out.println("Obrigada por utilizar o sistema. Até logo!");
-                    return false;  // Sai do loop do candidato e, consequentemente, do loop principal
+                    JOptionPane.showMessageDialog(null, "Obrigada por utilizar o sistema. Até logo!");
+                    System.exit(0);
                 case 1:
                     loopCandidato = false;  // Sai do loop do candidato, mas continua no loop principal
                     break;
@@ -83,35 +95,49 @@ public class Main {
                     CandidatoControler.imprimirCadastroTodosClientes();
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;  // Continua no loop principal
     }
 
-    public static String imprimirMenuCandidato() {
-        return "\n----- Bem vindo candidato -----\n" +
-               "Escolha uma das opções a seguir:\n" +
-               "0 - Sair da aplicação\n" +
-               "1 - Voltar para o menu principal\n" +
-               "2 - Se cadastrar (caso seja usuário novato)\n" +
-               "3 - Visualizar cadastro de cliente específico\n" +
-               "4 - Editar cadastro\n" +
-               "5 - Apagar o seu cadastro do sistema\n" +
-               "6 - Visualizar ofertas de empregos disponíveis\n" +
-               "7 - Se inscrever em uma oferta de emprego\n" +
-               "8 - Vizualizar ofertas de emprego que você está inscrito\n" +
-               "9 - Tirar a sua inscrição de uma oferta de emprego\n"+
-               "10 - Visualizar todos os clientes cadastrados no sistema";
+    public static int imprimirMenuCandidato(){
+       String frameTitle = "Bem vindo candidato";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Escolha uma das opções a seguir:\n" +
+            "0 - Sair da aplicação\n" +
+            "1 - Voltar para o menu principal\n" +
+            "2 - Se cadastrar (caso seja usuário novato)\n" +
+            "3 - Visualizar cadastro de cliente específico\n" +
+            "4 - Editar cadastro\n" +
+            "5 - Apagar o seu cadastro do sistema\n" +
+            "6 - Visualizar ofertas de empregos disponíveis\n" +
+            "7 - Se inscrever em uma oferta de emprego\n" +
+            "8 - Vizualizar ofertas de emprego que você está inscrito\n" +
+            "9 - Tirar a sua inscrição de uma oferta de emprego\n"+
+            "10 - Visualizar todos os candidatos cadastrados no sistema",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // Saindo do sistema
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuEditarCandidato(){
         boolean loopEditarCandidato = true;
 
         while (loopEditarCandidato) {
-            System.out.println(imprimirMenuEditarCandidato());
-            int op3 = in.nextInt();
+            int op3 = imprimirMenuEditarCandidato();
             switch (op3) {
                 case 0:
                     loopEditarCandidato = false;
@@ -144,38 +170,52 @@ public class Main {
                     CandidatoControler.editarInstituicaoCandidato();
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;
     }
-
-    public static String imprimirMenuEditarCandidato(){
-        return
-        "\nQuais dos campos asseguir você deseja editar?\n" +
-        "1 - Nome\n" + 
-        "2 - Email\n" +
-        "3 - Data de nascimento\n" +
-        "4 - Endereço\n" +
-        "5 - Telefone\n" +
-        "6 - Área de atuação\n" +
-        "7 - CPF\n" +
-        "8 - Nível escolaridade\n" +
-        "9 - Instituição de ensino\n" +
-        "Caso deseje voltar para o menu anterior digite: 0";
+   
+    public static int imprimirMenuEditarCandidato(){
+       String frameTitle = "Editar informações do candidato";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Quais dos campos asseguir você deseja editar?\n" +
+            "1 - Nome\n" + 
+            "2 - Email\n" +
+            "3 - Data de nascimento\n" +
+            "4 - Endereço\n" +
+            "5 - Telefone\n" +
+            "6 - Área de atuação\n" +
+            "7 - CPF\n" +
+            "8 - Nível escolaridade\n" +
+            "9 - Instituição de ensino\n" +
+            "Caso deseje voltar para o menu anterior digite: 0",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // Voltando para o menu anterior
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuEmpresa() {
         boolean loopEmpresa = true;
 
         while (loopEmpresa) {
-            System.out.println(imprimirMenuEmpresa());
-            int op4 = in.nextInt();
+            int op4 = imprimirMenuEmpresa();
             switch (op4) {
                 case 0:
-                    System.out.println("Obrigada por utilizar o sistema. Até logo!");
-                    return false;  // Sai do loop da empresa e, consequentemente, do loop principal
+                    JOptionPane.showMessageDialog(null, "Obrigada por utilizar o sistema. Até logo!");
+                    System.exit(0);
                 case 1:
                     loopEmpresa = false;  // Sai do loop da empresa, mas continua no loop principal
                     break;
@@ -207,35 +247,49 @@ public class Main {
                     EmpresaControler.imprimirTodasEmpresas();
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;  // Continua no loop principal
     }
-
-    public static String imprimirMenuEmpresa() {
-        return "\n---- Bem vindo à área destinada às empresas ----\n" +
-               "Escolha uma das opções a seguir:\n" +
-               "0 - Sair da aplicação\n" +
-               "1 - Voltar para o menu principal\n" +
-               "2 - Se cadastrar (caso seja usuário novato)\n" +
-               "3 - Visualizar cadastro de uma empresa específica\n" +
-               "4 - Editar cadastro\n" +
-               "5 - Apagar o cadastro da empresa do sistema\n"+
-               "6 - Criar oferta de emprego\n" +
-               "7 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
-               "8 - Editar uma oferta de emprego\n" + 
-               "9 - Apagar uma oferta de emprego\n" +
-               "10 - Visualizar todas as empresas cadastradas no sistema";
+  
+    public static int imprimirMenuEmpresa(){
+       String frameTitle = "Bem vindo à área destinada às empresas";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Escolha uma das opções a seguir:\n" +
+             "0 - Sair da aplicação\n" +
+             "1 - Voltar para o menu principal\n" +
+             "2 - Se cadastrar (caso seja usuário novato)\n" +
+             "3 - Visualizar cadastro de uma empresa específica\n" +
+             "4 - Editar cadastro\n" +
+             "5 - Apagar o cadastro da empresa do sistema\n"+
+             "6 - Criar oferta de emprego\n" +
+             "7 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
+             "8 - Editar uma oferta de emprego\n" + 
+             "9 - Apagar uma oferta de emprego\n" +
+             "10 - Visualizar todas as empresas cadastradas no sistema",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // Sai do sistema
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuEditarEmpresa(){
         boolean loopEditarEmpresa = true;
 
         while (loopEditarEmpresa) {
-            System.out.println(imprimirMenurEditarEmpresa());
-            int op5 = in.nextInt();
+            int op5 = imprimirMenurEditarEmpresa();
             switch (op5) {
                 case 0:
                     loopEditarEmpresa = false;
@@ -262,32 +316,46 @@ public class Main {
                     EmpresaControler.editarCNPJEmpresa();
                     break;                    
                 default:
-                    System.out.println("Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;
     }
-
-    public static String imprimirMenurEditarEmpresa(){
-        return 
-        "\nQuais dos campos asseguir da empresa você deseja editar?\n" + 
-        "1 - Nome\n" + 
-        "2 - Email\n" +
-        "3 - Data de criação\n" +
-        "4 - Endereço\n" +
-        "5 - Telefone\n" +
-        "6 - Área de atuação\n" +
-        "7 - O CNPJ\n" +
-        "Digite 0 para voltar ao menu anterior";
+  
+    public static int imprimirMenurEditarEmpresa(){
+       String frameTitle = "Menu editar cadastro da empresa";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Quais dos campos asseguir da empresa você deseja editar?\n" + 
+            "1 - Nome\n" + 
+            "2 - Email\n" +
+            "3 - Data de criação\n" +
+            "4 - Endereço\n" +
+            "5 - Telefone\n" +
+            "6 - Área de atuação\n" +
+            "7 - O CNPJ\n" +
+            "Digite 0 para voltar ao menu anterior",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // volta para o meni anterior
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuEditarOfertaEmprego(){
         boolean loopEditarOfertaEmprego = true; 
 
         while (loopEditarOfertaEmprego) {
-            System.out.println(imprimirMenuEditarOfertaEMprego());
-            int op7 = in.nextInt();
+            int op7 = imprimirMenuEditarOfertaEMprego();
             switch (op7) {
                 case 0:
                     loopEditarOfertaEmprego = false;
@@ -305,28 +373,43 @@ public class Main {
                     OfertaEmpregoControler.editarOfertaEmpregoEscolaridade();
                     break;
                 default:
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;
     }
-
-    public static String imprimirMenuEditarOfertaEMprego(){
-        return 
-        "\nQuais dos campos a seguir da oferta de emprego você deseja editar?\n" + 
-        "1 - Sálario\n" +
-        "2 - Cargo\n" +
-        "3 - Quantidade de vagas\n" +
-        "4 - Escolaridade\n" +
-        "Digite 0 para voltar ao menu anterior";
+ 
+    public static int imprimirMenuEditarOfertaEMprego(){
+       String frameTitle = "Menu editar oferta de emprego";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Quais dos campos a seguir da oferta de emprego você deseja editar?\n" + 
+            "1 - Sálario\n" +
+            "2 - Cargo\n" +
+            "3 - Quantidade de vagas\n" +
+            "4 - Escolaridade\n" +
+            "Digite 0 para voltar ao menu anterior",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // volta para o meni anterior
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuFiltroOfertasEmprego(){
         boolean filtrarOfertasEmprego = true;
 
         while (filtrarOfertasEmprego) {
-            System.out.println(imprimirMenuFiltroOfertasEmprego());
-            int op6 = in.nextInt();
+            int op6 = imprimirMenuFiltroOfertasEmprego();
             switch (op6) {
                 case 0:
                     filtrarOfertasEmprego = false;
@@ -350,30 +433,45 @@ public class Main {
                     CandidatoControler.filtrarOfertasEmpregoRestantes();
                     break;
                 default:
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;
     }
 
-    public static String imprimirMenuFiltroOfertasEmprego(){
-        return
-        "\nEscolha um dos filtro desejados para visualizar as ofertas de emprego por área de atuação das empresas:\n" + 
-        "1 - Tecnologia\n" + 
-        "2 - Vendas\n" + 
-        "3 - Hospitalar\n" + 
-        "4 - Educação\n" + 
-        "5 - Alimentos\n" +
-        "6 - Área não especificada acima\n" +
-        "Digite 0 para voltar ao menu anterior";
+    public static int imprimirMenuFiltroOfertasEmprego(){
+       String frameTitle = "Menu filtrar oferta de emprego";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Escolha um dos filtro desejados para visualizar as \nofertas de emprego por área de atuação das empresas:\n" + 
+            "\n1 - Tecnologia\n" + 
+            "2 - Vendas\n" + 
+            "3 - Hospitalar\n" + 
+            "4 - Educação\n" + 
+            "5 - Alimentos\n" +
+            "6 - Área não especificada acima\n" +
+            "Digite 0 para voltar ao menu anterior",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // volta para o meni anterior
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 
     public static boolean menuInscreverOfertaEmprego(){
         boolean filtrarOfertasEmprego = true;
 
-        while (filtrarOfertasEmprego) {
-            System.out.println(imprimirMenuInscreverOfertasEmprego());
-            int op6 = in.nextInt();
+        while (filtrarOfertasEmprego) {           
+            int op6 = imprimirMenuInscreverOfertasEmprego();
             switch (op6) {
                 case 0:
                     filtrarOfertasEmprego = false;
@@ -403,22 +501,38 @@ public class Main {
                     CandidatoControler.seInscreverOfertaEmpregoAreasRestantes();
                     break;
                 default:
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
                     break;
             }
         }
         return true;
     }
 
-    public static String imprimirMenuInscreverOfertasEmprego(){
-        return
-        "\nPara se inscrever:" +
-        "\nEscolha um dos filtro desejados para visualizar as ofertas de emprego por área de atuação das empresas:\n" + 
-        "1 - Tecnologia\n" + 
-        "2 - Vendas\n" + 
-        "3 - Hospitalar\n" + 
-        "4 - Educação\n" + 
-        "5 - Alimentos\n" +
-        "6 - Área não especificada acima\n" +
-        "Digite 0 para voltar ao menu anterior";
+    public static int imprimirMenuInscreverOfertasEmprego(){
+       String frameTitle = "Se inscrever em uma vaga de emprego";
+       JFrame frame = new JFrame(frameTitle);
+       int op;
+       String input = JOptionPane.showInputDialog(
+       frame,"Para se inscrever:" +
+            "\nEscolha um dos filtro desejados para visualizar as\nofertas de emprego por área de atuação das empresas:\n" + 
+            "\n1 - Tecnologia\n" + 
+            "2 - Vendas\n" + 
+            "3 - Hospitalar\n" + 
+            "4 - Educação\n" + 
+            "5 - Alimentos\n" +
+            "6 - Área não especificada acima\n" +
+            "Digite 0 para voltar ao menu anterior",
+            frameTitle, 
+            JOptionPane.PLAIN_MESSAGE);
+        // Verificando se o input é nulo
+       if (input == null) {
+            return 0; // volta para o meni anterior
+       }// Verificando se o input é vazio
+       if (input.trim().isEmpty()) {
+            return -1; //Indicador de opção invalida
+       }       
+       op = Integer.parseInt(input);
+       frame.dispose(); //Fechando o frame
+       return op;
     }
 }

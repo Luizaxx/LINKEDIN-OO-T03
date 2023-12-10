@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -90,6 +90,6 @@ public class OfertaEmprego {
 			   "\nSalário: " + salario +
 			   "\nQuantidade de vagas: " + qntVagas +
 			   "\nNível de escolaridade exigido: " + escolaridade +
-			   "\nOferta Criada em: "+ dataFormatada;
+			   "\nOferta Criada em: "+ dataFormatada + "\n";
 	}
 }

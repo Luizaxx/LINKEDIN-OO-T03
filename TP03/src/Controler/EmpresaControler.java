@@ -1,12 +1,12 @@
-package Controler;
+package controler;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-import Model.Candidato;
-import Model.Empresa;
-import Model.OfertaEmprego;
+import model.Candidato;
+import model.Empresa;
+import model.OfertaEmprego;
 
 public class EmpresaControler {
 
