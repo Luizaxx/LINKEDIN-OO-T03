@@ -79,6 +79,9 @@ public class Main {
                 case 9:
                     CandidatoControler.apagarOfertaEmpregoInscrita();
                     break;
+                case 10:
+                    System.out.println("Não temos essa opção ainda");
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
                     break;
@@ -93,13 +96,14 @@ public class Main {
                "0 - Sair da aplicação\n" +
                "1 - Voltar para o menu principal\n" +
                "2 - Se cadastrar (caso seja usuário novato)\n" +
-               "3 - Visualizar cadastro\n" +
+               "3 - Visualizar cadastro de cliente específico\n" +
                "4 - Editar cadastro\n" +
                "5 - Apagar o seu cadastro do sistema\n" +
                "6 - Visualizar ofertas de empregos disponíveis\n" +
                "7 - Se inscrever em uma oferta de emprego\n" +
                "8 - Vizualizar ofertas de emprego que você está inscrito\n" +
-               "9 - Tirar a sua inscrição de uma oferta de emprego";
+               "9 - Tirar a sua inscrição de uma oferta de emprego\n"+
+               "10 - Visualizar todos os clientes cadastrados no sistema";
     }
 
     public static boolean menuEditarCandidato(){
@@ -199,6 +203,9 @@ public class Main {
                 case 9:
                     OfertaEmpregoControler.apagarOfertaEmprego();
                     break;
+                case 10:
+                    System.out.println("Não temos essa opção ainda");
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
                     break;
@@ -213,13 +220,14 @@ public class Main {
                "0 - Sair da aplicação\n" +
                "1 - Voltar para o menu principal\n" +
                "2 - Se cadastrar (caso seja usuário novato)\n" +
-               "3 - Visualizar cadastro\n" +
+               "3 - Visualizar cadastro de uma empresa específica\n" +
                "4 - Editar cadastro\n" +
                "5 - Apagar o cadastro da empresa do sistema\n"+
                "6 - Criar oferta de emprego\n" +
                "7 - Visualizar ofertas de emprego da sua empresa que estão abertas\n" +
                "8 - Editar uma oferta de emprego\n" + 
-               "9 - Apagar uma oferta de emprego";
+               "9 - Apagar uma oferta de emprego\n" +
+               "10 - Visualizar todas as empresas cadastradas no sistema";
     }
 
     public static boolean menuEditarEmpresa(){
