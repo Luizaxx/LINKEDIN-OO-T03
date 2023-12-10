@@ -467,6 +467,16 @@ public class CandidatoControler {
         }
     }
 
+    public static void imprimirCadastroTodosClientes(){
+        if (candidatos.isEmpty()) {
+            System.out.println("Nenhum candidato foi cadastrado no sistema ainda.");
+        }else{
+            for (Candidato candidato : candidatos){
+                System.out.println(candidato.toString()); // Imprime o toString da classe candidatos
+            }
+        }
+    }
+
     public static void imprimirOfertasEmpregoInscritas() {
         String cpfDesejado = CPF();
         if (verificaCPF(cpfDesejado)) {

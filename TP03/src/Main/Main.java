@@ -80,7 +80,7 @@ public class Main {
                     CandidatoControler.apagarOfertaEmpregoInscrita();
                     break;
                 case 10:
-                    System.out.println("Não temos essa opção ainda");
+                    CandidatoControler.imprimirCadastroTodosClientes();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente!");
