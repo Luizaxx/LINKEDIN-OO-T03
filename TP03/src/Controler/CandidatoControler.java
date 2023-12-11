@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import javax.swing.*;
+import java.awt.*;
+
+
 import model.Candidato;
 import model.Empresa;
 import model.OfertaEmprego;
-
 public class CandidatoControler {
     
     private static Scanner in = new Scanner(System.in);
@@ -21,6 +24,8 @@ public class CandidatoControler {
     static ArrayList<OfertaEmprego> ofertasAlimentos = Dados.getOfertasAlimentos();
     static ArrayList<OfertaEmprego> ofertasEducacao = Dados.getOfertasEducacao();
     static ArrayList<OfertaEmprego> ofertasRestantes = Dados.getOfertasRestantes();
+
+    
 
     public static String CPF(){        
         System.out.println("\nQual é o seu CPF? ");
@@ -42,10 +47,18 @@ public class CandidatoControler {
         return encontrado;
     }
 
-    public static void cadastrarCandidato(){
+    // public static void cadastrarCandidato(){
+    //     Candidato novoCandidato = lerDadosCandidato();
+    //     Dados.getCandidatosInscritos().add(novoCandidato);
+    //     System.out.println("Candidato cadastrado com sucesso!");
+    // }
+
+    public static void cadastrarCandidato() {
         Candidato novoCandidato = lerDadosCandidato();
-        Dados.getCandidatosInscritos().add(novoCandidato);
-        System.out.println("Candidato cadastrado com sucesso!");
+        if (novoCandidato != null) {
+            Dados.getCandidatosInscritos().add(novoCandidato);
+            System.out.println("Candidato cadastrado com sucesso!");
+        }
     }
 
     public static void editarNomeCandidato(){
@@ -529,42 +542,100 @@ public class CandidatoControler {
             } 
         }
     }        
+    
+    public static Candidato lerDadosCandidato() {
+        boolean camposPreenchidos = false;
 
-    public static Candidato lerDadosCandidato(){
-        String nome;
-	    String email;
-	    String dataNascimento;
-	    String endereco;
-	    String telefone;
-	    String areaAtuacao;
-        String cpf;
-	    String nivelEscolaridade;
-	    String instituicao;
-	    ArrayList<OfertaEmprego> ofertasInscritas = new ArrayList<OfertaEmprego>();
-        System.out.println("\nDigite os seus dados:");
-        System.out.println("Qual é o seu nome? ");
-        nome = in.nextLine();
-        System.out.println("Quel é o seu email? ");
-        email = in.nextLine();
-        System.out.println("Qual é a sua data de nascimento? ");
-        dataNascimento = in.nextLine();
-        System.out.println("Qual é o seu endereço? ");
-        endereco = in.nextLine();
-        System.out.println("Qual o seu telefone? ");
-        telefone = in.nextLine();
-        System.out.println("Qual a sua área de atuação? ");
-        areaAtuacao = in.nextLine();
-        System.out.println("Qual é o seu CPF? ");
-        cpf = in.nextLine();
-        if (verificaCPF(cpf) == true) {
-            System.out.println("\nEsse CPF já existe no sistema.\n");
+        while (!camposPreenchidos) {
+        JPanel panel = new JPanel(new GridLayout(10, 2, 20, 5));
+
+        JTextField nomeField = new JTextField();
+        JTextField emailField = new JTextField();
+        JTextField dataNascimentoField = new JTextField();
+        JTextField enderecoField = new JTextField();
+        JTextField telefoneField = new JTextField();
+        JTextField areaAtuacaoField = new JTextField();
+        JTextField cpfField = new JTextField();
+        JTextField nivelEscolaridadeField = new JTextField();
+        JTextField instituicaoField = new JTextField();
+
+        panel.add(new JLabel("Nome:"));
+        panel.add(nomeField);
+        panel.add(new JLabel("Email:"));
+        panel.add(emailField);
+        panel.add(new JLabel("Data de Nascimento:"));
+        panel.add(dataNascimentoField);
+        panel.add(new JLabel("Endereço:"));
+        panel.add(enderecoField);
+        panel.add(new JLabel("Telefone:"));
+        panel.add(telefoneField);
+        panel.add(new JLabel("Área de Atuação:"));
+        panel.add(areaAtuacaoField);
+        panel.add(new JLabel("CPF:"));
+        panel.add(cpfField);
+        panel.add(new JLabel("Nível de Escolaridade:"));
+        panel.add(nivelEscolaridadeField);
+        panel.add(new JLabel("Instituição:"));
+        panel.add(instituicaoField);
+
+        // Defina as dimensões preferenciais do painel
+        Dimension preferredSize = new Dimension(400, 300);
+        panel.setPreferredSize(preferredSize);
+
+        int result = JOptionPane.showOptionDialog(
+                null,
+                panel,
+                "Digite os seus dados:",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                null,
+                null
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            // Obtenha os valores inseridos pelos usuários
+            String nome = nomeField.getText();
+            String email = emailField.getText();
+            String dataNascimento = dataNascimentoField.getText();
+            String endereco = enderecoField.getText();
+            String telefone = telefoneField.getText();
+            String areaAtuacao = areaAtuacaoField.getText();
+            String cpf = cpfField.getText();
+            String nivelEscolaridade = nivelEscolaridadeField.getText();
+            String instituicao = instituicaoField.getText();
+
+            // Realize as verificações necessárias, se aplicável
+            if (verificaCPF(cpf)) {
+                JOptionPane.showMessageDialog(null, "\nEsse CPF já existe no sistema. Logo você já tem uma conta conosco!\n");
+                return null;
+            }
+
+            if (algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField, telefoneField, areaAtuacaoField, cpfField, nivelEscolaridadeField, instituicaoField) == false) {
+                camposPreenchidos = true;
+                // Crie e retorne um novo objeto Candidato
+                ArrayList<OfertaEmprego> ofertasInscritas = new ArrayList<>();
+                
+                return new Candidato(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cpf, nivelEscolaridade, instituicao, ofertasInscritas);
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de continuar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        }else{
+            // Retorna null se o usuário pressionar Cancelar ou fechar a janela
             return null;
         }
-        System.out.println("Quel é o seu nível de escolaridade? ");
-        nivelEscolaridade = in.nextLine();
-        System.out.println("Qual o nome da instituição? ");
-        instituicao = in.nextLine();
-        Candidato cnd = new Candidato(nome, email, dataNascimento, endereco, telefone, areaAtuacao, cpf, nivelEscolaridade, instituicao, ofertasInscritas);
-        return cnd;
+    }        
+        return null;
     }
+
+    private static boolean algumCampoEmBranco(JTextField... campos) {
+        for (JTextField campo : campos) {
+            if (campo.getText().trim().isEmpty()) {
+                return true; // Pelo menos um campo está em branco
+            }
+        }
+        return false; // Nenhum campo está em branco
+    }  
 }

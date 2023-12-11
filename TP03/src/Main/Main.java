@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import controler.CandidatoControler;
 import controler.EmpresaControler;
 import controler.OfertaEmpregoControler;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -100,14 +99,12 @@ public class Main {
             }
         }
         return true;  // Continua no loop principal
-    }
+    }     
 
     public static int imprimirMenuCandidato(){
-       String frameTitle = "Bem vindo candidato";
-       JFrame frame = new JFrame(frameTitle);
        int op;
        String input = JOptionPane.showInputDialog(
-       frame,"Escolha uma das opções a seguir:\n" +
+       null,"Escolha uma das opções a seguir:\n" +
             "0 - Sair da aplicação\n" +
             "1 - Voltar para o menu principal\n" +
             "2 - Se cadastrar (caso seja usuário novato)\n" +
@@ -119,7 +116,7 @@ public class Main {
             "8 - Vizualizar ofertas de emprego que você está inscrito\n" +
             "9 - Tirar a sua inscrição de uma oferta de emprego\n"+
             "10 - Visualizar todos os candidatos cadastrados no sistema",
-            frameTitle, 
+            "Ben vindo candidato", 
             JOptionPane.PLAIN_MESSAGE);
         // Verificando se o input é nulo
        if (input == null) {
@@ -129,7 +126,7 @@ public class Main {
             return -1; //Indicador de opção invalida
        }       
        op = Integer.parseInt(input);
-       frame.dispose(); //Fechando o frame
+       
        return op;
     }
 

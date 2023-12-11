@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 public class Candidato extends Usuario{
 
 	private String cpf;
