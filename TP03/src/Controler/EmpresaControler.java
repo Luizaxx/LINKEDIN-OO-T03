@@ -34,7 +34,6 @@ public class EmpresaControler {
                 camposPreenchidos = true;
                 return cnpjDesejado;
             }
-            
         }
         return null;
     }

@@ -49,9 +49,6 @@ public class CandidatoControler {
                     break;                
                 }
             }
-            if (!encontrado) {
-                JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
-            }
         }  
         return encontrado; 
     }
@@ -66,7 +63,7 @@ public class CandidatoControler {
 
     public static void editarNomeCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novoNome = JOptionPane.showInputDialog(null,"Antigo nome cadastrado no seu cadastro: "+ candidato.getNome()+" \nDigite o novo nome:");
@@ -75,12 +72,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarEmailCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novoEmail = JOptionPane.showInputDialog(null,"Antigo email cadastrado no seu cadastro: "+ candidato.getEmail() + " \nDigite o novo email: ");
@@ -89,12 +88,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarDataNascimentoCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novaDataNascimento = JOptionPane.showInputDialog(null,"Antiga data de nascimento cadastrado no seu cadastro: "+ candidato.getDataNascimento() + " \nDigite a nova data de nascimento:");
@@ -103,12 +104,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarEnderecoCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novoEndereco = JOptionPane.showInputDialog(null, "Antigo endereço cadastrado no seu cadastro: "+ candidato.getEndereco() + " \nDigite o novo endereço: ");
@@ -117,12 +120,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarTelefoneCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novoTelefone = JOptionPane.showInputDialog(null, "Antigo telefone cadastrado no seu cadastro: "+ candidato.getTelefone() + " \nDigite o novo telefone:");
@@ -131,12 +136,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarAreaAtuacaoCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novaAreaAtuacao = JOptionPane.showInputDialog(null,"Antiga área de atuação cadastrado no seu cadastro: "+ candidato.getAreaAtuacao() + " \nDigite a nova área de atuação:");
@@ -145,12 +152,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarCpfCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novoCPF = JOptionPane.showInputDialog(null, "Antigo CPF cadastrado no seu cadastro: "+ candidato.getCpf() + " \nDigite o novo CPF:");
@@ -159,12 +168,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarNivelEscolaridadeCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novoNivelEscolaridade = JOptionPane.showInputDialog(null,"Antigo nível de escolaridade cadastrado no seu cadastro: "+ candidato.getNivelEscolaridade() + " \nDigite o novo nível de escolaridade:");
@@ -173,12 +184,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void editarInstituicaoCandidato(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado) == true){
+        if (verificaCPF(cpfDesejado)){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
                     String novaInstituicao = JOptionPane.showInputDialog(null,"Antiga instituiçã cadastradá no seu cadastro: "+ candidato.getInstituicao() + " \nDigite o novo nome da instituição:");
@@ -187,12 +200,14 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
     public static void apagarCadastroDoSistema(){
         String cpfDesejado = CPF();
-        if (verificaCPF(cpfDesejado)) {
+        if (verificaCPF(cpfDesejado)){
             Iterator<Candidato> iterator = candidatos.iterator();
             while (iterator.hasNext()) {
                 Candidato candidato = iterator.next();
@@ -202,6 +217,8 @@ public class CandidatoControler {
                     break; // Se encontrou o candidato, não precisa continuar procurando
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
@@ -227,7 +244,7 @@ public class CandidatoControler {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);    
         for (OfertaEmprego ofertaTecnologia : ofertasTecnologia) {
             int numeroOferta = ofertasTecnologia.indexOf(ofertaTecnologia) + 1;
-            textArea.append("Oferta número: " + numeroOferta + "\n");
+            textArea.append("\nOferta número: " + numeroOferta + "\n");
             textArea.append(ofertaTecnologia.toString());
         }
         textArea.setEditable(false);
@@ -250,7 +267,7 @@ public class CandidatoControler {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);    
         for(OfertaEmprego ofertaVendas : ofertasVendas){
             int numeroOferta = ofertasVendas.indexOf(ofertaVendas) + 1;
-            textArea.append("Oferta número: " + numeroOferta + "\n");
+            textArea.append("\nOferta número: " + numeroOferta + "\n");
             textArea.append(ofertaVendas.toString());
         }
         textArea.setEditable(false);
@@ -273,7 +290,7 @@ public class CandidatoControler {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);    
         for(OfertaEmprego ofertaAlimentos : ofertasAlimentos){
             int numeroOferta = ofertasAlimentos.indexOf(ofertaAlimentos) + 1;
-            textArea.append("Oferta número: " + numeroOferta + "\n");
+            textArea.append("\nOferta número: " + numeroOferta + "\n");
             textArea.append(ofertaAlimentos.toString());
         }
         textArea.setEditable(false);
@@ -296,7 +313,7 @@ public class CandidatoControler {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);    
         for(OfertaEmprego ofertaHospitalar : ofertaHospitalares){
             int numeroOferta = ofertaHospitalares.indexOf(ofertaHospitalar) + 1;
-            textArea.append("Oferta número: " + numeroOferta + "\n");
+            textArea.append("\nOferta número: " + numeroOferta + "\n");
             textArea.append(ofertaHospitalar.toString());
         }
         textArea.setEditable(false);
@@ -319,7 +336,7 @@ public class CandidatoControler {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);    
         for(OfertaEmprego ofertaEducacao : ofertasEducacao){
             int numeroOferta = ofertasEducacao.indexOf(ofertaEducacao) + 1;
-            textArea.append("Oferta número: " + numeroOferta + "\n");
+            textArea.append("\nOferta número: " + numeroOferta + "\n");
             textArea.append(ofertaEducacao.toString());
         }
         textArea.setEditable(false);
@@ -342,7 +359,7 @@ public class CandidatoControler {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);    
         for(OfertaEmprego ofertaRestante : ofertasRestantes){
             int numeroOferta = ofertasRestantes.indexOf(ofertaRestante) + 1;
-            textArea.append("Oferta número: " + numeroOferta + "\n");
+            textArea.append("\nOferta número: " + numeroOferta + "\n");
             textArea.append(ofertaRestante.toString());
         }
         textArea.setEditable(false);
@@ -427,6 +444,8 @@ public class CandidatoControler {
                         }
                     }
                 }
+            }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -499,6 +518,8 @@ public class CandidatoControler {
                         }
                     }
                 }
+            }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -571,6 +592,8 @@ public class CandidatoControler {
                         }
                     }
                 }
+            }else{
+                JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -643,6 +666,8 @@ public class CandidatoControler {
                         }
                     }
                 }
+            }else{
+                JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -715,6 +740,8 @@ public class CandidatoControler {
                         }
                     }
                 }
+            }else{
+                JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -787,6 +814,8 @@ public class CandidatoControler {
                         }
                     }
                 }
+            }else{
+                JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -796,27 +825,29 @@ public class CandidatoControler {
         if (candidatos.isEmpty()) { //Verifica se existe candidatos cadastrados no sistema
             JOptionPane.showMessageDialog(null,"Nenhum candidato foi cadastrado no sistema ainda.");
         } else {            
-        if (verificaCPF(cpfDesejado) == true){
-            for (Candidato candidato : candidatos){
-                if (candidato.getCpf().equals(cpfDesejado)){
-                    JTextArea textArea = new JTextArea(20, 40);
-                    JScrollPane scrollPane = new JScrollPane(textArea);
-                    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-                    textArea.append(candidato.toString() + "\n\n");         
-                    textArea.setEditable(false);
-                    Object[] options = {"OK", "Cancel"};
-                    JOptionPane.showOptionDialog(
-                            null,
-                            scrollPane,
-                            "Dados completos do seu cadastro",
-                            JOptionPane.OK_CANCEL_OPTION,
-                            JOptionPane.PLAIN_MESSAGE,
-                            null,
-                            options,
-                            options[0]
-                    );
+        if (verificaCPF(cpfDesejado)){
+                for (Candidato candidato : candidatos){
+                    if (candidato.getCpf().equals(cpfDesejado)){
+                        JTextArea textArea = new JTextArea(20, 40);
+                        JScrollPane scrollPane = new JScrollPane(textArea);
+                        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                        textArea.append(candidato.toString() + "\n\n");         
+                        textArea.setEditable(false);
+                        Object[] options = {"OK", "Cancel"};
+                        JOptionPane.showOptionDialog(
+                                null,
+                                scrollPane,
+                                "Dados completos do seu cadastro",
+                                JOptionPane.OK_CANCEL_OPTION,
+                                JOptionPane.PLAIN_MESSAGE,
+                                null,
+                                options,
+                                options[0]
+                        );
                     }
                 }
+            }else{
+                JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
             }
         }
     }
@@ -879,6 +910,8 @@ public class CandidatoControler {
                     break; // Se encontrou o candidato, não precisa continuar procurando
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }
 
@@ -951,6 +984,8 @@ public class CandidatoControler {
                     break;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
     }  
 
