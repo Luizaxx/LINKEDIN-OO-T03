@@ -2,7 +2,6 @@ package main;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import controler.CandidatoControler;
 import controler.EmpresaControler;
 import controler.OfertaEmpregoControler;
@@ -91,6 +90,7 @@ public class Main {
                     CandidatoControler.apagarOfertaEmpregoInscrita();
                     break;
                 case 10:
+                    //JOptionPane.showMessageDialog(null, "Os dados foram impressos no terminal");
                     CandidatoControler.imprimirCadastroTodosClientes();
                     break;
                 default:

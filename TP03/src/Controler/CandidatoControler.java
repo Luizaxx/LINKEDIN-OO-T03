@@ -25,11 +25,8 @@ public class CandidatoControler {
     static ArrayList<OfertaEmprego> ofertasEducacao = Dados.getOfertasEducacao();
     static ArrayList<OfertaEmprego> ofertasRestantes = Dados.getOfertasRestantes();
 
-    
-
     public static String CPF(){        
-        System.out.println("\nQual é o seu CPF? ");
-        String cpfDesejado = in.nextLine();
+        String cpfDesejado = JOptionPane.showInputDialog(null,"\nQual é o seu CPF? ", "Informe o seu CPF", JOptionPane.PLAIN_MESSAGE);
         return cpfDesejado;
     }
 
@@ -42,22 +39,16 @@ public class CandidatoControler {
             }
         }
         if (!encontrado) {
-            System.out.println("\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
+            JOptionPane.showMessageDialog(null,"\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
         }
         return encontrado;
     }
-
-    // public static void cadastrarCandidato(){
-    //     Candidato novoCandidato = lerDadosCandidato();
-    //     Dados.getCandidatosInscritos().add(novoCandidato);
-    //     System.out.println("Candidato cadastrado com sucesso!");
-    // }
 
     public static void cadastrarCandidato() {
         Candidato novoCandidato = lerDadosCandidato();
         if (novoCandidato != null) {
             Dados.getCandidatosInscritos().add(novoCandidato);
-            System.out.println("Candidato cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(null,"Candidato cadastrado com sucesso!", "Sucesso", JOptionPane.PLAIN_MESSAGE);
         }
     }
 
@@ -66,11 +57,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntigo nome cadastrado no seu cadastro: "+ candidato.getNome());
-                    System.out.println("Digite o novo nome:");
-                    String novoNome = in.nextLine();
+                    String novoNome = JOptionPane.showInputDialog(null,"Antigo nome cadastrado no seu cadastro: "+ candidato.getNome()+" \nDigite o novo nome:");
                     candidato.setNome(novoNome);
-                    System.out.println("Nome editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Nome editado com sucesso!");
                     break;
                 }
             }
@@ -82,11 +71,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntigo email cadastrado no seu cadastro: "+ candidato.getEmail());
-                    System.out.println("Digite o novo email:");
-                    String novoEmail = in.nextLine();
+                    String novoEmail = JOptionPane.showInputDialog(null,"Antigo email cadastrado no seu cadastro: "+ candidato.getEmail() + " \nDigite o novo email: ");
                     candidato.setEmail(novoEmail);
-                    System.out.println("Email editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Email editado com sucesso!");
                     break;
                 }
             }
@@ -98,11 +85,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntiga data de nascimento cadastrado no seu cadastro: "+ candidato.getDataNascimento());
-                    System.out.println("Digite a nova data de nascimento:");
-                    String novaDataNascimento = in.nextLine();
+                    String novaDataNascimento = JOptionPane.showInputDialog(null,"Antiga data de nascimento cadastrado no seu cadastro: "+ candidato.getDataNascimento() + " \nDigite a nova data de nascimento:");
                     candidato.setDataNascimento(novaDataNascimento);
-                    System.out.println("Data de nascimento editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Data de nascimento editado com sucesso!");
                     break;
                 }
             }
@@ -114,11 +99,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntigo endereço cadastrado no seu cadastro: "+ candidato.getEndereco());
-                    System.out.println("Digite o novo endereço:");
-                    String novoEndereco = in.nextLine();
+                    String novoEndereco = JOptionPane.showInputDialog(null, "Antigo endereço cadastrado no seu cadastro: "+ candidato.getEndereco() + " \nDigite o novo endereço: ");
                     candidato.setEndereco(novoEndereco);
-                    System.out.println("Endereço editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Endereço editado com sucesso!");
                     break;
                 }
             }
@@ -130,11 +113,11 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntigo telefone cadastrado no seu cadastro: "+ candidato.getTelefone());
-                    System.out.println("Digite o novo telefone:");
-                    String novoTelefone = in.nextLine();
+                    System.out.println();
+                    System.out.println("");
+                    String novoTelefone = JOptionPane.showInputDialog(null, "Antigo telefone cadastrado no seu cadastro: "+ candidato.getTelefone() + " \nDigite o novo telefone:");
                     candidato.setTelefone(novoTelefone);
-                    System.out.println("Telefone editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Telefone editado com sucesso!");
                     break;
                 }
             }
@@ -146,11 +129,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntiga área de atuação cadastrado no seu cadastro: "+ candidato.getAreaAtuacao());
-                    System.out.println("Digite a nova área de atuação:");
-                    String novaAreaAtuacao = in.nextLine();
+                    String novaAreaAtuacao = JOptionPane.showInputDialog(null,"Antiga área de atuação cadastrado no seu cadastro: "+ candidato.getAreaAtuacao() + " \nDigite a nova área de atuação:");
                     candidato.setAreaAtuacao(novaAreaAtuacao);
-                    System.out.println("Área de atuação editada com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Área de atuação editada com sucesso!");
                     break;
                 }
             }
@@ -162,11 +143,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntigo CPF cadastrado no seu cadastro: "+ candidato.getCpf());
-                    System.out.println("Digite o novo CPF:");
-                    String novoCPF = in.nextLine();
+                    String novoCPF = JOptionPane.showInputDialog(null, "Antigo CPF cadastrado no seu cadastro: "+ candidato.getCpf() + " \nDigite o novo CPF:");
                     candidato.setCpf(novoCPF);
-                    System.out.println("CPF editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"CPF editado com sucesso!");
                     break;
                 }
             }
@@ -178,11 +157,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntigo nível de escolaridade cadastrado no seu cadastro: "+ candidato.getNivelEscolaridade());
-                    System.out.println("Digite o novo nível de escolaridade:");
-                    String novoNivelEscolaridade = in.nextLine();
+                    String novoNivelEscolaridade = JOptionPane.showInputDialog(null,"Antigo nível de escolaridade cadastrado no seu cadastro: "+ candidato.getNivelEscolaridade() + " \nDigite o novo nível de escolaridade:");
                     candidato.setNivelEscolaridade(novoNivelEscolaridade);
-                    System.out.println("Nível de escolaridade editado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Nível de escolaridade editado com sucesso!");
                     break;
                 }
             }
@@ -194,11 +171,9 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                    System.out.println("\nAntiga instituiçã cadastradá no seu cadastro: "+ candidato.getInstituicao());
-                    System.out.println("Digite o novo nome da instituição:");
-                    String novaInstituicao = in.nextLine();
+                    String novaInstituicao = JOptionPane.showInputDialog(null,"Antiga instituiçã cadastradá no seu cadastro: "+ candidato.getInstituicao() + " \nDigite o novo nome da instituição:");
                     candidato.setInstituicao(novaInstituicao);
-                    System.out.println("Nome da instituição editada com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Nome da instituição editada com sucesso!");
                     break;
                 }
             }
@@ -213,7 +188,7 @@ public class CandidatoControler {
                 Candidato candidato = iterator.next();
                 if (candidato.getCpf().equals(cpfDesejado)) {
                     iterator.remove(); // Remove o candidato usando o iterador
-                    System.out.println("Candidato removido com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Candidato(a) removido(a) com sucesso!");
                     break; // Se encontrou o candidato, não precisa continuar procurando
                 }
             }
@@ -472,8 +447,22 @@ public class CandidatoControler {
         if (verificaCPF(cpfDesejado) == true){
             for (Candidato candidato : candidatos){
                 if (candidato.getCpf().equals(cpfDesejado)){
-                        System.out.println(candidato.toString()); // Imprime o toString da classe candidatos
-                        break; // Se encontrou, não precisa continuar procurando
+                    JTextArea textArea = new JTextArea(20, 40);
+                    JScrollPane scrollPane = new JScrollPane(textArea);
+                    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                    textArea.append(candidato.toString() + "\n\n");         
+                    textArea.setEditable(false);
+                    Object[] options = {"OK", "Cancel"};
+                    JOptionPane.showOptionDialog(
+                            null,
+                            scrollPane,
+                            "Dados completos do seu cadastro",
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            options,
+                            options[0]
+                    );
                     }
                 }
             }
@@ -482,11 +471,27 @@ public class CandidatoControler {
 
     public static void imprimirCadastroTodosClientes(){
         if (candidatos.isEmpty()) {
-            System.out.println("Nenhum candidato foi cadastrado no sistema ainda.");
+            JOptionPane.showMessageDialog(null,"Nenhum candidato foi cadastrado no sistema ainda.");
         }else{
-            for (Candidato candidato : candidatos){
-                System.out.println(candidato.toString()); // Imprime o toString da classe candidatos
+            JTextArea textArea = new JTextArea(20, 40);
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            for (Candidato candidato : candidatos) {
+                textArea.append(candidato.toString() + "\n\n");
             }
+            textArea.setEditable(false);
+            Object[] options = {"OK", "Cancel"};
+            JOptionPane.showOptionDialog(
+                    null,
+                    scrollPane,
+                    "Banco de dados dos candidatos cadastrados e suas ofertas inscritas",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    options,
+                    options[0]
+            );
+           
         }
     }
 
@@ -499,10 +504,25 @@ public class CandidatoControler {
                     if (candidato.getOfertasInscritas().isEmpty()) {
                         System.out.println("O candidato não tem nenhuma oferta de emprego inscrita ainda.");
                     } else {
-                        System.out.println("Ofertas de emprego inscritas para " + candidato.getNome() + ":");
+                        JTextArea textArea = new JTextArea(20, 40);
+                        JScrollPane scrollPane = new JScrollPane(textArea);
+                        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                        
                         for (OfertaEmprego oferta : candidato.getOfertasInscritas()) {
-                            System.out.println(oferta);
+                            textArea.append(oferta.toString() + "\n");
                         }
+                        textArea.setEditable(false);
+                        Object[] options = {"OK", "Cancel"};
+                        JOptionPane.showOptionDialog(
+                        null,
+                        scrollPane,
+                        "Ofertas de emprego inscritas para " + candidato.getNome() + ":" ,
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        options,
+                        options[0]
+                        );
                     }
                     break; // Se encontrou o candidato, não precisa continuar procurando
                 }
@@ -510,39 +530,152 @@ public class CandidatoControler {
         }
     }
 
-    public static void apagarOfertaEmpregoInscrita(){
+    // public static void apagarOfertaEmpregoInscrita(){
+    //     String cpfDesejado = CPF();
+    //     if (verificaCPF(cpfDesejado)) {
+    //         for (Candidato candidato : candidatos) {
+    //             if (candidato.getCpf().equals(cpfDesejado)) {  
+    //                 // Verifica se o candidato tem ofertas de emprego inscritas
+    //                 if (candidato.getOfertasInscritas().isEmpty()) {
+    //                     System.out.println("O candidato não tem nenhuma oferta de emprego inscrita ainda.");
+    //                 }else{                        
+    //                     System.out.println("Ofertas de emprego inscritas para "+ candidato.getNome() +":");                            
+    //                     // Imprime as ofertas de emprego com números
+    //                     for (int i = 0; i < candidato.getOfertasInscritas().size(); i++) {
+    //                         int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
+    //                         System.out.println("\nOferta número: " + numeroOferta);
+    //                         System.out.println(candidato.getOfertasInscritas().get(i).toString());
+    //                     }
+    //                     System.out.println("\nQual oferta de emprego você deseja retirar sua inscrição? (Digite o número da oferta)");
+    //                     int numeroOfertaEscolhida = in.nextInt();
+    //                     // Verifica se o número da oferta escolhida é válido
+    //                     if (numeroOfertaEscolhida >= 1 && numeroOfertaEscolhida <= candidato.getOfertasInscritas().size()){     
+    //                         //removendo a oferta de emprego da empresa              
+    //                         candidato.getOfertasInscritas().remove(numeroOfertaEscolhida - 1);
+    //                         System.out.println("\nInscrição retirada com sucesso!");
+    //                     }else{
+    //                         System.out.println("\nNúmero de oferta inválido.");
+    //                     }
+    //                 }
+    //                 break; // Se encontrou a empresa, não precisa continuar procurando
+    //             }
+    //         } 
+    //     }
+    // }
+    public static void apagarOfertaEmpregoInscrita() {
         String cpfDesejado = CPF();
         if (verificaCPF(cpfDesejado)) {
             for (Candidato candidato : candidatos) {
-                if (candidato.getCpf().equals(cpfDesejado)) {  
-                    // Verifica se o candidato tem ofertas de emprego inscritas
+                if (candidato.getCpf().equals(cpfDesejado)) {
                     if (candidato.getOfertasInscritas().isEmpty()) {
-                        System.out.println("O candidato não tem nenhuma oferta de emprego inscrita ainda.");
-                    }else{                        
-                        System.out.println("Ofertas de emprego inscritas para "+ candidato.getNome() +":");                            
-                        // Imprime as ofertas de emprego com números
+                        JOptionPane.showMessageDialog(null, "O candidato não tem nenhuma oferta de emprego inscrita ainda.");
+                    } else {
+                        StringBuilder mensagem = new StringBuilder();
+                        //mensagem.append("Ofertas de emprego inscritas para ").append(candidato.getNome()).append(":\n");
+
                         for (int i = 0; i < candidato.getOfertasInscritas().size(); i++) {
-                            int numeroOferta = i + 1; // O índice do loop mais 1 representa o número da oferta
-                            System.out.println("\nOferta número: " + numeroOferta);
-                            System.out.println(candidato.getOfertasInscritas().get(i).toString());
+                            int numeroOferta = i + 1;
+                            mensagem.append("\nOferta número: ").append(numeroOferta).append("\n")
+                                    .append(candidato.getOfertasInscritas().get(i).toString()).append("\n");
                         }
-                        System.out.println("\nQual oferta de emprego você deseja retirar sua inscrição? (Digite o número da oferta)");
-                        int numeroOfertaEscolhida = in.nextInt();
-                        // Verifica se o número da oferta escolhida é válido
-                        if (numeroOfertaEscolhida >= 1 && numeroOfertaEscolhida <= candidato.getOfertasInscritas().size()){     
-                            //removendo a oferta de emprego da empresa              
-                            candidato.getOfertasInscritas().remove(numeroOfertaEscolhida - 1);
-                            System.out.println("\nInscrição retirada com sucesso!");
-                        }else{
-                            System.out.println("\nNúmero de oferta inválido.");
+
+                        JTextArea textArea = new JTextArea(10, 40);
+                        JScrollPane scrollPane = new JScrollPane(textArea);
+                        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+                        textArea.setText(mensagem.toString());
+                        textArea.setEditable(false);
+
+                        JPanel panel = new JPanel(new BorderLayout());
+                        panel.add(scrollPane, BorderLayout.NORTH);
+
+                        JLabel mensagemLabel = new JLabel("\nQual das ofertas você deseja tirar a sua inscrição, digite o número:");
+                        panel.add(mensagemLabel, BorderLayout.CENTER);
+
+                        JTextField inputField = new JTextField();
+                        panel.add(inputField, BorderLayout.SOUTH);
+
+                        int result = JOptionPane.showOptionDialog(
+                                null,
+                                panel,
+                                "Ofertas de emprego inscritas para " + candidato.getNome(),
+                                JOptionPane.OK_CANCEL_OPTION,
+                                JOptionPane.PLAIN_MESSAGE,
+                                null,
+                                null,
+                                null
+                        );
+
+                        if (result == JOptionPane.OK_OPTION) {
+                            // Lógica para processar o campo de entrada
+                            String input = inputField.getText();
+                            int numeroOfertaEscolhida = Integer.parseInt(input);
+
+                            if (numeroOfertaEscolhida >= 1 && numeroOfertaEscolhida <= candidato.getOfertasInscritas().size()) {
+                                candidato.getOfertasInscritas().remove(numeroOfertaEscolhida - 1);
+                                JOptionPane.showMessageDialog(null, "Inscrição retirada com sucesso!");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Número de oferta inválido.");
+                            }
                         }
                     }
-                    break; // Se encontrou a empresa, não precisa continuar procurando
+                    break;
                 }
-            } 
+            }
         }
-    }        
-    
+    }       
+    /*
+    public static void apagarOfertaEmpregoInscrita() {
+        String cpfDesejado = CPF();
+        if (verificaCPF(cpfDesejado)) {
+            for (Candidato candidato : candidatos) {
+                if (candidato.getCpf().equals(cpfDesejado)) {
+                    if (candidato.getOfertasInscritas().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "O candidato não tem nenhuma oferta de emprego inscrita ainda.");
+                    } else {
+                        JTextArea textArea = new JTextArea(20, 40);
+                        JScrollPane scrollPane = new JScrollPane(textArea);
+                        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                            
+                        for (int i = 0; i < candidato.getOfertasInscritas().size(); i++) {
+                            int numeroOferta = i + 1;
+                            textArea.append("\nOferta número: ").append(numeroOferta).append("\n")
+                                    .append(candidato.getOfertasInscritas().get(i).toString()).append("\n");
+                        }
+                        //textArea.setEditable(false);
+                        JOptionPane.showOptionDialog(
+                        null,
+                        scrollPane,
+                        "Ofertas de emprego inscritas para " + candidato.getNome() + ":" ,
+                        null,
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        null,                        
+                        );
+
+                        textArea.append("\nQual oferta de emprego você deseja retirar sua inscrição? (Digite o número da oferta)");
+
+                        String input = JOptionPane.showInputDialog(null, mensagem.toString());
+
+                        try {
+                            int numeroOfertaEscolhida = Integer.parseInt(input);
+
+                            if (input >= 1 && input <= candidato.getOfertasInscritas().size()) {
+                                candidato.getOfertasInscritas().remove(input - 1);
+                                JOptionPane.showMessageDialog(null, "Inscrição retirada com sucesso!");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Número de oferta inválido.");
+                            }
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Por favor, digite um número válido.");
+                        }
+                    }
+                    break;
+                }
+            }
+        } 
+    }
+     */
     public static Candidato lerDadosCandidato() {
         boolean camposPreenchidos = false;
 
@@ -630,7 +763,7 @@ public class CandidatoControler {
         return null;
     }
 
-    private static boolean algumCampoEmBranco(JTextField... campos) {
+    private static boolean algumCampoEmBranco(JTextField... campos){
         for (JTextField campo : campos) {
             if (campo.getText().trim().isEmpty()) {
                 return true; // Pelo menos um campo está em branco
