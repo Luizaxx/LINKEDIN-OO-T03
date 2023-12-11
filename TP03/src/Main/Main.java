@@ -114,7 +114,7 @@ public class Main {
             "6 - Visualizar ofertas de empregos disponíveis\n" +
             "7 - Se inscrever em uma oferta de emprego\n" +
             "8 - Vizualizar ofertas de emprego que você está inscrito\n" +
-            "9 - Tirar a sua inscrição de uma oferta de emprego\n"+
+            "9 - Retirar a sua inscrição de uma oferta de emprego\n"+
             "10 - Visualizar todos os candidatos cadastrados no sistema",
             "Ben vindo candidato", 
             JOptionPane.PLAIN_MESSAGE);
@@ -474,27 +474,21 @@ public class Main {
                     filtrarOfertasEmprego = false;
                     break;
                 case 1:
-                    CandidatoControler.filtrarOfertasEmpregoTecnologia();
                     CandidatoControler.seInscreverOfertaEmpregoAreaTecnologia();
                     break;
-                case 2:
-                    CandidatoControler.filtrarOfertasEmpregoVendas();
+                case 2:                    
                     CandidatoControler.seInscreverOfertaEmpregoAreaVendas();
                     break;
-                case 3:
-                    CandidatoControler.filtrarOfertasEmpregoHospitalar();
+                case 3:                    
                     CandidatoControler.seInscreverOfertaEmpregoAreaHospitalar();
                     break;
-                case 4:
-                    CandidatoControler.filtrarOfertasEmpregoEducacao();
+                case 4:                    
                     CandidatoControler.seInscreverOfertaEmpregoAreaEducacao();
                     break;
-                case 5:
-                    CandidatoControler.filtrarOfertasEmpregoAlimentos();
+                case 5:                    
                     CandidatoControler.seInscreverOfertaEmpregoAreaAlimentos();
                     break;
-                case 6:
-                    CandidatoControler.filtrarOfertasEmpregoRestantes();
+                case 6:                   
                     CandidatoControler.seInscreverOfertaEmpregoAreasRestantes();
                     break;
                 default:

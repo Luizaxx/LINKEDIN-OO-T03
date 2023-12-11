@@ -82,7 +82,7 @@ public class OfertaEmprego {
 
 	@Override
 	public String toString(){
-		return "\nInformações da oferta de emprego:" +
+		return "Informações da oferta de emprego:" +
 			   "\nNome da empresa: " + empresa.getNome() +
 			   "\nÁrea de atuação da empresa: " + empresa.getAreaAtuacao() +
 			   "\nEmail da empresa: " + empresa.getEmail() +
