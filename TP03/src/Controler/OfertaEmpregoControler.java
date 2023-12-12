@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,8 +18,6 @@ import model.Empresa;
 import model.OfertaEmprego;
 
 public class OfertaEmpregoControler {
-
-    private static Scanner in = new Scanner(System.in);
 
     static ArrayList<Empresa> empresas = Dados.getEmpresas();
     static ArrayList<Candidato> candidatos = Dados.getCandidatosInscritos();
