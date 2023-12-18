@@ -58,6 +58,16 @@ public class Candidato extends Usuario{
 		this.ofertasInscritas = ofertasInscritas;
 	}
 
+	// Copy constructor
+    public Candidato(Candidato other) {
+        super(other.getNome(), other.getEmail(), other.getDataNascimento(), other.getEndereco(),
+                other.getTelefone(), other.getAreaAtuacao());
+        this.cpf = other.cpf;
+        this.nivelEscolaridade = other.nivelEscolaridade;
+        this.instituicao = other.instituicao;
+        this.ofertasInscritas = new ArrayList<>(other.ofertasInscritas);
+    }
+
 	@Override
 	public String toString() {
 		return  "\nDados Candidato: " +  

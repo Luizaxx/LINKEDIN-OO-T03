@@ -1,11 +1,18 @@
 package main;
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import controler.CandidatoControler;
+import controler.Dados;
 import controler.EmpresaControler;
 import controler.OfertaEmpregoControler;
+import model.Candidato;
+
 public class Main {
+
+    static ArrayList<Candidato> candidatos = Dados.getCandidatosInscritos();
 
     public static void main(String[] args) {
         boolean loop = true;
@@ -23,7 +30,7 @@ public class Main {
                     loop = menuEmpresa();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
@@ -54,7 +61,6 @@ public class Main {
 
     public static boolean menuCandidato() {
         boolean loopCandidato = true;
-
         while (loopCandidato) {
             
             int op2 = imprimirMenuCandidato();
@@ -72,7 +78,8 @@ public class Main {
                     CandidatoControler.imprimirCandidatos();
                     break;
                 case 4:
-                    loopCandidato = menuEditarCandidato();
+                    String cpfDesejado = CandidatoControler.CPF();
+                    CandidatoControler.editarDados(cpfDesejado);
                     break;
                 case 5:
                     CandidatoControler.apagarCadastroDoSistema();
@@ -94,7 +101,7 @@ public class Main {
                     CandidatoControler.imprimirCadastroTodosClientes();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
@@ -120,87 +127,15 @@ public class Main {
             JOptionPane.PLAIN_MESSAGE);
         // Verificando se o input é nulo
        if (input == null) {
-            return 0; // Saindo do sistema
-       }// Verificando se o input é vazio
+            // Volta ao menu principal
+            return 1; 
+       }
+       // Verificando se o input é vazio
        if (input.trim().isEmpty()) {
-            return -1; //Indicador de opção invalida
+            //Indicador de opção invalida
+            return -1; 
        }       
-       op = Integer.parseInt(input);
-       
-       return op;
-    }
-
-    public static boolean menuEditarCandidato(){
-        boolean loopEditarCandidato = true;
-
-        while (loopEditarCandidato) {
-            int op3 = imprimirMenuEditarCandidato();
-            switch (op3) {
-                case 0:
-                    loopEditarCandidato = false;
-                    break;
-                case 1:
-                    CandidatoControler.editarNomeCandidato();
-                    break;
-                case 2:
-                    CandidatoControler.editarEmailCandidato();
-                    break;
-                case 3:
-                    CandidatoControler.editarDataNascimentoCandidato();
-                    break;
-                case 4:
-                    CandidatoControler.editarEnderecoCandidato();
-                    break;
-                case 5:
-                    CandidatoControler.editarTelefoneCandidato();
-                    break;
-                case 6:
-                    CandidatoControler.editarAreaAtuacaoCandidato();
-                    break;
-                case 7:
-                    CandidatoControler.editarCpfCandidato();
-                    break;
-                case 8:
-                    CandidatoControler.editarNivelEscolaridadeCandidato();
-                    break;
-                case 9:
-                    CandidatoControler.editarInstituicaoCandidato();
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
-                    break;
-            }
-        }
-        return true;
-    }
-   
-    public static int imprimirMenuEditarCandidato(){
-       String frameTitle = "Editar informações do candidato";
-       JFrame frame = new JFrame(frameTitle);
-       int op;
-       String input = JOptionPane.showInputDialog(
-       frame,"Quais dos campos asseguir você deseja editar?\n" +
-            "1 - Nome\n" + 
-            "2 - Email\n" +
-            "3 - Data de nascimento\n" +
-            "4 - Endereço\n" +
-            "5 - Telefone\n" +
-            "6 - Área de atuação\n" +
-            "7 - CPF\n" +
-            "8 - Nível escolaridade\n" +
-            "9 - Instituição de ensino\n" +
-            "Caso deseje voltar para o menu anterior digite: 0",
-            frameTitle, 
-            JOptionPane.PLAIN_MESSAGE);
-        // Verificando se o input é nulo
-       if (input == null) {
-            return 0; // Voltando para o menu anterior
-       }// Verificando se o input é vazio
-       if (input.trim().isEmpty()) {
-            return -1; //Indicador de opção invalida
-       }       
-       op = Integer.parseInt(input);
-       frame.dispose(); //Fechando o frame
+       op = Integer.parseInt(input);       
        return op;
     }
 
@@ -244,7 +179,7 @@ public class Main {
                     EmpresaControler.imprimirTodasEmpresas();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
@@ -272,10 +207,12 @@ public class Main {
             JOptionPane.PLAIN_MESSAGE);
         // Verificando se o input é nulo
        if (input == null) {
-            return 0; // Sai do sistema
+            // Volta para o menu principal
+            return 1; 
        }// Verificando se o input é vazio
        if (input.trim().isEmpty()) {
-            return -1; //Indicador de opção invalida
+            //Indicador de opção invalida
+            return -1; 
        }       
        op = Integer.parseInt(input);
        frame.dispose(); //Fechando o frame
@@ -313,7 +250,7 @@ public class Main {
                     EmpresaControler.editarCNPJEmpresa();
                     break;                    
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
@@ -370,7 +307,7 @@ public class Main {
                     OfertaEmpregoControler.editarOfertaEmpregoEscolaridade();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
@@ -430,7 +367,7 @@ public class Main {
                     CandidatoControler.filtrarOfertasEmpregoRestantes();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
@@ -492,7 +429,7 @@ public class Main {
                     CandidatoControler.seInscreverOfertaEmpregoAreasRestantes();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     break;
             }
         }
