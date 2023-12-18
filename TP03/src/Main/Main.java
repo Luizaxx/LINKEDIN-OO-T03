@@ -402,8 +402,8 @@ public class Main {
     }
 
     public static boolean menuInscreverOfertaEmprego(){
-        boolean filtrarOfertasEmprego = true;
-
+        String cpfDesejado = CandidatoControler.CPF();
+        boolean filtrarOfertasEmprego = true;        
         while (filtrarOfertasEmprego) {           
             int op6 = imprimirMenuInscreverOfertasEmprego();
             switch (op6) {
@@ -411,22 +411,22 @@ public class Main {
                     filtrarOfertasEmprego = false;
                     break;
                 case 1:
-                    CandidatoControler.seInscreverOfertaEmpregoAreaTecnologia();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaTecnologia(cpfDesejado);
                     break;
                 case 2:                    
-                    CandidatoControler.seInscreverOfertaEmpregoAreaVendas();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaVendas(cpfDesejado);
                     break;
                 case 3:                    
-                    CandidatoControler.seInscreverOfertaEmpregoAreaHospitalar();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaHospitalar(cpfDesejado);
                     break;
                 case 4:                    
-                    CandidatoControler.seInscreverOfertaEmpregoAreaEducacao();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaEducacao(cpfDesejado);
                     break;
                 case 5:                    
-                    CandidatoControler.seInscreverOfertaEmpregoAreaAlimentos();
+                    CandidatoControler.seInscreverOfertaEmpregoAreaAlimentos(cpfDesejado);
                     break;
                 case 6:                   
-                    CandidatoControler.seInscreverOfertaEmpregoAreasRestantes();
+                    CandidatoControler.seInscreverOfertaEmpregoAreasRestantes(cpfDesejado);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente!", "Aviso", JOptionPane.WARNING_MESSAGE);

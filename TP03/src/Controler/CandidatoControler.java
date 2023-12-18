@@ -234,403 +234,377 @@ public class CandidatoControler {
                 options[0]);
     }
 
-    public static void seInscreverOfertaEmpregoAreaTecnologia() {
-        String cpfDesejado = CPF();
-    
-        for (Candidato candidato : candidatos) {
-            if (candidato.getCpf().equals(cpfDesejado)) {
-                if (verificaCPF(cpfDesejado)) {
-                    if (ofertasTecnologia.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área de Tecnologia disponíveis.");
-                    } else {
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-                        for (OfertaEmprego ofertaTecnologia : ofertasTecnologia) {
-                            String ofertaString = ofertaTecnologia.toString().replace("\n", "<br> &nbsp;");
-                            listModel.addElement("<html>" + ofertaString + "</html>");
-                        }
-    
-                        JList<String> listaOfertas = new JList<>(listModel);
-                        listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
-                        JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
-                        JPanel panel = new JPanel(new BorderLayout());
-                        Dimension preferredSize = new Dimension(400, 300);
-                        panel.setPreferredSize(preferredSize);
-    
-                        JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
-                        panel.add(mensagemLabel, BorderLayout.NORTH);
-    
-                        panel.add(scrollPane, BorderLayout.CENTER);
-    
-                        int result = JOptionPane.showOptionDialog(
-                                null,
-                                panel,
-                                "Ofertas de emprego na área de Tecnologia disponíveis para " + candidato.getNome(),
-                                JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.PLAIN_MESSAGE,
-                                null,
-                                null,
-                                null);
-    
-                        if (result == JOptionPane.OK_OPTION) {
-                            int selectedIndex = listaOfertas.getSelectedIndex();
-    
-                            if (selectedIndex != -1) {
-                                OfertaEmprego ofertaSelecionada = ofertasTecnologia.get(selectedIndex);
-                                if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
-                                    JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
-                                } else {
-                                    candidato.adicionarOfertaEmprego(ofertaSelecionada);
-                                    JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
-                                        "Aviso", JOptionPane.WARNING_MESSAGE);
-                            }
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
-                }
-                break;
-            }
-        }
-    }    
+    public static void seInscreverOfertaEmpregoAreaTecnologia(String cpfDesejado) {
 
-    public static void seInscreverOfertaEmpregoAreaVendas() {
-        String cpfDesejado = CPF();
-    
         for (Candidato candidato : candidatos) {
             if (candidato.getCpf().equals(cpfDesejado)) {
-                if (verificaCPF(cpfDesejado)) {
-                    if (ofertasVendas.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área de Vendas disponíveis.");
-                    } else {
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-                        for (OfertaEmprego ofertaVendas : ofertasVendas) {
-                            String ofertaString = ofertaVendas.toString().replace("\n", "<br> &nbsp;");
-                            listModel.addElement("<html>" + ofertaString + "</html>");
-                        }
-    
-                        JList<String> listaOfertas = new JList<>(listModel);
-                        listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
-                        JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
-                        JPanel panel = new JPanel(new BorderLayout());
-                        Dimension preferredSize = new Dimension(400, 300);
-                        panel.setPreferredSize(preferredSize);
-    
-                        JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
-                        panel.add(mensagemLabel, BorderLayout.NORTH);
-    
-                        panel.add(scrollPane, BorderLayout.CENTER);
-    
-                        int result = JOptionPane.showOptionDialog(
-                                null,
-                                panel,
-                                "Ofertas de emprego na área de Vendas disponíveis para " + candidato.getNome(),
-                                JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.PLAIN_MESSAGE,
-                                null,
-                                null,
-                                null);
-    
-                        if (result == JOptionPane.OK_OPTION) {
-                            int selectedIndex = listaOfertas.getSelectedIndex();
-    
-                            if (selectedIndex != -1) {
-                                OfertaEmprego ofertaSelecionada = ofertasVendas.get(selectedIndex);
-                                if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
-                                    JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
-                                } else {
-                                    candidato.adicionarOfertaEmprego(ofertaSelecionada);
-                                    JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
-                                        "Aviso", JOptionPane.WARNING_MESSAGE);
-                            }
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
-                }
-                break;
-            }
-        }
-    }    
 
-    public static void seInscreverOfertaEmpregoAreaHospitalar() {
-        String cpfDesejado = CPF();
-    
-        for (Candidato candidato : candidatos) {
-            if (candidato.getCpf().equals(cpfDesejado)) {
-                if (verificaCPF(cpfDesejado)) {
-                    if (ofertaHospitalares.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área Hospitalar disponíveis.");
-                    } else {
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-                        for (OfertaEmprego ofertaHospitalar : ofertaHospitalares) {
-                            String ofertaString = ofertaHospitalar.toString().replace("\n", "<br> &nbsp;");
-                            listModel.addElement("<html>" + ofertaString + "</html>");
-                        }
-    
-                        JList<String> listaOfertas = new JList<>(listModel);
-                        listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
-                        JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
-                        JPanel panel = new JPanel(new BorderLayout());
-                        Dimension preferredSize = new Dimension(400, 300);
-                        panel.setPreferredSize(preferredSize);
-    
-                        JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
-                        panel.add(mensagemLabel, BorderLayout.NORTH);
-    
-                        panel.add(scrollPane, BorderLayout.CENTER);
-    
-                        int result = JOptionPane.showOptionDialog(
-                                null,
-                                panel,
-                                "Ofertas de emprego na área Hospitalar disponíveis para " + candidato.getNome(),
-                                JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.PLAIN_MESSAGE,
-                                null,
-                                null,
-                                null);
-    
-                        if (result == JOptionPane.OK_OPTION) {
-                            int selectedIndex = listaOfertas.getSelectedIndex();
-    
-                            if (selectedIndex != -1) {
-                                OfertaEmprego ofertaSelecionada = ofertaHospitalares.get(selectedIndex);
-                                if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
-                                    JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
-                                } else {
-                                    candidato.adicionarOfertaEmprego(ofertaSelecionada);
-                                    JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
-                                        "Aviso", JOptionPane.WARNING_MESSAGE);
-                            }
-                        }
-                    }
+                if (ofertasTecnologia.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área de Tecnologia disponíveis.");
                 } else {
-                    JOptionPane.showMessageDialog(null, "\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
-                }
-                break;
-            }
-        }
-    }    
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
 
-    public static void seInscreverOfertaEmpregoAreaAlimentos() {
-        String cpfDesejado = CPF();
-    
-        for (Candidato candidato : candidatos) {
-            if (candidato.getCpf().equals(cpfDesejado)) {
-                if (verificaCPF(cpfDesejado)) {
-                    if (ofertasAlimentos.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área de Alimentos disponíveis.");
-                    } else {
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-                        for (OfertaEmprego ofertaAlimentos : ofertasAlimentos) {
-                            String ofertaString = ofertaAlimentos.toString().replace("\n", "<br> &nbsp;");
-                            listModel.addElement("<html>" + ofertaString + "</html>");
-                        }
-    
-                        JList<String> listaOfertas = new JList<>(listModel);
-                        listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
-                        JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
-                        JPanel panel = new JPanel(new BorderLayout());
-                        Dimension preferredSize = new Dimension(400, 300);
-                        panel.setPreferredSize(preferredSize);
-    
-                        JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
-                        panel.add(mensagemLabel, BorderLayout.NORTH);
-    
-                        panel.add(scrollPane, BorderLayout.CENTER);
-    
-                        int result = JOptionPane.showOptionDialog(
-                                null,
-                                panel,
-                                "Ofertas de emprego na área de Alimentos disponíveis para " + candidato.getNome(),
-                                JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.PLAIN_MESSAGE,
-                                null,
-                                null,
-                                null);
-    
-                        if (result == JOptionPane.OK_OPTION) {
-                            int selectedIndex = listaOfertas.getSelectedIndex();
-    
-                            if (selectedIndex != -1) {
-                                OfertaEmprego ofertaSelecionada = ofertasAlimentos.get(selectedIndex);
-                                if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
-                                    JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
-                                } else {
-                                    candidato.adicionarOfertaEmprego(ofertaSelecionada);
-                                    JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
-                                        "Aviso", JOptionPane.WARNING_MESSAGE);
-                            }
-                        }
+                    for (OfertaEmprego ofertaTecnologia : ofertasTecnologia) {
+                        String ofertaString = ofertaTecnologia.toString().replace("\n", "<br> &nbsp;");
+                        listModel.addElement("<html>" + ofertaString + "</html>");
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
-                }
-                break;
-            }
-        }
-    }    
 
-    public static void seInscreverOfertaEmpregoAreaEducacao() {
-        String cpfDesejado = CPF();
-    
-        for (Candidato candidato : candidatos) {
-            if (candidato.getCpf().equals(cpfDesejado)) {
-                if (verificaCPF(cpfDesejado)) {
-                    if (ofertasEducacao.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área de Educação disponíveis.");
-                    } else {
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-                        for (OfertaEmprego ofertaEducacao : ofertasEducacao) {
-                            // Substitua \n por <br> para quebras de linha e adicione espaços
-                            String ofertaString = ofertaEducacao.toString().replace("\n", "<br> &nbsp;");
-                            listModel.addElement("<html>" + ofertaString + "</html>");
-                        }
-    
-                        JList<String> listaOfertas = new JList<>(listModel);
-                        listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
-                        JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
-                        JPanel panel = new JPanel(new BorderLayout());
-                        // Defina as dimensões preferenciais do painel
-                        Dimension preferredSize = new Dimension(400, 300);
-                        panel.setPreferredSize(preferredSize);
-    
-                        JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
-                        panel.add(mensagemLabel, BorderLayout.NORTH);
-    
-                        panel.add(scrollPane, BorderLayout.CENTER);
-    
-                        int result = JOptionPane.showOptionDialog(
-                                null,
-                                panel,
-                                "Ofertas de emprego na área de Educação disponíveis para " + candidato.getNome(),
-                                JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.PLAIN_MESSAGE,
-                                null,
-                                null,
-                                null);
-    
-                        if (result == JOptionPane.OK_OPTION) {
-                            // Lógica para processar a lista de seleção
-                            int selectedIndex = listaOfertas.getSelectedIndex();
-    
-                            if (selectedIndex != -1) {
-                                OfertaEmprego ofertaSelecionada = ofertasEducacao.get(selectedIndex);
-                                if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
-                                    JOptionPane.showMessageDialog(null,
-                                            "Você já está inscrito(a) nesta oferta!");
-                                } else {
-                                    candidato.adicionarOfertaEmprego(ofertaSelecionada);
-                                    JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
-                                        "Aviso", JOptionPane.WARNING_MESSAGE);
-                            }
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
-                }
-                break;
-            }
-        }
-    }    
+                    JList<String> listaOfertas = new JList<>(listModel);
+                    listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-    public static void seInscreverOfertaEmpregoAreasRestantes() {
-        String cpfDesejado = CPF();
-    
-        for (Candidato candidato : candidatos) {
-            if (candidato.getCpf().equals(cpfDesejado)) {
-                if (verificaCPF(cpfDesejado)) {
-                    if (ofertasRestantes.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Não há ofertas de emprego restantes disponíveis.");
-                    } else {
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-                        for (OfertaEmprego oferta : ofertasRestantes) {
-                            // Substitua \n por <br> para quebras de linha e adicione espaços
-                            String ofertaString = oferta.toString().replace("\n", "<br> &nbsp;");
-                            listModel.addElement("<html>" + ofertaString + "</html>");
-                        }
-    
-                        JList<String> listaOfertas = new JList<>(listModel);
-                        listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
-                        JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
-                        JPanel panel = new JPanel(new BorderLayout());
-                        // Defina as dimensões preferenciais do painel
-                        Dimension preferredSize = new Dimension(400, 300);
-                        panel.setPreferredSize(preferredSize);
-    
-                        JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
-                        panel.add(mensagemLabel, BorderLayout.NORTH);
-    
-                        panel.add(scrollPane, BorderLayout.CENTER);
-    
-                        int result = JOptionPane.showOptionDialog(
-                                null,
-                                panel,
-                                "Ofertas de emprego restantes disponíveis para " + candidato.getNome(),
-                                JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.PLAIN_MESSAGE,
-                                null,
-                                null,
-                                null);
-    
-                        if (result == JOptionPane.OK_OPTION) {
-                            // Lógica para processar a lista de seleção
-                            int selectedIndex = listaOfertas.getSelectedIndex();
-    
-                            if (selectedIndex != -1) {
-                                OfertaEmprego ofertaSelecionada = ofertasRestantes.get(selectedIndex);
-                                if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
-                                    JOptionPane.showMessageDialog(null,
-                                            "Você já está inscrito(a) nesta oferta!");
-                                } else {
-                                    candidato.adicionarOfertaEmprego(ofertaSelecionada);
-                                    JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                                }
+                    JScrollPane scrollPane = new JScrollPane(listaOfertas);
+
+                    JPanel panel = new JPanel(new BorderLayout());
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
+
+                    JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
+                    panel.add(mensagemLabel, BorderLayout.NORTH);
+
+                    panel.add(scrollPane, BorderLayout.CENTER);
+
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Ofertas de emprego na área de Tecnologia disponíveis para " + candidato.getNome(),
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        int selectedIndex = listaOfertas.getSelectedIndex();
+
+                        if (selectedIndex != -1) {
+                            OfertaEmprego ofertaSelecionada = ofertasTecnologia.get(selectedIndex);
+                            if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
+                                JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
                             } else {
-                                JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
-                                        "Aviso", JOptionPane.WARNING_MESSAGE);
+                                candidato.adicionarOfertaEmprego(ofertaSelecionada);
+                                JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
                             }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
+                                    "Aviso", JOptionPane.WARNING_MESSAGE);
                         }
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "\nNenhum candidato foi encontrado com esse CPF: " + cpfDesejado);
                 }
                 break;
             }
         }
-    }    
+    }
+
+    public static void seInscreverOfertaEmpregoAreaVendas(String cpfDesejado) {
+
+        for (Candidato candidato : candidatos) {
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                if (ofertasVendas.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Não há ofertas de emprego na área de Vendas disponíveis.");
+                } else {
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
+
+                    for (OfertaEmprego ofertaVendas : ofertasVendas) {
+                        String ofertaString = ofertaVendas.toString().replace("\n", "<br> &nbsp;");
+                        listModel.addElement("<html>" + ofertaString + "</html>");
+                    }
+
+                    JList<String> listaOfertas = new JList<>(listModel);
+                    listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+                    JScrollPane scrollPane = new JScrollPane(listaOfertas);
+
+                    JPanel panel = new JPanel(new BorderLayout());
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
+
+                    JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
+                    panel.add(mensagemLabel, BorderLayout.NORTH);
+
+                    panel.add(scrollPane, BorderLayout.CENTER);
+
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Ofertas de emprego na área de Vendas disponíveis para " + candidato.getNome(),
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        int selectedIndex = listaOfertas.getSelectedIndex();
+
+                        if (selectedIndex != -1) {
+                            OfertaEmprego ofertaSelecionada = ofertasVendas.get(selectedIndex);
+                            if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
+                                JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
+                            } else {
+                                candidato.adicionarOfertaEmprego(ofertaSelecionada);
+                                JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
+                                    "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public static void seInscreverOfertaEmpregoAreaHospitalar(String cpfDesejado) {
+
+        for (Candidato candidato : candidatos) {
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                if (ofertaHospitalares.isEmpty()) {
+                    JOptionPane.showMessageDialog(null,
+                            "Não há ofertas de emprego na área Hospitalar disponíveis.");
+                } else {
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
+
+                    for (OfertaEmprego ofertaHospitalar : ofertaHospitalares) {
+                        String ofertaString = ofertaHospitalar.toString().replace("\n", "<br> &nbsp;");
+                        listModel.addElement("<html>" + ofertaString + "</html>");
+                    }
+
+                    JList<String> listaOfertas = new JList<>(listModel);
+                    listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+                    JScrollPane scrollPane = new JScrollPane(listaOfertas);
+
+                    JPanel panel = new JPanel(new BorderLayout());
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
+
+                    JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
+                    panel.add(mensagemLabel, BorderLayout.NORTH);
+
+                    panel.add(scrollPane, BorderLayout.CENTER);
+
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Ofertas de emprego na área Hospitalar disponíveis para " + candidato.getNome(),
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        int selectedIndex = listaOfertas.getSelectedIndex();
+
+                        if (selectedIndex != -1) {
+                            OfertaEmprego ofertaSelecionada = ofertaHospitalares.get(selectedIndex);
+                            if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
+                                JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
+                            } else {
+                                candidato.adicionarOfertaEmprego(ofertaSelecionada);
+                                JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
+                                    "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public static void seInscreverOfertaEmpregoAreaAlimentos(String cpfDesejado) {
+
+        for (Candidato candidato : candidatos) {
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                if (ofertasAlimentos.isEmpty()) {
+                    JOptionPane.showMessageDialog(null,
+                            "Não há ofertas de emprego na área de Alimentos disponíveis.");
+                } else {
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
+
+                    for (OfertaEmprego ofertaAlimentos : ofertasAlimentos) {
+                        String ofertaString = ofertaAlimentos.toString().replace("\n", "<br> &nbsp;");
+                        listModel.addElement("<html>" + ofertaString + "</html>");
+                    }
+
+                    JList<String> listaOfertas = new JList<>(listModel);
+                    listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+                    JScrollPane scrollPane = new JScrollPane(listaOfertas);
+
+                    JPanel panel = new JPanel(new BorderLayout());
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
+
+                    JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
+                    panel.add(mensagemLabel, BorderLayout.NORTH);
+
+                    panel.add(scrollPane, BorderLayout.CENTER);
+
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Ofertas de emprego na área de Alimentos disponíveis para " + candidato.getNome(),
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        int selectedIndex = listaOfertas.getSelectedIndex();
+
+                        if (selectedIndex != -1) {
+                            OfertaEmprego ofertaSelecionada = ofertasAlimentos.get(selectedIndex);
+                            if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
+                                JOptionPane.showMessageDialog(null, "Você já está inscrito(a) nesta oferta!");
+                            } else {
+                                candidato.adicionarOfertaEmprego(ofertaSelecionada);
+                                JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
+                                    "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public static void seInscreverOfertaEmpregoAreaEducacao(String cpfDesejado) {
+
+        for (Candidato candidato : candidatos) {
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                if (ofertasEducacao.isEmpty()) {
+                    JOptionPane.showMessageDialog(null,
+                            "Não há ofertas de emprego na área de Educação disponíveis.");
+                } else {
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
+
+                    for (OfertaEmprego ofertaEducacao : ofertasEducacao) {
+                        // Substitua \n por <br> para quebras de linha e adicione espaços
+                        String ofertaString = ofertaEducacao.toString().replace("\n", "<br> &nbsp;");
+                        listModel.addElement("<html>" + ofertaString + "</html>");
+                    }
+
+                    JList<String> listaOfertas = new JList<>(listModel);
+                    listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+                    JScrollPane scrollPane = new JScrollPane(listaOfertas);
+
+                    JPanel panel = new JPanel(new BorderLayout());
+                    // Defina as dimensões preferenciais do painel
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
+
+                    JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
+                    panel.add(mensagemLabel, BorderLayout.NORTH);
+
+                    panel.add(scrollPane, BorderLayout.CENTER);
+
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Ofertas de emprego na área de Educação disponíveis para " + candidato.getNome(),
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        // Lógica para processar a lista de seleção
+                        int selectedIndex = listaOfertas.getSelectedIndex();
+
+                        if (selectedIndex != -1) {
+                            OfertaEmprego ofertaSelecionada = ofertasEducacao.get(selectedIndex);
+                            if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
+                                JOptionPane.showMessageDialog(null,
+                                        "Você já está inscrito(a) nesta oferta!");
+                            } else {
+                                candidato.adicionarOfertaEmprego(ofertaSelecionada);
+                                JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
+                                    "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public static void seInscreverOfertaEmpregoAreasRestantes(String cpfDesejado) {
+
+        for (Candidato candidato : candidatos) {
+            if (candidato.getCpf().equals(cpfDesejado)) {
+                if (ofertasRestantes.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Não há ofertas de emprego restantes disponíveis.");
+                } else {
+                    DefaultListModel<String> listModel = new DefaultListModel<>();
+
+                    for (OfertaEmprego oferta : ofertasRestantes) {
+                        // Substitua \n por <br> para quebras de linha e adicione espaços
+                        String ofertaString = oferta.toString().replace("\n", "<br> &nbsp;");
+                        listModel.addElement("<html>" + ofertaString + "</html>");
+                    }
+
+                    JList<String> listaOfertas = new JList<>(listModel);
+                    listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+                    JScrollPane scrollPane = new JScrollPane(listaOfertas);
+
+                    JPanel panel = new JPanel(new BorderLayout());
+                    // Defina as dimensões preferenciais do painel
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
+
+                    JLabel mensagemLabel = new JLabel("Selecione a oferta em que você deseja se inscrever:");
+                    panel.add(mensagemLabel, BorderLayout.NORTH);
+
+                    panel.add(scrollPane, BorderLayout.CENTER);
+
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Ofertas de emprego restantes disponíveis para " + candidato.getNome(),
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
+
+                    if (result == JOptionPane.OK_OPTION) {
+                        // Lógica para processar a lista de seleção
+                        int selectedIndex = listaOfertas.getSelectedIndex();
+
+                        if (selectedIndex != -1) {
+                            OfertaEmprego ofertaSelecionada = ofertasRestantes.get(selectedIndex);
+                            if (candidato.getOfertasInscritas().contains(ofertaSelecionada)) {
+                                JOptionPane.showMessageDialog(null,
+                                        "Você já está inscrito(a) nesta oferta!");
+                            } else {
+                                candidato.adicionarOfertaEmprego(ofertaSelecionada);
+                                JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Selecione uma oferta antes de prosseguir.",
+                                    "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
 
     public static void imprimirCandidatos() {
         String cpfDesejado = CPF();
@@ -727,7 +701,7 @@ public class CandidatoControler {
 
     public static void apagarOfertaEmpregoInscrita() {
         String cpfDesejado = CPF();
-    
+
         for (Candidato candidato : candidatos) {
             if (candidato.getCpf().equals(cpfDesejado)) {
                 if (candidato.getOfertasInscritas().isEmpty()) {
@@ -735,28 +709,28 @@ public class CandidatoControler {
                             "O candidato não tem nenhuma oferta de emprego inscrita ainda.");
                 } else {
                     DefaultListModel<String> listModel = new DefaultListModel<>();
-    
+
                     for (OfertaEmprego oferta : candidato.getOfertasInscritas()) {
                         // Substitua \n por <br> para quebras de linha
                         String ofertaString = oferta.toString().replace("\n", "<br> &nbsp;");
                         listModel.addElement("<html>" + ofertaString + "</html>");
                     }
-    
+
                     JList<String> listaOfertas = new JList<>(listModel);
                     listaOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    
+
                     JScrollPane scrollPane = new JScrollPane(listaOfertas);
-    
+
                     JPanel panel = new JPanel(new BorderLayout());
                     // Defina as dimensões preferenciais do painel
                     Dimension preferredSize = new Dimension(400, 300);
                     panel.setPreferredSize(preferredSize);
-    
+
                     JLabel mensagemLabel = new JLabel("Selecione a oferta que deseja retirar a inscrição:");
                     panel.add(mensagemLabel, BorderLayout.NORTH);
-    
+
                     panel.add(scrollPane, BorderLayout.CENTER);
-    
+
                     int result = JOptionPane.showOptionDialog(
                             null,
                             panel,
@@ -766,11 +740,11 @@ public class CandidatoControler {
                             null,
                             null,
                             null);
-    
+
                     if (result == JOptionPane.OK_OPTION) {
                         // Lógica para processar a lista de seleção
                         int selectedIndex = listaOfertas.getSelectedIndex();
-    
+
                         if (selectedIndex != -1) {
                             candidato.getOfertasInscritas().remove(selectedIndex);
                             JOptionPane.showMessageDialog(null, "Inscrição retirada com sucesso!");
@@ -784,7 +758,6 @@ public class CandidatoControler {
             }
         }
     }
-    
 
     public static void editarDados(String cpfDesejado) {
         for (Candidato candidato : candidatos) {
