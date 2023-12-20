@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class OfertaEmprego {
 
-    private double salario;
+	private double salario;
 	private String cargo;
 	private int qntVagas;
 	private LocalDateTime criadoEm = LocalDateTime.now();
@@ -16,7 +16,8 @@ public class OfertaEmprego {
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 	String dataFormatada = criadoEm.format(formatter);
 
-	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade, boolean ativa, Empresa empresa) {
+	public OfertaEmprego(double salario, String cargo, int qntVagas, LocalDateTime criadoEm, String escolaridade,
+			boolean ativa, Empresa empresa) {
 		this.salario = salario;
 		this.cargo = cargo;
 		this.qntVagas = qntVagas;
@@ -27,28 +28,29 @@ public class OfertaEmprego {
 	}
 
 	// Novo método para verificar se a oferta está ativa
-    public boolean isAtiva() {
-        return ativa;
-    }
+	public boolean isAtiva() {
+		return ativa;
+	}
 
 	// Novo método para desativar a oferta
-    public void desativarOferta() {
-        this.ativa = false;
-    }
+	public void desativarOferta() {
+		this.ativa = false;
+	}
 
-	public String getEscolaridade(){
+	public String getEscolaridade() {
 		return escolaridade;
 	}
 
-	public void setEscolaridade(String escolaridade){
+	public void setEscolaridade(String escolaridade) {
 		this.escolaridade = escolaridade;
 
 	}
-	public LocalDateTime getCriadoEm(){
+
+	public LocalDateTime getCriadoEm() {
 		return criadoEm;
 	}
 
-	public void setCriadoEm(LocalDateTime criadoEm){
+	public void setCriadoEm(LocalDateTime criadoEm) {
 		this.criadoEm = criadoEm;
 	}
 
@@ -80,16 +82,23 @@ public class OfertaEmprego {
 		return empresa;
 	}
 
+	public OfertaEmprego(OfertaEmprego other) {
+		this.salario = other.salario;
+		this.cargo = other.cargo;
+		this.qntVagas = other.qntVagas;
+		this.escolaridade = other.escolaridade;
+	}	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return "Informações da oferta de emprego:" +
-			   "\nNome da empresa: " + empresa.getNome() +
-			   "\nÁrea de atuação da empresa: " + empresa.getAreaAtuacao() +
-			   "\nEmail da empresa: " + empresa.getEmail() +
-			   "\nCargo: " + cargo +
-			   "\nSalário: " + salario +
-			   "\nQuantidade de vagas: " + qntVagas +
-			   "\nNível de escolaridade exigido: " + escolaridade +
-			   "\nOferta Criada em: "+ dataFormatada + "\n";
+				"\nNome da empresa: " + empresa.getNome() +
+				"\nÁrea de atuação da empresa: " + empresa.getAreaAtuacao() +
+				"\nEmail da empresa: " + empresa.getEmail() +
+				"\nCargo: " + cargo +
+				"\nSalário: " + salario +
+				"\nQuantidade de vagas: " + qntVagas +
+				"\nNível de escolaridade exigido: " + escolaridade +
+				"\nOferta Criada em: " + dataFormatada + "\n";
 	}
 }

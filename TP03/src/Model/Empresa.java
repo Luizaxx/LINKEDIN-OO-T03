@@ -56,6 +56,13 @@ public class Empresa extends Usuario{
 		this.cnpj = cnpj;
 	}
 
+	public Empresa(Empresa other){
+		super(other.getNome(), other.getEmail(), other.getDataNascimento(), other.getEndereco(),
+		other.getTelefone(), other.getAreaAtuacao());
+		this.cnpj = other.cnpj;
+		this.ofertasOfertadas = new ArrayList<>(other.ofertasOfertadas); 
+	}
+
 	@Override
 	public String toString() {
 	return	"\nDados da Empresa: " +  

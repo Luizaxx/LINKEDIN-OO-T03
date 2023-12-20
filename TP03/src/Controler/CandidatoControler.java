@@ -849,36 +849,46 @@ public class CandidatoControler {
                             null);
 
                     if (result == JOptionPane.OK_OPTION) {
-                        String cpf = cpfField.getText();
-                        if (!cpf.equals(candidato.getCpf())) {
-                            if (verificaCPF(cpf)) {
-                                JOptionPane.showMessageDialog(null,
-                                        "\nEsse CPF já existe no sistema. Digite outro CPF!\n");
-                                // Continue to the next iteration of the loop (return to the edit screen)
-                                continue;
-                            } else {
-                                candidato.setCpf(cpf);
-                                JOptionPane.showMessageDialog(null, "CPF alterado com sucesso!");
+                        if (!algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField,
+                                telefoneField, areaAtuacaoField, cpfField, nivelEscolaridadeField, instituicaoField)) {
+
+                            String cpf = cpfField.getText();
+                            if (!cpf.equals(candidato.getCpf())) {
+                                if (verificaCPF(cpf)) {
+                                    JOptionPane.showMessageDialog(null,
+                                            "\nEsse CPF já existe no sistema. Digite outro CPF!\n");
+                                    // Continue to the next iteration of the loop (return to the edit screen)
+                                    continue;
+                                } else {
+                                    candidato.setCpf(cpf);
+                                    JOptionPane.showMessageDialog(null, "CPF alterado com sucesso!");
+                                }
                             }
-                        }
 
-                        // Atualize os dados do candidato com os valores dos campos de texto
-                        candidato.setNome(nomeField.getText());
-                        candidato.setEmail(emailField.getText());
-                        candidato.setDataNascimento(dataNascimentoField.getText());
-                        candidato.setEndereco(enderecoField.getText());
-                        candidato.setTelefone(telefoneField.getText());
-                        candidato.setAreaAtuacao(areaAtuacaoField.getText());
+                            // Atualize os dados do candidato com os valores dos campos de texto
+                            candidato.setNome(nomeField.getText());
+                            candidato.setEmail(emailField.getText());
+                            candidato.setDataNascimento(dataNascimentoField.getText());
+                            candidato.setEndereco(enderecoField.getText());
+                            candidato.setTelefone(telefoneField.getText());
+                            candidato.setAreaAtuacao(areaAtuacaoField.getText());
 
-                        candidato.setNivelEscolaridade(nivelEscolaridadeField.getText());
-                        candidato.setInstituicao(instituicaoField.getText());
+                            candidato.setNivelEscolaridade(nivelEscolaridadeField.getText());
+                            candidato.setInstituicao(instituicaoField.getText());
 
-                        // Verifique se houve alterações nos dados
-                        if (dadosForamAlterados(candidato, candidatoOriginal)) {
-                            JOptionPane.showMessageDialog(null, "Dados editados com sucesso!");
-                            break;
+                            // Verifique se houve alterações nos dados
+                            if (dadosForamAlterados(candidato, candidatoOriginal)) {
+                                JOptionPane.showMessageDialog(null, "Dados editados com sucesso!");
+                                break;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Nenhum dado foi alterado.");
+                                continue;
+                            }
                         } else {
-                            JOptionPane.showMessageDialog(null, "Nenhum dado foi alterado.");
+                            JOptionPane.showMessageDialog(null,
+                                    "Não é permitido deixar nenhum campo em branco!\nTodos os campos precisam estar preenchidos.",
+                                    "Aviso",
+                                    JOptionPane.WARNING_MESSAGE);
                             continue;
                         }
                     } else {
@@ -957,8 +967,8 @@ public class CandidatoControler {
                     return null;
                 }
 
-                if (algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField, telefoneField,
-                        areaAtuacaoField, cpfField, nivelEscolaridadeField, instituicaoField) == false) {
+                if (!algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField, telefoneField,
+                        areaAtuacaoField, cpfField, nivelEscolaridadeField, instituicaoField)) {
                     camposPreenchidos = true;
                     // Crie e retorne um novo objeto Candidato
                     ArrayList<OfertaEmprego> ofertasInscritas = new ArrayList<>();

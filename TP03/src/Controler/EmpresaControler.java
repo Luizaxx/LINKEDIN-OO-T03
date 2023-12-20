@@ -33,7 +33,7 @@ public class EmpresaControler {
                 JOptionPane.showMessageDialog(null, "Digite o CNPJ da empresa antes de prosseguir.", "Aviso",
                         JOptionPane.WARNING_MESSAGE);
             } else {
-                if (verificaCNPJ(cnpjDesejado)) {
+                if (!verificaCNPJ(cnpjDesejado)) {
                     JOptionPane.showMessageDialog(null,
                             "Esse CNPJ não existe na nossa base de dados\ndigite um CNPJ valido!", "Aviso",
                             JOptionPane.WARNING_MESSAGE);
@@ -119,129 +119,90 @@ public class EmpresaControler {
         }
     }
 
-    public static void editarNomeEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novoNome = JOptionPane.showInputDialog(null,
-                            "Antigo nome cadastrado no cadastro da empresa: " + empresa.getNome()
-                                    + " \nDigite o novo nome:");
-                    empresa.setNome(novoNome);
-                    JOptionPane.showMessageDialog(null, "Nome editado com sucesso!");
-                    break;
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }
-    }
+    public static void editarDados(String cnpjDesejado) {
+        for (Empresa empresa : empresas) {
+            if (empresa.getCnpj().equals(cnpjDesejado)) {
+                do {
+                    Empresa empresaOriginal = new Empresa(empresa);
 
-    public static void editarEmailEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novoEmail = JOptionPane.showInputDialog(null,
-                            "Antigo email cadastrado no cadastro da empresa: " + empresa.getEmail()
-                                    + " \nDigite o novo email: ");
-                    empresa.setEmail(novoEmail);
-                    JOptionPane.showMessageDialog(null, "Email editado com sucesso!");
-                    break;
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }
-    }
+                    JPanel panel = new JPanel(new GridLayout(10, 2, 20, 5));
+                    JTextField nomeField = new JTextField(empresa.getNome());
+                    JTextField emailField = new JTextField(empresa.getEmail());
+                    JTextField dataNascimentoField = new JTextField(empresa.getDataNascimento());
+                    JTextField enderecoField = new JTextField(empresa.getEndereco());
+                    JTextField telefoneField = new JTextField(empresa.getTelefone());
+                    JTextField areaAtuacaoField = new JTextField(empresa.getAreaAtuacao());
+                    JTextField cnpjField = new JTextField(empresa.getCnpj());
 
-    public static void editarDataCriacaoEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novaDataCriacao = JOptionPane.showInputDialog(null,
-                            "Antiga data de criação cadastrada no cadastro da empresa: " + empresa.getDataNascimento()
-                                    + " \nDigite a nova data de criação da empresa:");
-                    empresa.setDataNascimento(novaDataCriacao);
-                    JOptionPane.showMessageDialog(null, "Data de criação editada com sucesso!");
-                    break;
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }
-    }
+                    panel.add(new JLabel("Nome:"));
+                    panel.add(nomeField);
+                    panel.add(new JLabel("Email:"));
+                    panel.add(emailField);
+                    panel.add(new JLabel("Data de criação:"));
+                    panel.add(dataNascimentoField);
+                    panel.add(new JLabel("Endereço:"));
+                    panel.add(enderecoField);
+                    panel.add(new JLabel("Telefone:"));
+                    panel.add(telefoneField);
+                    panel.add(new JLabel("Área de Atuação:"));
+                    panel.add(areaAtuacaoField);
+                    panel.add(new JLabel("CNPJ:"));
+                    panel.add(cnpjField);
 
-    public static void editarEnderecoEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novoEndereco = JOptionPane.showInputDialog(null,
-                            "Antigo endereço cadastrado no cadastro da empresa: " + empresa.getEndereco()
-                                    + " \nDigite o novo endereço: ");
-                    empresa.setEndereco(novoEndereco);
-                    JOptionPane.showMessageDialog(null, "Endereço editado com sucesso!");
-                    break;
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }
-    }
+                    // Defina as dimensões preferenciais do painel
+                    Dimension preferredSize = new Dimension(400, 300);
+                    panel.setPreferredSize(preferredSize);
 
-    public static void editarTelefoneEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novoTelefone = JOptionPane.showInputDialog(null,
-                            "Antigo telefone cadastrado no cadastro da empresa: " + empresa.getTelefone()
-                                    + " \nDigite o novo telefone:");
-                    empresa.setTelefone(novoTelefone);
-                    JOptionPane.showMessageDialog(null, "Telefone editado com sucesso!");
-                    break;
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }
-    }
+                    int result = JOptionPane.showOptionDialog(
+                            null,
+                            panel,
+                            "Atualize os seus dados:",
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE,
+                            null,
+                            null,
+                            null);
 
-    public static void editarAreaAtuacaoEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novaAreaAtuacao = JOptionPane.showInputDialog(null,
-                            "Antiga área de atuação cadastrada no cadastro da empresa: " + empresa.getAreaAtuacao()
-                                    + " \nDigite a nova área de atuação:");
-                    empresa.setAreaAtuacao(novaAreaAtuacao);
-                    JOptionPane.showMessageDialog(null, "Área de atuação editada com sucesso!");
-                    break;
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
-        }
-    }
+                    if (result == JOptionPane.OK_OPTION) {
+                        if (!algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField,
+                                telefoneField, areaAtuacaoField, cnpjField)) {
 
-    public static void editarCNPJEmpresa() {
-        String cnpjDesejado = CNPJ();
-        if (verificaCNPJ(cnpjDesejado)) {
-            for (Empresa empresa : empresas) {
-                if (empresa.getCnpj().equals(cnpjDesejado)) {
-                    String novoCNPJ = JOptionPane.showInputDialog(null,
-                            "Antigo CNPJ cadastrado no cadastro da empresa: " + empresa.getCnpj()
-                                    + " \nDigite o novo CNPJ:");
-                    empresa.setCnpj(novoCNPJ);
-                    JOptionPane.showMessageDialog(null, "CNPJ editado com sucesso!");
-                    break;
-                }
+                            String cnpj = cnpjField.getText();
+                            if (!cnpj.equals(empresa.getCnpj())) {
+                                if (verificaCNPJ(cnpj)) {
+                                    JOptionPane.showMessageDialog(null,
+                                            "\nEsse CNPJ já existe no sistema. Digite outro CNPJ!\n");
+                                } else {
+                                    empresa.setCnpj(cnpj);
+                                    JOptionPane.showMessageDialog(null, "CNPJ alterado com sucesso!");
+                                }
+                            }
+
+                            empresa.setNome(nomeField.getText());
+                            empresa.setEmail(emailField.getText());
+                            empresa.setDataNascimento(dataNascimentoField.getText());
+                            empresa.setEndereco(enderecoField.getText());
+                            empresa.setTelefone(telefoneField.getText());
+                            empresa.setAreaAtuacao(areaAtuacaoField.getText());
+
+                            if (dadosForamAlterados(empresa, empresaOriginal)) {
+                                JOptionPane.showMessageDialog(null, "Dados editados com sucesso!");
+                                break;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Nenhum dado foi alterado.");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "Não é permitido deixar nenhum campo em branco!\n" + //
+                                            "Todos os campos precisam estar preenchidos.",
+                                    "Aviso",
+                                    JOptionPane.WARNING_MESSAGE);
+                        }
+                    } else {
+                        break;
+                    }
+                } while (true);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "\nNenhuma empresa foi encontrada com esse CNPJ: " + cnpjDesejado);
         }
     }
 
@@ -318,8 +279,8 @@ public class EmpresaControler {
                     return null;
                 }
 
-                if (algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField, telefoneField,
-                        areaAtuacaoField, cnpjField) == false) {
+                if (!algumCampoEmBranco(nomeField, emailField, dataNascimentoField, enderecoField, telefoneField,
+                        areaAtuacaoField, cnpjField)) {
                     camposPreenchidos = true;
                     ArrayList<OfertaEmprego> ofertasOfertadas = new ArrayList<OfertaEmprego>();
 
@@ -345,4 +306,15 @@ public class EmpresaControler {
         }
         return false; // Nenhum campo está em branco
     }
+
+    private static boolean dadosForamAlterados(Empresa atual, Empresa original) {
+        return !atual.getNome().trim().equals(original.getNome().trim())
+                || !atual.getEmail().trim().equals(original.getEmail().trim())
+                || !atual.getDataNascimento().trim().equals(original.getDataNascimento().trim())
+                || !atual.getEndereco().trim().equals(original.getEndereco().trim())
+                || !atual.getTelefone().trim().equals(original.getTelefone().trim())
+                || !atual.getAreaAtuacao().trim().equals(original.getAreaAtuacao().trim())
+                || !atual.getCnpj().trim().equals(original.getCnpj().trim());
+    }
+
 }
