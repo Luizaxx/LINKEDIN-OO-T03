@@ -80,7 +80,7 @@ public class Candidato extends Usuario{
 				"\nCPF: " + cpf +
 				"\nNível de escolaridade: " + nivelEscolaridade +
 				"\nInstituição: " + instituicao + "\n" +
-				"\nOfertas inscritas: " + ofertasInscritas;
+				"\nNúmero de ofertas inscritas: " + ofertasInscritas.size();
 	}
 
 }

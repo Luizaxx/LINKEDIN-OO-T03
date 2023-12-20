@@ -61,6 +61,7 @@ public class Main {
 
     public static boolean menuCandidato() {
         boolean loopCandidato = true;
+        String cpfDesejado;
         while (loopCandidato) {
             
             int op2 = imprimirMenuCandidato();
@@ -75,14 +76,16 @@ public class Main {
                     CandidatoControler.cadastrarCandidato();
                     break;
                 case 3:
-                    CandidatoControler.imprimirCandidatos();
+                    cpfDesejado = CandidatoControler.CPF();
+                    CandidatoControler.imprimirCandidatos(cpfDesejado);
                     break;
                 case 4:
-                    String cpfDesejado = CandidatoControler.CPF();
+                    cpfDesejado = CandidatoControler.CPF();
                     CandidatoControler.editarDados(cpfDesejado);
                     break;
                 case 5:
-                    CandidatoControler.apagarCadastroDoSistema();
+                    cpfDesejado = CandidatoControler.CPF();
+                    CandidatoControler.apagarCadastroDoSistema(cpfDesejado);
                     break;
                 case 6:
                     loopCandidato = menuFiltroOfertasEmprego();
@@ -91,10 +94,12 @@ public class Main {
                     loopCandidato = menuInscreverOfertaEmprego();
                     break;
                 case 8:
-                    CandidatoControler.imprimirOfertasEmpregoInscritas();
+                    cpfDesejado = CandidatoControler.CPF();
+                    CandidatoControler.imprimirOfertasEmpregoInscritas(cpfDesejado);
                     break;
                 case 9:
-                    CandidatoControler.apagarOfertaEmpregoInscrita();
+                    cpfDesejado = CandidatoControler.CPF();
+                    CandidatoControler.apagarOfertaEmpregoInscrita(cpfDesejado);
                     break;
                 case 10:
                     //JOptionPane.showMessageDialog(null, "Os dados foram impressos no terminal");
@@ -144,6 +149,7 @@ public class Main {
 
         while (loopEmpresa) {
             int op4 = imprimirMenuEmpresa();
+            String cnpjDesejado;
             switch (op4) {
                 case 0:
                     JOptionPane.showMessageDialog(null, "Obrigada por utilizar o sistema. Até logo!");
@@ -155,13 +161,15 @@ public class Main {
                     EmpresaControler.cadastrarEmpresa();
                     break;
                 case 3:
-                    EmpresaControler.imprimirEmpresas();
+                    cnpjDesejado = EmpresaControler.CNPJ();
+                    EmpresaControler.imprimirEmpresas(cnpjDesejado);
                     break;
                 case 4:
                     loopEmpresa = menuEditarEmpresa();
                     break;
                 case 5:
-                    EmpresaControler.apagarCadastroDoSistema();
+                    cnpjDesejado = EmpresaControler.CNPJ();
+                    EmpresaControler.apagarCadastroDoSistema(cnpjDesejado);
                     break;
                 case 6:
                     OfertaEmpregoControler.cadastrarOfertaEmprego();
