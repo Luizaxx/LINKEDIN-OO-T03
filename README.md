@@ -1,5 +1,5 @@
-# LINKEDIN-OO-T03
-### Trabalho POO 2023.2
+# LINKEDIN-OO
+### Trabalho destinado a prática de orientação a objetos em Java. 
 ### Programação orientada a objetos (Java)
 #### Mais sobre o projeto:
 #### Minicenário e lista de objetos com seus respectivos objetos e métodos:
